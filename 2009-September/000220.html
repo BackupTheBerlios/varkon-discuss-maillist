@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Some questions from a new user
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Some%20questions%20from%20a%20new%20user&In-Reply-To=%3C200909120658.12663.matt%40kiatoa.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000219.html">
+   <LINK REL="Next"  HREF="000221.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Some questions from a new user</H1>
+    <B>Matthew Welland</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Some%20questions%20from%20a%20new%20user&In-Reply-To=%3C200909120658.12663.matt%40kiatoa.com%3E"
+       TITLE="[Varkon-discuss] Some questions from a new user">matt at kiatoa.com
+       </A><BR>
+    <I>Sat Sep 12 15:58:11 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000219.html">[Varkon-discuss] Some questions from a new user
+</A></li>
+        <LI>Next message: <A HREF="000221.html">[Varkon-discuss] Some questions from a new user
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#220">[ date ]</a>
+              <a href="thread.html#220">[ thread ]</a>
+              <a href="subject.html#220">[ subject ]</a>
+              <a href="author.html#220">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Saturday 12 September 2009 03:04:09 am Armin Faltl wrote:
+&gt;<i> Hello Xwang,
+</I>&gt;<i>
+</I>&gt;<i> my answer here is not authoritative, but may help you
+</I>&gt;<i>
+</I>&gt;<i> &gt; I'm studyiing the possibility to use varkon to model the external
+</I>&gt;<i> &gt; surface of airplanes and cars to use them for CFD calculation (I need
+</I>&gt;<i> &gt; the surface in STL format).
+</I>&gt;<i> &gt; So I wonder if:
+</I>&gt;<i> &gt; 1) is Varkon still in development?
+</I>&gt;<i>
+</I>&gt;<i> yes (this is definitive)
+</I>&gt;<i>
+</I>&gt;<i> &gt; 2) is there any release plan somewhere?
+</I>&gt;<i>
+</I>&gt;<i> the main author is Dr. Kjellander - he has the say on this
+</I>&gt;<i>
+</I>&gt;<i> &gt; 3) would you push it in some distro repository?
+</I>&gt;<i>
+</I>&gt;<i> some people asked for this and maybe someone volunteered, but the
+</I>&gt;<i> compilation on Linux
+</I>&gt;<i> is pretty easy and described; there is a binary package, that should be
+</I>&gt;<i> distribution independent
+</I>
+FYI: Varkon is available in Ubuntu (and thus I assume debian)
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">matt at xena</A>:~$ apt-cache search varkon
+varkon - A CAD-system with parametric modelling
+varkon-programmer-manual - Programmer manual for VARKONs mbs language
+varkon-user-manual - User manual for VARKON
+
+&gt;<i> &gt; 4) is it possible to export geometries in STL format?
+</I>&gt;<i>
+</I>&gt;<i> I don't know this; looking at the description of STL in wikipedia, given
+</I>&gt;<i> a u,v-surface,
+</I>&gt;<i> generation of triangle-strips with no connectivity should be trivial
+</I>&gt;<i>
+</I>&gt;<i> &gt; 5) if a join a wing to a fuselage, can I use some sort of boolean
+</I>&gt;<i> &gt; operation to cut the part of the wing which is inside the fuselage
+</I>&gt;<i> &gt; (surface to surface intersection?
+</I>&gt;<i>
+</I>&gt;<i> This is work in progress; I'm implementing an intersection algorithm
+</I>&gt;<i> (surface-surface
+</I>&gt;<i> is done, handling of edges not implemented) and Varkon now has the
+</I>&gt;<i> ability to
+</I>&gt;<i> express trimmed surfaces to hold the result. Dr. Larsen is working on
+</I>&gt;<i> intersections
+</I>&gt;<i> as well from what I know. This part of my work is not yet integrated
+</I>&gt;<i> with Varkon.
+</I>&gt;<i>
+</I>&gt;<i> The result of such an intersection will be a pair (or set) of trimmed
+</I>&gt;<i> surfaces, where
+</I>&gt;<i> the trim-lines are a high quality approximation of the true intersection
+</I>&gt;<i> curve. As they
+</I>&gt;<i> are expressed as splines in u,v-space on a given surface, isolines can
+</I>&gt;<i> again be used
+</I>&gt;<i> to generate triangle strips for conversion to STL. Of course
+</I>&gt;<i> improvements like
+</I>&gt;<i> adaptive spacing are possible - it's open source and you are welcome to
+</I>&gt;<i> help ;-)
+</I>&gt;<i> The implementation of an STL-generator could be done in MBS or C - I'm
+</I>&gt;<i> not sure
+</I>&gt;<i> which is better - with respect to my GUI-demo it could be C++ as well.
+</I>&gt;<i>
+</I>&gt;<i> As I am interested in CFD applications myself, time permitting I may
+</I>&gt;<i> help with this.
+</I>&gt;<i>
+</I>&gt;<i> Best Regards, Armin
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090912/e9cb9a87/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090912/e9cb9a87/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000219.html">[Varkon-discuss] Some questions from a new user
+</A></li>
+	<LI>Next message: <A HREF="000221.html">[Varkon-discuss] Some questions from a new user
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#220">[ date ]</a>
+              <a href="thread.html#220">[ thread ]</a>
+              <a href="subject.html#220">[ subject ]</a>
+              <a href="author.html#220">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

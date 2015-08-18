@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon on different hardware platforms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20on%20different%20hardware%20platforms&In-Reply-To=%3C65275.81.227.234.97.1200479250.squirrel%40webmail01.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000142.html">
+   <LINK REL="Next"  HREF="000146.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon on different hardware platforms</H1>
+    <B>Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20on%20different%20hardware%20platforms&In-Reply-To=%3C65275.81.227.234.97.1200479250.squirrel%40webmail01.one.com%3E"
+       TITLE="[Varkon-discuss] Varkon on different hardware platforms">johan at toan.se
+       </A><BR>
+    <I>Wed Jan 16 11:27:30 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000142.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+        <LI>Next message: <A HREF="000146.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#143">[ date ]</a>
+              <a href="thread.html#143">[ thread ]</a>
+              <a href="subject.html#143">[ subject ]</a>
+              <a href="author.html#143">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Varkon has been ported to the 64 bit environment of
+a CRAY supercomputer with DEC Alpha processors. This
+was a long time ago and that hardware is no longer relevant
+but we know that it has been done and the #ifdef's are
+still there in the code so it wouldn't be that much job
+to do it again. (see below)
+
+At the present time however, we are not maintaining a
+working version for any true 64 bit platform. As I said,
+if this of interest for you please let's continue the
+discussion. Most important question is if it's
+worth the job to do it or if there is something else
+which is more important in the current strategy of increasing
+the user base.
+
+About MBO files. Current MBO files store a lot of 32 bit integer
+pointers. A true 64 bit version of Varkon could stick to the
+32 bit pointers in the MBO files, in which case MBO files would
+run on both platforms, or take advantage of the 64 bit adressing
+and use 64 bit integers in which case MBO files would be incompatible.
+The same goes for RES-files.
+
+If you have the MBS files, you can always create MBO-files by
+compiling them and RES-files by running the MBO.
+
+Hope this answers your questions. The short version is: No 64 bit
+now but it is doable if we want to. Do we want to ?
+
+Johan
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> During my work on an updated Varkon package for Debian a couple of
+</I>&gt;<i> questions occured.
+</I>&gt;<i>
+</I>&gt;<i> I am working with an amd64 system.  When trying the examples files
+</I>&gt;<i> from varkon.org Varkon segfaults with almost any of them.  When
+</I>&gt;<i> testing the same with a binary built for i386 everything seems to work
+</I>&gt;<i> fine.  Now, the example projects contain MBO files.  Are MBO files
+</I>&gt;<i> supposed to be platform independent?  Especially between 32 and 64 bit
+</I>&gt;<i> platforms?  And since Debian also supports some big endian
+</I>&gt;<i> architectures - how about those?
+</I>&gt;<i>
+</I>&gt;<i> Also, when building the package for amd64 I get a lot of compiler
+</I>&gt;<i> warnings about castings between integers and pointers of different
+</I>&gt;<i> size.  I would not be surprised if these cause Varkon to crash now and
+</I>&gt;<i> then.  Are developers testing Varkon on 64 bit architectures?  I am
+</I>&gt;<i> not really a programmer (let alone C), but I probably could help test
+</I>&gt;<i> building Varkon on amd64 and find those issues.
+</I>&gt;<i>
+</I>&gt;<i> Matthias
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i>
+</I>
+
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000142.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+	<LI>Next message: <A HREF="000146.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#143">[ date ]</a>
+              <a href="thread.html#143">[ thread ]</a>
+              <a href="subject.html#143">[ subject ]</a>
+              <a href="author.html#143">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

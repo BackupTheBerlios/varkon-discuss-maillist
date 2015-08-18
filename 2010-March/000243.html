@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20GUI%20%28was%2C%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%0A%20or%20what%3F%29&In-Reply-To=%3C4BAA708E.5080601%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000241.html">
+   <LINK REL="Next"  HREF="000246.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20GUI%20%28was%2C%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%0A%20or%20what%3F%29&In-Reply-To=%3C4BAA708E.5080601%40aon.at%3E"
+       TITLE="[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)">armin.faltl at aon.at
+       </A><BR>
+    <I>Wed Mar 24 21:05:34 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000241.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+        <LI>Next message: <A HREF="000246.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#243">[ date ]</a>
+              <a href="thread.html#243">[ thread ]</a>
+              <a href="subject.html#243">[ subject ]</a>
+              <a href="author.html#243">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+
+thanks for digging out the good mail from Carlos Pereira, John.
+Johan, I have personal experience using GTK+ but it's a long time
+ago - I ported my 3D-measurment app based on stereo images to it
+after using raw X11 before.
+What I read about GtkGlExt from Carlos contradicts me (my mail to John)
+and is releaving, stating it's an alternative to Cairo in rendering
+the entire GUI (wrong?).
+Appart from what Carlos suggests in our application I see uses for
+2 glcontexts: one for the 3D rendering area and one for all the other
+widgets that don't need depth buffering etc. I'm not sure how GtkGlExt
+windows and those not based on it would interact - his 'area' is a
+GtkWidget - the most basic entity in GTK+.
+(btw, GL alone can turn on/off buffers like the depth buffer while drawing)
+
+For C I like GTK+. It is object oriented and uses constructs, that
+are provided by the Compiler in C++. Otoh, because it's not done
+by the compiler, in some cases it can be more flexible.
+If there is a way, to make GTK+ use X11 and Win32 (and whatever on Mac OS)
+directly OR render all elements via the fastest appropriate method
+of OpenGL (e.g. bit-blitting for the 2D stuff in hardware), I'd fully
+recommend it. Looking at the GUIs of some games this MUST be fast ;-)
+
+Maybe it's just a missunderstanding of mine: cairo is a rendering engine,
+that tries to provide a device independent API to the application 
+programmer.
+This may make sense for the content display - the view in the
+model-view-controller pattern, when speed is no concern.
+I can't see where this happens in cario based GTK/GDK - everywhere?
+ From what I remember, GDK was a layer to provide device independent 
+rendering...
+Please - does now GTK build on GDK build on CAIRO?
+Why did they not do away with GDK completely, if CAIRO provides
+the same service?
+Or should we use WP, enhance it's appearance and base that on CAIRO?
+
+All I want is working buttons, a thing I call SwapBox (an intelligent
+container widget, where the sheets of a tab can call each other and can
+be called by eventhandlers from widgets outside this swapbox), a fast
+3D rending window and some basic services like file choosers ;-)
+And of course it shall be beautiful and fast...
+
+Best Regards, Armin
+
+
+John MacPhail wrote:
+&gt;<i> Hi Johan,
+</I>&gt;<i>
+</I>&gt;<i> To use OpenGL with GTK, current practice seems to be GtkGLExt
+</I>&gt;<i> (<A HREF="http://projects.gnome.org/gtkglext/">http://projects.gnome.org/gtkglext/</A>), replacing the earlier GtkGLArea.
+</I>&gt;<i> A somewhat illuminating comparison between the two is here:
+</I>&gt;<i> <A HREF="http://www.mail-archive.com/gtk-app-devel-list@gnome.org/msg10995.html">http://www.mail-archive.com/gtk-app-devel-list@gnome.org/msg10995.html</A>
+</I>&gt;<i>
+</I>&gt;<i> More generally, I do not have direct experience with the GTK API.
+</I>&gt;<i> I was skeptical when Armin warned me that moving to GTK would be a big
+</I>&gt;<i> project, but I was wrong. Usual documentation for GTK and other toolkits
+</I>&gt;<i> starts with happy assumptions of starting from scratch, missing
+</I>&gt;<i> the porting challenges.
+</I>&gt;<i>
+</I>&gt;<i> What I now suggest is a draft plan for moving Varkon to GTK, posting the
+</I>&gt;<i> plan on the web, and inviting others to find problems with the plan. A
+</I>&gt;<i> starting point might be a partial point-by-point comparison between WP 
+</I>&gt;<i> and
+</I>&gt;<i> GTK/GtkGLExt.
+</I>&gt;<i>
+</I>&gt;<i> John
+</I>&gt;<i>
+</I>&gt;<i> Johan Kjellander wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> My thoughts have gone in the direction of GTK for a long time.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> It seems to be  stable and portable and free to use on all platforms ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Does anyone of you have personal experience of using the GTK API ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> A major issue is how it handles OpenGL. Varkon includes a lot of code
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> making direct calls to the OpenGL API.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Johan
+</I>&gt;&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000241.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+	<LI>Next message: <A HREF="000246.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#243">[ date ]</a>
+              <a href="thread.html#243">[ thread ]</a>
+              <a href="subject.html#243">[ subject ]</a>
+              <a href="author.html#243">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

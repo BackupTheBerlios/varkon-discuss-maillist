@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] non-interactive compilation of MBS code
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20non-interactive%20compilation%20of%20MBS%20code&In-Reply-To=%3C200710300516.l9U5GEYi029903%40quartz1.mhtc.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000092.html">
+   <LINK REL="Next"  HREF="000093.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] non-interactive compilation of MBS code</H1>
+    <B>dmm at lemur.com</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20non-interactive%20compilation%20of%20MBS%20code&In-Reply-To=%3C200710300516.l9U5GEYi029903%40quartz1.mhtc.net%3E"
+       TITLE="[Varkon-discuss] non-interactive compilation of MBS code">dmm at lemur.com
+       </A><BR>
+    <I>Tue Oct 30 05:53:55 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000092.html">[Varkon-discuss] non-interactive compilation of MBS code
+</A></li>
+        <LI>Next message: <A HREF="000093.html">[Varkon-discuss] dimensions and tolerancing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#94">[ date ]</a>
+              <a href="thread.html#94">[ thread ]</a>
+              <a href="subject.html#94">[ subject ]</a>
+              <a href="author.html#94">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Dan Falk asks:
+&gt;<i>Can the mbsc compiler 
+</I>&gt;<i>be used in non-interactive mode to generate such things as a file, 
+</I>&gt;<i>without the aid of the Varkon main application?
+</I>
+What kind of file?  The output of the mbsc compiler is a/an .MBO file
+(I've always assumed that this meant &quot;MBs Object,&quot; but could be
+wrong.) If you put this .MBO file in the /job directory, you
+can call the compiled module it defines from other modules,
+including the Active Module.
+
+But I don't think that you can get, for example a .PLT output plotfile
+via mbsc alone, without running Varkon proper.  mbsc compiles a language
+which defines a model, but I think that the model has to run before
+it is &quot;really&quot; instantiated.
+
+On the other hand, I just discovered yesterday that you can run
+Varkon in batch mode (or more precisely, you can run the actual
+executable, xvarkon, in batch mode; &quot;varkon&quot; is a shell script which
+sets up an environment and runs xvarkon).  Hooray!  I haven't tried this
+yet, but intend to.  So I would think that you could use mbsc
+to produce object files, and run xvarkon in batch mode, and get
+anything you would like out of Varkon without ever having the
+graphical interface appear at all.
+
+I don't know if this would qualify as &quot;without the aid of the 
+Varkon main application&quot; - you are using the it, but invisibly.
+
+  ----
+
+BTW, I have found the following simple makefile (which I think I
+posted to the list some years ago, iirc) to be useful in coordinating
+Varkon/MBS.  Perhaps it will be of use to you; perhaps not.
+
+The advantage is that, provided you adopt some simple
+filename conventions, you never have to touch the makefile - it
+figures everything out automagically.  It also gives you a preprocessing
+capability.  So what I do is name all of my MBS files with a &quot;.M&quot;
+suffix (vs. &quot;.MBS&quot;) and use the m4 macro processor to preprocess them
+into .MBS files.  (This allows me, for instance, to have an &quot;include&quot;
+capability.)  You could of course simplify this further by leaving
+off the .M/m4 stage and just use the rest of the makefile to
+automatically recognize MBS files and process them.
+
+The only downside of automatic recognition is that every .MBS file
+present is processed, so they all must be valid all of the time.
+
+
+# A general-purpose GNU make makefile for MBS which compiles all MBS
+# and puts the MBO object code in the ../lib directory
+# Assume:  MBS source in files ending in &quot;.M&quot;
+#          m4 preprocessor for e.g. &quot;include(constants.h)
+# GNU GPL 2 or greater
+
+ROOTS=$(basename $(wildcard *.M))
+MBO=$(patsubst %,../lib/%.MBO,$(ROOTS))
+
+all: $(MBO)
+
+$(MBO): ../lib/%.MBO : %.M
+	rm -f $*.MBS
+	m4 $*.M &gt; $*.MBS
+	mbsc $*.MBS
+	rm -f $*.MBS
+	mv -f $*.MBO ../lib
+
+clean:
+	rm -f *.MBO
+	rm -f ../lib/*.MBO
+
+
+
+All of this will probably look appalling to those who want to
+make the GUI more accessible :-)
+
+
+Anyway, hope this helps.  I hope also that others respond to your
+question with further comments and other methods of using mbsc
+(and perhaps xvarkon in batch mode), and in general other non-interactive
+Varkon usage.  I've used mbsc quite a bit, but I tend to get locked
+into one way of doing things and have never really explored it.
+
+Regards,
+David M.
+===
+Dr. David M. MacMillan  *  <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A>  *  <A HREF="http://www.lemur.com/">http://www.lemur.com/</A>
+
+     On two occasions I have been asked [by members of Parliament!], 
+     &quot;Pray, Mr.  Babbage, if you put into the machine wrong figures, 
+     will the right answers come out?&quot;  I am not able rightly to apprehend 
+     the kind of confusion of ideas that could provoke such a question.&quot;
+                         -- Charles Babbage
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000092.html">[Varkon-discuss] non-interactive compilation of MBS code
+</A></li>
+	<LI>Next message: <A HREF="000093.html">[Varkon-discuss] dimensions and tolerancing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#94">[ date ]</a>
+              <a href="thread.html#94">[ thread ]</a>
+              <a href="subject.html#94">[ subject ]</a>
+              <a href="author.html#94">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

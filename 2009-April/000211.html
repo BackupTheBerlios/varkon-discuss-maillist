@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Global way to store often needed data? (now	how to write macros)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Global%20way%20to%20store%20often%20needed%20data%3F%20%28now%0A%09how%20to%20write%20macros%29&In-Reply-To=%3C200904190803.15672.matt%40kiatoa.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000210.html">
+   <LINK REL="Next"  HREF="000212.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Global way to store often needed data? (now	how to write macros)</H1>
+    <B>Matthew Welland</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Global%20way%20to%20store%20often%20needed%20data%3F%20%28now%0A%09how%20to%20write%20macros%29&In-Reply-To=%3C200904190803.15672.matt%40kiatoa.com%3E"
+       TITLE="[Varkon-discuss] Global way to store often needed data? (now	how to write macros)">matt at kiatoa.com
+       </A><BR>
+    <I>Sun Apr 19 17:03:15 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000210.html">[Varkon-discuss] Global way to store often needed data?
+</A></li>
+        <LI>Next message: <A HREF="000212.html">[Varkon-discuss] n_intersect and b_plane
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#211">[ date ]</a>
+              <a href="thread.html#211">[ thread ]</a>
+              <a href="subject.html#211">[ subject ]</a>
+              <a href="author.html#211">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ok. Thanks Johan, getdat and putdat look like they will work nicely. 
+
+Since I'd like to use a large number of single valued associations I'd like 
+to write some macros to help keep the code lean but I'm having some trouble 
+getting going.
+
+My questions:
+
+1. Where do I put the macros so they are visible to other code? Currently I 
+get &quot;920 E : Unrecognized statement.&quot; when I compile a module that refers to 
+my macro. I do see the .MBO files in lib.
+
+ 2. Is VAR the mechanism to return a value from a macro? I'm just guessing 
+from reading some of the MBO files that come with Varkon. 
+
+3. Is there a way to write a macro as a function that returns a single 
+value?
+
+I can't test them yet but my macros look something like this:
+
+!store
+macro module store_int(STRING key*100;INT varval);
+INT k(1);
+INT status;
+beginmodule
+k(1):=varval;
+status:=putdat_gm(keyword,1,k);
+endmodule
+
+!get
+macro module get_int(STRING key*100;VAR INT varval);
+INT k(1);
+INT status;
+beginmodule
+status:=getdat_gm(keyword,1,k);
+varval=k(1);
+endmodule
+
+Matt
+-=-
+
+On Sunday 19 April 2009 12:55:55 am Johan Kjellander wrote:
+&gt;<i> Hi Matthew,
+</I>&gt;<i>
+</I>&gt;<i> See the PUTDAT_GM() and GETDAT_GM() procedures in the
+</I>&gt;<i> MBS documentation. These are exactly what you are asking for.
+</I>&gt;<i> You can use them inline in your modules or in a separate macro
+</I>&gt;<i> if you want to.
+</I>&gt;<i>
+</I>&gt;<i> Regrds, Johan
+</I>&gt;<i>
+</I>&gt;<i> &gt; I have some dimentions that are needed in several modules. What is the
+</I>&gt;<i> &gt; best
+</I>&gt;<i> &gt; way to store and access these?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Is it possible to write a &quot;macro module foo&quot; that can return a value
+</I>&gt;<i> &gt; based on a keyword? A kind of global hash table perhaps.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; E.g.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; macro module foo(...)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; beginmodule
+</I>&gt;<i> &gt;   if key = &quot;door&quot;
+</I>&gt;<i> &gt;      foo:=100;
+</I>&gt;<i> &gt;   ....
+</I>&gt;<i> &gt; endmodule
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Then in another MBS file:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  ....
+</I>&gt;<i> &gt;  width := foo(&quot;door&quot;);
+</I>&gt;<i> &gt;  ....
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Varkon-discuss mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090419/79cb0c8a/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090419/79cb0c8a/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000210.html">[Varkon-discuss] Global way to store often needed data?
+</A></li>
+	<LI>Next message: <A HREF="000212.html">[Varkon-discuss] n_intersect and b_plane
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#211">[ date ]</a>
+              <a href="thread.html#211">[ thread ]</a>
+              <a href="subject.html#211">[ subject ]</a>
+              <a href="author.html#211">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

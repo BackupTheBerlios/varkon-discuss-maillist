@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] No PID files in Varkon 2.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20No%20PID%20files%20in%20Varkon%202.0&In-Reply-To=%3C62353.81.227.234.97.1194776430.squirrel%40webmail01.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000105.html">
+   <LINK REL="Next"  HREF="000112.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] No PID files in Varkon 2.0</H1>
+    <B>Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20No%20PID%20files%20in%20Varkon%202.0&In-Reply-To=%3C62353.81.227.234.97.1194776430.squirrel%40webmail01.one.com%3E"
+       TITLE="[Varkon-discuss] No PID files in Varkon 2.0">johan at toan.se
+       </A><BR>
+    <I>Sun Nov 11 11:20:30 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000105.html">[Varkon-discuss] arrow style in dimensioning
+</A></li>
+        <LI>Next message: <A HREF="000112.html">[Varkon-discuss] No PID files in Varkon 2.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#106">[ date ]</a>
+              <a href="thread.html#106">[ thread ]</a>
+              <a href="subject.html#106">[ subject ]</a>
+              <a href="author.html#106">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+As you all know the current development towards
+Varkon 2.0 is very much focused on making the system
+easier to use and understand. This involves issues
+like GUI and documentation but also what files the
+system uses. It should be easy for a first time user
+to understand where his drawing or model is. It would
+be nice if a Varkon job (explicit drawing or generic model)
+could be contained in one single file, just like any
+other document. This would make it possible to access
+a Varkon job with an ordinary file browser, click on the
+file name and Varkon starts and loads the file (job).
+
+We have discussed this issue in the development team
+for some time and I think we now have an idea that
+could work...
+
+Let's first review the current situation. There are 2
+kinds of Varkon jobs, explicit and generic. An explicit
+job is defined by 2 files, jobname.JOB and jobname.RIT.
+A generic job is defined by 3 files, jobname.JOB,
+jobname.MBO and  jobname.RES. On top of this, there
+is also the PID-file that defines the current project.
+
+Technically, there is no difference between a .RIT file
+and a .RES file. Our proposal is that we skip the .RIT
+file type and stick to .RES only. This means that you
+can use Varkon in generic mode to create a result and
+then edit the result in explicit mode if you want to.
+Old .RIT files would be possible to use in explicit mode
+by just renaming them to .RES.
+
+Next change would be to remove the .JOB files. This has
+already been discussed on this list and I see no major
+problems with this. Basically it just means that we move
+the .JOB data into the .RES file.
+
+A final change would be to remove also the PID files from
+the system. This may sound as we would then also remove
+a lot of functionality but the fact is that the role of
+the PID file can be completely exercised byt the start
+script if you want to. New users don't need projects.
+They want the system to act like AoutoCAD or Excel.
+Start the system, create something and save the file
+somewhere. Experienced users know that you need to
+structure your data and also want to customize the
+user interface etc. This can be done by configuring
+the start script. Without PID files you would need
+one start script for each &quot;project&quot; but since the
+conept of a project is very user specific it might
+even be better to use the start script to define it
+than the current PID concept which only lets you set
+up a few specific things.
+
+In Varkon 2.0 a user working in explicit mode would
+only have to deal with .RES files. A user in generic
+mode would work with .MBO files but also see .RES files
+be created automatically as he creates his modules. A
+more experienced user would also know about .MBS files
+of course and also start scripts to configure &quot;projects&quot;.
+
+Please let us know if this could work for you ?
+
+Regards, Johan
+
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000105.html">[Varkon-discuss] arrow style in dimensioning
+</A></li>
+	<LI>Next message: <A HREF="000112.html">[Varkon-discuss] No PID files in Varkon 2.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#106">[ date ]</a>
+              <a href="thread.html#106">[ thread ]</a>
+              <a href="subject.html#106">[ subject ]</a>
+              <a href="author.html#106">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

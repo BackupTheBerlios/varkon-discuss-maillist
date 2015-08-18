@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] GM Database traversal
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20GM%20Database%20traversal&In-Reply-To=%3C20100321110709.7A458A50ADB2C%40bmail02.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000239.html">
+   <LINK REL="Next"  HREF="000241.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] GM Database traversal</H1>
+    <B> Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20GM%20Database%20traversal&In-Reply-To=%3C20100321110709.7A458A50ADB2C%40bmail02.one.com%3E"
+       TITLE="[Varkon-discuss] GM Database traversal">johan at toan.se
+       </A><BR>
+    <I>Sun Mar 21 12:07:09 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000239.html">[Varkon-discuss] GM Database traversal
+</A></li>
+        <LI>Next message: <A HREF="000241.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#240">[ date ]</a>
+              <a href="thread.html#240">[ thread ]</a>
+              <a href="subject.html#240">[ subject ]</a>
+              <a href="author.html#240">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi David,
+&#160;
+You ar right as ususal. A global ##0 makes more sense than a local #0.
+I never reflected over this but I understand that a person with the
+linguistic skills of your caliber might wonder. Anyway, the answer to
+your question is that if you get a #0 you are at the end of the
+database.
+&#160;
+BTW,&#160;we recently got an article describing Varkon used in one of our
+research
+projects published in &quot;Computer-Aided Design and Applications&quot;, see:
+&#160;
+&lt;<A HREF="http://www.cadanda.com/CADandA_6_6_877-887.html">http://www.cadanda.com/CADandA_6_6_877-887.html</A>&gt;
+Regards, Johan
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A> &lt;<A HREF="http://www.toan.se/">http://www.toan.se/</A>&gt;
+On 19 mar 2010 21:56 &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A>&gt; wrote:
+&gt;<i> Here's a rather low-level Varkon question: If I traverse the GM
+</I>&gt;<i> database, how do I know when I'm finished?
+</I>&gt;<i> For example, consider a small set of modules that basically draws
+</I>&gt;<i> two lines, each drawn by its own module (just to put something
+</I>&gt;<i> known and simple, but with some depth, into the GM):
+</I>&gt;<i> Active Module:
+</I>&gt;<i> GLOBAL MODULE main();
+</I>&gt;<i> BEGINMODULE
+</I>&gt;<i> part(#1,testgm1());
+</I>&gt;<i> part(#2,traverse());
+</I>&gt;<i> ENDMODULE
+</I>&gt;<i> module &quot;testgm1&quot;:
+</I>&gt;<i> global module testgm1();
+</I>&gt;<i> beginmodule
+</I>&gt;<i> part(#1,testgm2a());
+</I>&gt;<i> part(#2,testgm2b());
+</I>&gt;<i> endmodule
+</I>&gt;<i> module &quot;testgm2a&quot;:
+</I>&gt;<i> global module testgm2a();
+</I>&gt;<i> beginmodule
+</I>&gt;<i> lin_free(#1,vec(0,0),vec(1,1));
+</I>&gt;<i> endmodule
+</I>&gt;<i> module: &quot;testgm2b&quot;:
+</I>&gt;<i> global module testgm2b();
+</I>&gt;<i> beginmodule
+</I>&gt;<i> lin_free(#1,vec(0,1),vec(1,0));
+</I>&gt;<i> endmodule
+</I>&gt;<i> Now consider a module which simply starts at the root of the GM
+</I>&gt;<i> database
+</I>&gt;<i> and traverses the whole thing - deliberately running off the end of
+</I>&gt;<i> the database just to see what happens:
+</I>&gt;<i> module: &quot;traverse&quot;:
+</I>&gt;<i> global module traverse();
+</I>&gt;<i> ref entity_id;
+</I>&gt;<i> int entity_type;
+</I>&gt;<i> int entity_version;
+</I>&gt;<i> int entity_blank;
+</I>&gt;<i> int entity_level;
+</I>&gt;<i> int entity_pen;
+</I>&gt;<i> ref entity_groups(3);
+</I>&gt;<i> int ix;
+</I>&gt;<i> beginmodule
+</I>&gt;<i> set_root_gm(); ! This is redundant at the beginning, but clear.
+</I>&gt;<i> os(&quot;echo start&quot;);
+</I>&gt;<i> for ix := 1 to 10 do
+</I>&gt;<i> entity_id := get_next_gm();
+</I>&gt;<i> gethdr(entity_id,entity_type,entity_version,entity_blank,entity_level,
+</I>&gt;<i> entity_pen,entity_groups);
+</I>&gt;<i> os(&quot;echo id = \&quot; + rstr(entity_id));
+</I>&gt;<i> os(&quot;echo global id = \&quot; + rstr(global_ref(entity_id)));
+</I>&gt;<i> os(&quot;echo type = &quot; + str(entity_type));
+</I>&gt;<i> endfor;
+</I>&gt;<i> endmodule
+</I>&gt;<i> The output of this is:
+</I>&gt;<i> $ start
+</I>&gt;<i> id = ##1.1
+</I>&gt;<i> global id = ##2.1#1.1
+</I>&gt;<i> type = 16384.000000
+</I>&gt;<i> id = ##1.1#1.1
+</I>&gt;<i> global id = ##2.1#1.1#1.1
+</I>&gt;<i> type = 16384.000000
+</I>&gt;<i> id = ##1.1#1.1#1.1
+</I>&gt;<i> global id = ##2.1#1.1#1.1#1.1
+</I>&gt;<i> type = 2.000000
+</I>&gt;<i> id = ##1.1#2.1
+</I>&gt;<i> global id = ##2.1#1.1#2.1
+</I>&gt;<i> type = 16384.000000
+</I>&gt;<i> id = ##1.1#2.1#1.1
+</I>&gt;<i> global id = ##2.1#1.1#2.1#1.1
+</I>&gt;<i> type = 2.000000
+</I>&gt;<i> id = ##2.1
+</I>&gt;<i> global id = ##2.1#2.1
+</I>&gt;<i> type = 16384.000000
+</I>&gt;<i> id = #0.1
+</I>&gt;<i> global id = ##2.1#0.1
+</I>&gt;<i> type = 16384.000000
+</I>&gt;<i> id = #0.1
+</I>&gt;<i> global id = ##2.1#0.1
+</I>&gt;<i> type = 16384.000000
+</I>&gt;<i> id = #0.1
+</I>&gt;<i> global id = ##2.1#0.1
+</I>&gt;<i> type = 16384.000000
+</I>&gt;<i> id = #0.1
+</I>&gt;<i> global id = ##2.1#0.1
+</I>&gt;<i> type = 16384.000000
+</I>&gt;<i> What puzzles me is not that get_next_gm() seems to finish the
+</I>&gt;<i> traversal
+</I>&gt;<i> by retuning a sort of a null value (&quot;0.1&quot;); I'd expect that.
+</I>&gt;<i> What puzzles me is that this null value seems to be a local ID
+</I>&gt;<i> relative
+</I>&gt;<i> to the most recently traversed part. I would have expected &quot;##0.1&quot;
+</I>&gt;<i> But perhaps the problem is that this is a traversal of the GM
+</I>&gt;<i> database, but I married into a Ford family :-)
+</I>&gt;<i> Seriously, though, I am curious as to the correct way to test for
+</I>&gt;<i> having reached the end of a GM database traversal.
+</I>&gt;<i> Regards,
+</I>&gt;<i> David M.
+</I>&gt;<i> ===
+</I>&gt;<i> Dr. David M. MacMillan * &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A>&gt; * &lt;<A HREF="http://www.lemur.com/">http://www.lemur.com/</A>&gt; &amp;
+</I>&gt;<i> www.CircuitousRoot.com &lt;<A HREF="http://www.circuitousroot.com/">http://www.circuitousroot.com/</A>&gt;
+</I>&gt;<i> First do no harm. (Primum non nocere.)
+</I>&gt;<i> - possibly Galen; see also Hippocrates (Epidemics, Bk. I, Sect. XI.)
+</I>&gt;<i> The first rule of intelligent tinkering is to save all the parts.
+</I>&gt;<i> - Paul Ehrlich (1854-1915); Aldo Leopold
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>&gt;
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100321/28087fbe/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100321/28087fbe/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000239.html">[Varkon-discuss] GM Database traversal
+</A></li>
+	<LI>Next message: <A HREF="000241.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#240">[ date ]</a>
+              <a href="thread.html#240">[ thread ]</a>
+              <a href="subject.html#240">[ subject ]</a>
+              <a href="author.html#240">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

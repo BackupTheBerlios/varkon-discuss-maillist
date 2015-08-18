@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] error with varkon - Fedora - 19 - xfce
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20error%20with%20varkon%20-%20Fedora%20-%2019%20-%20xfce&In-Reply-To=%3C20130827133850.5D8234062C528%40bmail04.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000331.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] error with varkon - Fedora - 19 - xfce</H1>
+    <B> Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20error%20with%20varkon%20-%20Fedora%20-%2019%20-%20xfce&In-Reply-To=%3C20130827133850.5D8234062C528%40bmail04.one.com%3E"
+       TITLE="[Varkon-discuss] error with varkon - Fedora - 19 - xfce">johan at toan.se
+       </A><BR>
+    <I>Tue Aug 27 15:38:50 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000331.html">[Varkon-discuss] error with varkon   - Fedora - 19 - xfce
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#332">[ date ]</a>
+              <a href="thread.html#332">[ thread ]</a>
+              <a href="subject.html#332">[ subject ]</a>
+              <a href="author.html#332">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Pierre,
+
+This error is most probably related to text fonts in X-windows.
+
+During startup, Varkon reads one or more ini-files. In your case
+/home/pierre/Varkon_1.19E/cnf/ini/english/linux
+according to the log in your mail.
+
+The first lines in the ini-file specifies which X-windows fonts Varkon
+should use. Maybe your machine does not have these installed ? If you
+remove (comment) these lines Varkon will use some default which will not
+look nice but at least let you get the system up and running.
+
+Johan
+
+-- 
+S/Y Bird of Passage
+Reg/SSB: SLWP
+Ham: SA4BZP
+&lt;<A HREF="http://www.toan.se">http://www.toan.se</A>&gt;
+
+Our current position :
+&lt;<A HREF="http://www.winlink.org/dotnet/maps/PositionReportsDetail.aspx?callsign=">http://www.winlink.org/dotnet/maps/PositionReportsDetail.aspx?callsign=</A>
+SA4BZP&gt;
+On 27 aug 2013 08:17 &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">normandajc at laposte.net</A>&gt; wrote:
+
+&gt;<i> Hello
+</I>&gt;<i> 
+</I>&gt;<i> I use linux fedora 19 xfce
+</I>&gt;<i> I tried to compil Varkon_sources_1.19E.tar.gz
+</I>&gt;<i> I obtained this file in the folder Varkon.LOG
+</I>&gt;<i> 
+</I>&gt;<i> VARKON_ROOT is /home/pierre/Varkon_1.19E
+</I>&gt;<i> Varkon memory allocation system initialized
+</I>&gt;<i> Varkon system data initialized
+</I>&gt;<i> Varkon debug system initialized
+</I>&gt;<i> Processing command line
+</I>&gt;<i> 0 /home/pierre/Varkon_1.19E/bin/xvarkon
+</I>&gt;<i> 1 -GLOBAL
+</I>&gt;<i> 2 -i/home/pierre/Varkon_1.19E/cnf/ini/english/linux
+</I>&gt;<i> Command line sucessfully processed
+</I>&gt;<i> Varkon error system initialized
+</I>&gt;<i> Varkon levels initialized
+</I>&gt;<i> inifil_1 = /home/pierre/Varkon_1.19E/cnf/ini/english/linux
+</I>&gt;<i> inifil_2 =
+</I>&gt;<i> WP1022 7x13
+</I>&gt;<i> WP1032 :0.0
+</I>&gt;<i> Can't init WinPac (WP)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Can you explain where is my error.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> thank you
+</I>&gt;<i> 
+</I>&gt;<i> Best regard
+</I>&gt;<i> 
+</I>&gt;<i> Pierre ( normandajc )
+</I>&gt;<i> 
+</I>&gt;<i> Une messagerie gratuite, garantie &#224; vie et des services en plus, &#231;a
+</I>&gt;<i> vous tente ?
+</I>&gt;<i> Je cr&#233;e ma bo&#238;te mail &lt;<A HREF="http://www.laposte.net">http://www.laposte.net</A>&gt;
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>&gt;
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20130827/995aaa1e/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20130827/995aaa1e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000331.html">[Varkon-discuss] error with varkon   - Fedora - 19 - xfce
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#332">[ date ]</a>
+              <a href="thread.html#332">[ thread ]</a>
+              <a href="subject.html#332">[ subject ]</a>
+              <a href="author.html#332">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

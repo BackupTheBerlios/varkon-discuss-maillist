@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon on different hardware platforms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20on%20different%20hardware%20platforms&In-Reply-To=%3C877ii9it40.fsf%40julius-net.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000143.html">
+   <LINK REL="Next"  HREF="000147.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon on different hardware platforms</H1>
+    <B>Matthias Julius</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20on%20different%20hardware%20platforms&In-Reply-To=%3C877ii9it40.fsf%40julius-net.net%3E"
+       TITLE="[Varkon-discuss] Varkon on different hardware platforms">lists at julius-net.net
+       </A><BR>
+    <I>Wed Jan 16 18:21:35 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000143.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+        <LI>Next message: <A HREF="000147.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&quot;Johan Kjellander&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan at toan.se</A>&gt; writes:
+
+&gt;<i> Varkon has been ported to the 64 bit environment of
+</I>&gt;<i> a CRAY supercomputer with DEC Alpha processors. This
+</I>&gt;<i> was a long time ago and that hardware is no longer relevant
+</I>&gt;<i> but we know that it has been done and the #ifdef's are
+</I>&gt;<i> still there in the code so it wouldn't be that much job
+</I>&gt;<i> to do it again. (see below)
+</I>
+I have said before that I am no C programmer.  Please excuse me if I
+write something stupid.  But, I thought it should be possible to use
+an integer type that is guarantied to be the same size as pointers on
+any architecture for integers that are involved in pointer arithmetic.
+Again, I am no expert.
+
+&gt;<i>
+</I>&gt;<i> At the present time however, we are not maintaining a
+</I>&gt;<i> working version for any true 64 bit platform. As I said,
+</I>&gt;<i> if this of interest for you please let's continue the
+</I>&gt;<i> discussion. Most important question is if it's
+</I>&gt;<i> worth the job to do it or if there is something else
+</I>&gt;<i> which is more important in the current strategy of increasing
+</I>&gt;<i> the user base.
+</I>
+Yes, I am interested since I am working on an amd64 system myself and
+I would like to provide a good solution for users of the amd64 Debian
+port.  It would not be impossible to package a 32 bit binary into a
+amd64 package, but it probably would be an ugly hack.
+
+&gt;<i>
+</I>&gt;<i> About MBO files. Current MBO files store a lot of 32 bit integer
+</I>&gt;<i> pointers. A true 64 bit version of Varkon could stick to the
+</I>&gt;<i> 32 bit pointers in the MBO files, in which case MBO files would
+</I>&gt;<i> run on both platforms, or take advantage of the 64 bit adressing
+</I>&gt;<i> and use 64 bit integers in which case MBO files would be incompatible.
+</I>&gt;<i> The same goes for RES-files.
+</I>
+It certainly would be beneficial if MBO files were architecture
+independent.  It would help co-operation in mixed environments.
+
+Alternatively Varkon MBS files as master and store MBO files in a
+local cache outside the project directory.
+
+&gt;<i>
+</I>&gt;<i> If you have the MBS files, you can always create MBO-files by
+</I>&gt;<i> compiling them and RES-files by running the MBO.
+</I>
+I am still beginner with Varkon...
+
+It seems like there are typically no MBS files for the active modules
+of a project.  From the examples on
+<A HREF="http://www.varkon.org/Examples.html">http://www.varkon.org/Examples.html</A> many MBS files are missing from
+the job directories.  I guess I will have to decompile the MBO files
+with a 32 bit Varkon.
+
+&gt;<i>
+</I>&gt;<i> Hope this answers your questions. The short version is: No 64 bit
+</I>&gt;<i> now but it is doable if we want to. Do we want to ?
+</I>
+Well, I don't know if you want to, but I would like to.
+
+Of course, I am in no position to set priorities for you.  According
+to the Debian Popularity Contest (<A HREF="http://popcon.debian.org/">http://popcon.debian.org/</A>) 13% of
+all Debian installations are on the amd64 architecture.  And the amd64
+share is slowly but constantly increasing.  So, I think this is a
+significant part of the user base.
+
+Whether you want to consider the 64 bit ports for the upcoming Varkon
+2.0 release certainly also depends on how far you are away from that.
+I would not want to introduce a major delay to your release.  Do you
+have an estimate on when 2.0 might happen?
+
+In the mean time it is probably best to just disable the 64 bit
+architectures for the varkon package.  Users still can install the
+i386 package in a chroot.  This is a hassle but better than random
+segfaults.
+
+Matthias
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000143.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+	<LI>Next message: <A HREF="000147.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

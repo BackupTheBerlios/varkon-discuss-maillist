@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Building an arbor
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Building%20an%20arbor&In-Reply-To=%3C200803220953.26132.Nick%40proemper-net.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000178.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Building an arbor</H1>
+    <B>Nick Pr&#246;mper</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Building%20an%20arbor&In-Reply-To=%3C200803220953.26132.Nick%40proemper-net.de%3E"
+       TITLE="[Varkon-discuss] Building an arbor">Nick at proemper-net.de
+       </A><BR>
+    <I>Sat Mar 22 09:53:25 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000178.html">[Varkon-discuss] Building an arbor
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#175">[ date ]</a>
+              <a href="thread.html#175">[ thread ]</a>
+              <a href="subject.html#175">[ subject ]</a>
+              <a href="author.html#175">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I am new to varkon and I want to use it for coinstructing relative simple 
+3D-models.
+
+But I have difficulties to understand the concepts of building an object like 
+an arbor. What I'd like to do is, to define a surface by a curve, e.g.
+  p1 := vec(0, 0, 0);
+  p2 := vec(length, 0, 0);
+  p3 := vec(length, height - dy, 0);
+  p4 := vec(length - dx, height - dy, 0);
+  p5 := vec(length - dx, height, 0);
+  p6 := vec(dx, height, 0);
+  p7 := vec(dx, height - dy, 0);
+  p8 := vec(0, height - dy, 0);
+  
+  set(pen=10);
+  
+  lin_free(#1, p1, p2);
+  lin_free(#2, p2, p3);
+  lin_free(#3, p3, p4);
+  lin_free(#4, p4, p5);
+  lin_free(#5, p5, p6);
+  lin_free(#6, p6, p7);
+  lin_free(#7, p7, p8);
+  lin_free(#8, p8, p1);
+  
+  cur_comp(#9, #1, #2, #3, #4, #5, #6, #7, #8);
+
+What I want to do, is to have a surface, which is defined by #9. An, as the 
+next step, make it a 3D-object by shifting it through the z-axis.
+
+Any help is appreciated.
+
+-- 
+Nicolas Pr&#246;mper
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000178.html">[Varkon-discuss] Building an arbor
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#175">[ date ]</a>
+              <a href="thread.html#175">[ thread ]</a>
+              <a href="subject.html#175">[ subject ]</a>
+              <a href="author.html#175">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20svn83%20on%20SuSE%2010.0%20AMD64&In-Reply-To=%3C21d7eac172b4.479deb2a%40oru.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000170.html">
+   <LINK REL="Next"  HREF="000172.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64</H1>
+    <B>soren.larsson at tech.oru.se</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20svn83%20on%20SuSE%2010.0%20AMD64&In-Reply-To=%3C21d7eac172b4.479deb2a%40oru.se%3E"
+       TITLE="[Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64">soren.larsson at tech.oru.se
+       </A><BR>
+    <I>Mon Jan 28 14:48:10 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000170.html">[Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64
+</A></li>
+        <LI>Next message: <A HREF="000172.html">[Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Regarding Davids need to handcode the svnversion files at one computer.
+
+
+The script used by make to produce the svn version include files need the following:
+
+- subversion needs to be installed on the computer so that the svnversion command is available.
+
+- the source tree need to be the result of a svn checkout (then there will exist hidden .svn files in each folder.
+
+Internet connection is not needed (but of course it is needed for the initial svn checkout).
+
+The script test the requirements mentioned above, and if any of the requirments is not fullfilled it does not build the svnversion include files. This will for example be the case if the actual source tree belong to a source code download for a released version.
+For such packages it is our intention to include the svnversion files so that any person with make, c-compiler etc but without subversion can build as usual.
+
+It has also turned out that some code in the script is not fully portable between different shells. It works ok if the system default shell is bash (as on many linux distributions), but may fail if for example dash is used (which I think maybe ubuntu does). We will change this somehow to make it portable.
+
+So, David your need to handcode version files can have any of following reasons:
+
+1) As I understrand it you checked out the source tree using one computer (with subversion), and then build it using another (the one without internet). If computer #2 didn&#180;t have subversiobn installed this could be the explanation.
+
+2) The script failed due to the lack of portability I mentioned. You could try to change the first row of the script sources/update_versionfile from #!/bin/sh to #!/bin/bash. It will then use bash regardless of what is the default shell. This works only if bash is available, but it should be on Linux systems I think.
+Note however that my intention is to change the script in some way to make it portable. You should not need to hancode the files or make changes to the script.
+
+Another comment:
+The version reported by your suse system &quot;38M&quot; means that you have a modified version (your modification of the makefile will be detected as a modification).
+
+/S&#246;ren
+
+
+
+
+-------------------------------
+S&#246;ren Larsson
+&#214;rebro universitet              
+Institutionen f&#246;r teknik        
+701 82  &#214;rebro                 
+tel. 019-301048 
+
+----- Original Message -----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A>
+Date: Monday, January 28, 2008 07:35
+Subject: [Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64
+
+&gt;<i> 
+</I>&gt;<i> Another field report:  Varkon svn83 can be made to compile and
+</I>&gt;<i> run on SuSE 10.0 AMD64.  Doing so requires only one trivial 
+</I>&gt;<i> change to the makefile.
+</I>&gt;<i> 
+</I>&gt;<i> By way of explanation, another Varkon user wrote to me offlist
+</I>&gt;<i> after I'd noted that I was running on Kubuntu AMD64, inquiring
+</I>&gt;<i> about SuSE 10.0.  By chance, I have access to a SuSE 10.0 AMD64
+</I>&gt;<i> system through work, so I tried a compilation on it.
+</I>&gt;<i> 
+</I>&gt;<i> The only change I had to make was in the top-level &quot;Makefile.linux&quot;
+</I>&gt;<i> makefile.  The line which reads:
+</I>&gt;<i> 
+</I>&gt;<i> XLIBS = -L/usr/X11R6/lib -lX11 -lXext -lXpm
+</I>&gt;<i> 
+</I>&gt;<i> needs, for 64-bit compilation in this environment, to be changed to
+</I>&gt;<i> 
+</I>&gt;<i> XLIBS = -L/usr/X11R6/lib64 -lX11 -lXext -lXpm
+</I>&gt;<i> 
+</I>&gt;<i> (otherwise the compilation works but the linker tries to pick
+</I>&gt;<i> up the 32-bit libraries).
+</I>&gt;<i> 
+</I>&gt;<i> Curiously, in this build the svn-version files that I had to
+</I>&gt;<i> create by hand in my Kubuntu build appeared automagically
+</I>&gt;<i> (with SVN versions &quot;83M&quot; instead of the &quot;83&quot; that I hand-built,
+</I>&gt;<i> so I'm pretty sure I didn't copy them there without thinking).
+</I>&gt;<i> This SuSE machine isn't internet-connected either, so perhaps
+</I>&gt;<i> it wasn't the lack of a net connection that cause the Kubuntu
+</I>&gt;<i> difficulty.
+</I>&gt;<i> 
+</I>&gt;<i> In any case, between (K)ubuntu/(Debian?) and SuSE it looks as if
+</I>&gt;<i> Varkon is now pretty much running in a good slice of the 64-bit 
+</I>&gt;<i> Linux world.
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> David M.
+</I>&gt;<i> ===
+</I>&gt;<i> Dr. David M. MacMillan * <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A> * www.lemur.com &amp; 
+</I>&gt;<i> www.CircuitousRoot.com
+</I>&gt;<i>   First do no harm. (Primum non nocere.)
+</I>&gt;<i>       - possibly Galen; see also Hippocrates (Epidemics, Bk. I, 
+</I>&gt;<i> Sect. XI.)
+</I>&gt;<i>   The first rule of intelligent tinkering is to save all the parts.
+</I>&gt;<i>       - Paul Ehrlich (1854-1915); Aldo Leopold
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000170.html">[Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64
+</A></li>
+	<LI>Next message: <A HREF="000172.html">[Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

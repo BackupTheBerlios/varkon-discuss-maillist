@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon library structure
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20library%20structure&In-Reply-To=%3C4BABBBF2.7030007%40johnmacphail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000245.html">
+   <LINK REL="Next"  HREF="000244.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon library structure</H1>
+    <B>John MacPhail</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20library%20structure&In-Reply-To=%3C4BABBBF2.7030007%40johnmacphail.com%3E"
+       TITLE="[Varkon-discuss] Varkon library structure">jm at johnmacphail.com
+       </A><BR>
+    <I>Thu Mar 25 20:39:30 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000245.html">[Varkon-discuss] Varkon library structure
+</A></li>
+        <LI>Next message: <A HREF="000244.html">[Varkon-discuss] Varkon library structure
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#247">[ date ]</a>
+              <a href="thread.html#247">[ thread ]</a>
+              <a href="subject.html#247">[ subject ]</a>
+              <a href="author.html#247">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks, Johan, these answers are very helpful. Now that
+I've looked at the DB demos, many of the ideas are much
+clearer for me.
+
+In the other direction, I'll try clarifying my own plans.
+My focus is to build a Varkon application to run on both
+Debian/Ubuntu Linux and Windows. To support this, I will
+try to get new and better Debian packaging of Varkon, and
+I will also be looking for help toward a GTK version.
+Peculiarities of Debian are a tendency to using more
+small packages (as compared with, say, Fedora) and
+the writing of a &quot;man page&quot; when none is provided.
+
+The big thing confusing me is my impression, which may
+be wrong, that Varkon does not seem to have caught on
+with very widespread use. So I'm being maybe a bit
+suspicious, fearing I'm missing some big problem. The
+more I look, the more I become convinced that Varkon
+is simply a wonderful project that has received far too
+little attention.
+
+John (MacPhail)
+
+
+ Johan Kjellander wrote:
+&gt;<i>
+</I>&gt;<i> John,
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> 1. Varkon applications typically never change the C code at all.
+</I>&gt;<i>
+</I>&gt;<i> A typical application is implemented in MBS. Yes, the start script
+</I>&gt;<i>
+</I>&gt;<i> is one way to custimize the behaviour of Varkon. Menufiles, init-
+</I>&gt;<i>
+</I>&gt;<i> modules, exit modules and so on are others.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> 2. Dynamic linking is possible for some libraries, see below.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> 3. Some of the libraries can operate stand alone. erpush() and similar 
+</I>&gt;<i> dependencies
+</I>&gt;<i>
+</I>&gt;<i>  are available from a VU library (Varkon Utilities). How to use for 
+</I>&gt;<i> example DB stand
+</I>&gt;<i>
+</I>&gt;<i>  alone (with VU) is shown in the Varkon demo applications.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> 4. Yes IG is not very homogenious. IG is a very old part of Varkon 
+</I>&gt;<i> that made more
+</I>&gt;<i>
+</I>&gt;<i> sense a long time ago.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> So, there is demo code available that shows how to use only selected parts
+</I>&gt;<i>
+</I>&gt;<i> of Varkon with the VU library. Do you have those demo's ?
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Johan
+</I>&gt;<i>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000245.html">[Varkon-discuss] Varkon library structure
+</A></li>
+	<LI>Next message: <A HREF="000244.html">[Varkon-discuss] Varkon library structure
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#247">[ date ]</a>
+              <a href="thread.html#247">[ thread ]</a>
+              <a href="subject.html#247">[ subject ]</a>
+              <a href="author.html#247">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] .deb creation issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20.deb%20creation%20issues&In-Reply-To=%3CAANLkTila_AaPGdaZGSGhsaikTfM0t53F4At64Hiedagf%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000289.html">
+   <LINK REL="Next"  HREF="000291.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] .deb creation issues</H1>
+    <B>jon york</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20.deb%20creation%20issues&In-Reply-To=%3CAANLkTila_AaPGdaZGSGhsaikTfM0t53F4At64Hiedagf%40mail.gmail.com%3E"
+       TITLE="[Varkon-discuss] .deb creation issues">jon at foretruss.com
+       </A><BR>
+    <I>Thu May 27 17:45:02 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000289.html">[Varkon-discuss] saving/restoring place in GM
+</A></li>
+        <LI>Next message: <A HREF="000291.html">[Varkon-discuss] .deb creation issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#290">[ date ]</a>
+              <a href="thread.html#290">[ thread ]</a>
+              <a href="subject.html#290">[ subject ]</a>
+              <a href="author.html#290">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All
+
+Sorry I havent been more present in the past few weeks, things have been
+quite busy with the debain/ubuntu maintainership. Seems like, while I
+haven't been cleared on becoming official maintainer, they will allow me to
+present to them a corrected, bug free installation process .deb file. They
+want me to use checkinstall method to ensure &quot;global compatibility&quot;. I have
+errors on the make command (as shown below) My system is up to Debian/Ubuntu
+package creation standard, which means i have absolutely nothing installed
+other then regular ubuntu 10.04 and the requisites for checkinstall, with no
+updates done to the system.
+
+Please help me fix these issues and if possible provide a list of
+dependencies so I may call those in the .deb file.
+
+Thanks
+
+Jon York
+
+here are the results of the make command
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">test at test-desktop</A>:~$ cd /home/test/Downloads/Varkon_1.19D/sources
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">test at test-desktop</A>:~/Downloads/Varkon_1.19D/sources$ sudo ./configuresudo:
+./configure: command not found
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">test at test-desktop</A>:~/Downloads/Varkon_1.19D/sources$ sudo makemkdir -p
+./IG/lib
+mkdir -p ./PM/lib
+mkdir -p ./EX/lib
+mkdir -p ./DB/lib
+mkdir -p ./WP/lib
+mkdir -p ./GE/lib
+mkdir -p ./AN/lib
+mkdir -p ./PL/lib
+mkdir -p ../bin
+mkdir -p ../tmp
+mkdir -p ../man
+./update_versionfile
+make -C IG -C src -f Makefile.linux distr
+make[1]: Entering directory
+`/home/test/Downloads/Varkon_1.19D/sources/IG/src'
+gcc -ansi -pedantic -Wall -ffloat-store -fsigned-char -O -DUNIX   -c -o
+iginit.o iginit.c
+In file included from iginit.c:41:
+../../DB/include/DB.h:86:19: error: GL/gl.h: No such file or directory
+In file included from iginit.c:41:
+../../DB/include/DB.h:253: error: expected specifier-qualifier-list before
+&#8216;GLfloat&#8217;
+In file included from iginit.c:41:
+../../DB/include/DB.h:713: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+../../DB/include/DB.h:714: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+../../DB/include/DB.h:714: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+../../DB/include/DB.h:715: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+../../DB/include/DB.h:716: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+../../DB/include/DB.h:716: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+../../DB/include/DB.h:718: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+../../DB/include/DB.h:719: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+../../DB/include/DB.h:719: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;GLfloat&#8217;
+In file included from iginit.c:42:
+../include/IG.h:31:22: error: X11/Xlib.h: No such file or directory
+../include/IG.h:32:23: error: X11/Xutil.h: No such file or directory
+In file included from iginit.c:43:
+../../WP/include/WP.h:29:27: error: X11/Xresource.h: No such file or
+directory
+In file included from ../../WP/include/WP.h:31,
+                 from iginit.c:43:
+../../WP/include/wpdef.h:25:20: error: GL/glx.h: No such file or directory
+In file included from ../../WP/include/WP.h:31,
+                 from iginit.c:43:
+../../WP/include/wpdef.h:143: error: expected specifier-qualifier-list
+before &#8216;Window&#8217;
+../../WP/include/wpdef.h:326: error: expected specifier-qualifier-list
+before &#8216;Window&#8217;
+../../WP/include/wpdef.h:361: error: expected specifier-qualifier-list
+before &#8216;Pixmap&#8217;
+../../WP/include/wpdef.h:402: error: expected specifier-qualifier-list
+before &#8216;Pixmap&#8217;
+../../WP/include/wpdef.h:493: error: expected specifier-qualifier-list
+before &#8216;Pixmap&#8217;
+In file included from iginit.c:43:
+../../WP/include/WP.h:61: error: expected &#8216;=&#8217;, &#8216;,&#8217;, &#8216;;&#8217;, &#8216;asm&#8217; or
+&#8216;__attribute__&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:62: error: expected &#8216;=&#8217;, &#8216;,&#8217;, &#8216;;&#8217;, &#8216;asm&#8217; or
+&#8216;__attribute__&#8217; before &#8216;xgc&#8217;
+../../WP/include/WP.h:64: error: expected &#8216;=&#8217;, &#8216;,&#8217;, &#8216;;&#8217;, &#8216;asm&#8217; or
+&#8216;__attribute__&#8217; before &#8216;xgcur1&#8217;
+../../WP/include/WP.h:65: error: expected &#8216;=&#8217;, &#8216;,&#8217;, &#8216;;&#8217;, &#8216;asm&#8217; or
+&#8216;__attribute__&#8217; before &#8216;xresDB&#8217;
+../../WP/include/WP.h:130: error: expected &#8216;)&#8217; before &#8216;w&#8217;
+../../WP/include/WP.h:131: error: expected &#8216;)&#8217; before &#8216;w&#8217;
+../../WP/include/WP.h:133: error: expected &#8216;)&#8217; before &#8216;w&#8217;
+../../WP/include/WP.h:148: error: expected &#8216;=&#8217;, &#8216;,&#8217;, &#8216;;&#8217;, &#8216;asm&#8217; or
+&#8216;__attribute__&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:155: error: expected &#8216;)&#8217; before &#8216;wid&#8217;
+../../WP/include/WP.h:174: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:175: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:183: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:217: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:218: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:219: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:220: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:221: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:222: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:223: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:224: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:231: error: expected &#8216;)&#8217; before &#8216;x_id&#8217;
+../../WP/include/WP.h:240: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XButtonEvent&#8217;
+../../WP/include/WP.h:241: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XCrossingEvent&#8217;
+../../WP/include/WP.h:242: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XKeyEvent&#8217;
+../../WP/include/WP.h:243: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XClientMessageEvent&#8217;
+../../WP/include/WP.h:261: error: expected &#8216;)&#8217; before &#8216;px_id&#8217;
+../../WP/include/WP.h:279: error: expected &#8216;)&#8217; before &#8216;px_id&#8217;
+../../WP/include/WP.h:282: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XButtonEvent&#8217;
+../../WP/include/WP.h:284: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XKeyEvent&#8217;
+../../WP/include/WP.h:290: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:299: error: expected &#8216;)&#8217; before &#8216;px_id&#8217;
+../../WP/include/WP.h:303: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XCrossingEvent&#8217;
+../../WP/include/WP.h:313: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XExposeEvent&#8217;
+../../WP/include/WP.h:314: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XCrossingEvent&#8217;
+../../WP/include/WP.h:315: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XButtonEvent&#8217;
+../../WP/include/WP.h:316: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XReparentEvent&#8217;
+../../WP/include/WP.h:317: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XConfigureEvent&#8217;
+../../WP/include/WP.h:318: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XClientMessageEvent&#8217;
+../../WP/include/WP.h:323: error: expected &#8216;)&#8217; before &#8216;x_id&#8217;
+../../WP/include/WP.h:330: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XButtonEvent&#8217;
+../../WP/include/WP.h:331: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XExposeEvent&#8217;
+../../WP/include/WP.h:333: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XCrossingEvent&#8217;
+../../WP/include/WP.h:334: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XConfigureEvent&#8217;
+../../WP/include/WP.h:335: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XClientMessageEvent&#8217;
+../../WP/include/WP.h:339: error: expected &#8216;)&#8217; before &#8216;x_id&#8217;
+../../WP/include/WP.h:348: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XButtonEvent&#8217;
+../../WP/include/WP.h:349: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XCrossingEvent&#8217;
+../../WP/include/WP.h:350: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XClientMessageEvent&#8217;
+../../WP/include/WP.h:351: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XConfigureEvent&#8217;
+../../WP/include/WP.h:361: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XButtonEvent&#8217;
+../../WP/include/WP.h:362: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+../../WP/include/WP.h:372: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;XButtonEvent&#8217;
+../../WP/include/WP.h:433: error: expected declaration specifiers or &#8216;...&#8217;
+before &#8216;Cursor&#8217;
+iginit.c: In function &#8216;IGlmdf&#8217;:
+iginit.c:243: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:245: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:250: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:254: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:255: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:258: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:259: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:293: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:296: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:297: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:306: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:324: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:358: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:365: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:366: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:370: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+iginit.c:377: warning: ignoring return value of &#8216;fscanf&#8217;, declared with
+attribute warn_unused_result
+make[1]: *** [iginit.o] Error 1
+make[1]: Leaving directory
+`/home/test/Downloads/Varkon_1.19D/sources/IG/src'
+make: *** [distr] Error 2
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">test at test-desktop</A>:~/Downloads/Varkon_1.19D/sources$
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100527/afe1fa46/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100527/afe1fa46/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000289.html">[Varkon-discuss] saving/restoring place in GM
+</A></li>
+	<LI>Next message: <A HREF="000291.html">[Varkon-discuss] .deb creation issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#290">[ date ]</a>
+              <a href="thread.html#290">[ thread ]</a>
+              <a href="subject.html#290">[ subject ]</a>
+              <a href="author.html#290">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

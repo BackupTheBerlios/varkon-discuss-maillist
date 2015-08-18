@@ -1,0 +1,550 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Points on a surface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Points%20on%20a%20surface&In-Reply-To=%3C33534480.265798.1265312198719.JavaMail.open-xchange%40ox3%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000228.html">
+   <LINK REL="Next"  HREF="000230.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Points on a surface</H1>
+    <B>gunnar.liden at viewsoncad.ch</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Points%20on%20a%20surface&In-Reply-To=%3C33534480.265798.1265312198719.JavaMail.open-xchange%40ox3%3E"
+       TITLE="[Varkon-discuss] Points on a surface">gunnar.liden at viewsoncad.ch
+       </A><BR>
+    <I>Thu Feb  4 20:36:38 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000228.html">[Varkon-discuss] Points on a surface
+</A></li>
+        <LI>Next message: <A HREF="000230.html">[Varkon-discuss] Fwd: Re:  varkon window opens, but not the menu
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#229">[ date ]</a>
+              <a href="thread.html#229">[ thread ]</a>
+              <a href="subject.html#229">[ subject ]</a>
+              <a href="author.html#229">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello Graeme
+
+Below is a sample that hopefully explains how line-intersection
+functions can be used.
+
+I intend to add the sample to my tutorial
+(<A HREF="http://www.viewsoncad.ch/VarkonTutorial/surftutorial.htm">http://www.viewsoncad.ch/VarkonTutorial/surftutorial.htm</A>)
+
+Please let me know if you need additional explanations and/or
+additional samples
+
+Gunnar
+
+
+
+! ***************** lin_sur_intersect ****************************
+!
+! +++
+! Intersection between lines and surfaces
+!
+!
+!
+! 2010-02-04 Gunnar Liden
+!
+! ---
+!************************************************************
+
+!sdesce Intersection between lines and surfaces
+
+
+GLOBAL GEOMETRY MODULE lin_sur_intersect(
+INT graphic:=2 &gt; &quot;Graphic 0: Nothing 1: Points+surface 2: All&quot;);
+
+! Internal variables
+
+&#160; VECTOR v_proj;&#160; &#160; &#160;! Projection direction (line tangent)
+&#160; INT&#160; &#160; n_poi;&#160; &#160; &#160; ! Number of points on curve
+&#160; INT&#160; &#160; i_poi;&#160; &#160; &#160; ! Loop index point on curve
+&#160; FLOAT&#160; delta_t;&#160; &#160; ! Delta parameter value for curve
+&#160; FLOAT&#160; cur_t;&#160; &#160; &#160; ! Current parameter value for curve
+&#160; VECTOR cur_poi;&#160; &#160; ! Current point on the curve
+&#160; INT&#160; &#160; i_sol;&#160; &#160; &#160; ! Loop index solution
+&#160; INT&#160; &#160; s_case;&#160; &#160; &#160;! Projection case. Refer to ALL_INT_LIN_SUR
+&#160; VECTOR uv_near;&#160; &#160; ! Parameter pt for start (near) pt
+&#160; INT&#160; &#160; n_sol;&#160; &#160; &#160; ! Total number of solutions
+&#160; VECTOR r3_sol(3);&#160; ! Solution R*3 points for current surface
+&#160; VECTOR uv_sol(3);&#160; ! Solution U,V points for current surface
+
+! BLANK values for graphic
+&#160; INT bval_sur;
+&#160; INT bval_csy;
+&#160; INT bval_lin;
+&#160; INT bval_cur;
+&#160; INT bval_poi;
+
+! Colors
+&#160; CONSTANT INT pen_sur = 3;
+&#160; CONSTANT INT pen_lin = 1;
+&#160; CONSTANT INT pen_cur = 9;
+&#160; CONSTANT INT pen_poi = 4;
+
+! Width
+&#160; CONSTANT FLOAT width_poi = 0.8;
+
+BEGINMODULE
+
+! +++
+! Initializations and check of input data
+! ---
+
+&#160; IF graphic = 0 THEN
+&#160; &#160; bval_sur := 1;
+&#160; &#160; bval_csy := 1;
+&#160; &#160; bval_lin := 1;
+&#160; &#160; bval_cur := 1;
+&#160; &#160; bval_poi := 1;
+&#160; ELIF graphic = 1 THEN
+&#160; &#160; bval_sur := 0;
+&#160; &#160; bval_csy := 1;
+&#160; &#160; bval_lin := 0;
+&#160; &#160; bval_cur := 0;
+&#160; &#160; bval_poi := 0;
+&#160; ELIF graphic = 2 THEN
+&#160; &#160; bval_sur := 0;
+&#160; &#160; bval_csy := 0;
+&#160; &#160; bval_lin := 0;
+&#160; &#160; bval_cur := 0;
+&#160; &#160; bval_poi := 0;
+&#160; ELSE
+&#160; &#160; EXIT(&quot;lin_sur_intersect: graphic not 0, 1 or 2&quot;);
+&#160; ENDIF;
+
+
+! +++
+! Create a surface
+! ---
+
+&#160; PART(#1,lofted_sur(0));
+
+! +++
+! Approximate to bicubic surface. Intersection functions have less problems
+! with bicubic surfaces and intersections are faster
+! ---
+
+&#160; SUR_APPROX(#2,#1#1, &quot;CUB_SUR&quot;, 1, 4:BLANK=bval_sur, PEN=pen_sur);
+
+! +++
+! Create two lines: One line with only one intersection point and one with
+! two (multiple) intersects
+! ---
+
+&#160; LIN_FREE(#3, VEC(23.1, 30.5, 112.4), VEC(14.1, 25.7,
+103.5):BLANK=bval_lin, PEN=pen_lin);
+&#160; LIN_FREE(#4, VEC( 1.4, 21.2, -21.6), VEC( 6.6, 36.5,
+217.6):BLANK=bval_lin, PEN=pen_lin);
+
+! +++
+! Line-surface intersect with one solution
+! ---
+
+&#160; POI_FREE(#5,INTERSECT(#3, #2, 1):BLANK=bval_poi, PEN=pen_poi,
+WIDTH=width_poi);
+
+! +++
+! Line-surface intersect with two solutions
+! ---
+
+&#160; POI_FREE(#6,INTERSECT(#4, #2, 1):BLANK=bval_poi, PEN=pen_poi,
+WIDTH=width_poi);
+&#160; POI_FREE(#7,INTERSECT(#4, #2, 2):BLANK=bval_poi, PEN=pen_poi,
+WIDTH=width_poi);
+
+! +++
+! Line-surface intersect with two solutions
+! ---
+
+! +++
+! Function all_int_lin_sur is a function that normally is used
+! when many intersects are calculated. A typical sample could
+! be to project points on a curve onto a surface
+! ---
+
+! +++
+! Create a curve
+! ---
+
+&#160; CSYS_1P(#10, &quot;CsysCir&quot;, VEC(21.0, 25.5-3.0, 79.0),
+&#160; &#160; &#160; &#160; &#160; 0.0, 90.0, 0.0: BLANK=bval_csy);
+
+&#160; MODE_LOCAL(#10);
+&#160; ARC_1POS(#11,vec(0.0, 0.0, 0.0), 4.0, 0.0, 360.0:BLANK=1);
+&#160; MODE_GLOBAL();
+
+&#160; CUR_COMP(#12,#11);
+
+
+! +++
+! Project points
+! ---
+
+&#160; n_poi := 25;
+&#160; delta_t := 2.0/n_poi;
+&#160; v_proj := VEC(-1.0, 0.0, 0.0);
+&#160; s_case := 1;
+
+! Initialize to undefined start point
+&#160; uv_near.x := -1.0;
+&#160; uv_near.y := -1.0;
+&#160; uv_near.z := -1.0;
+
+&#160; FOR i_poi := 0 TO n_poi-1 DO
+
+&#160; &#160; cur_t&#160; &#160;:= i_poi*delta_t;
+cur_poi := ON(#12, cur_t);
+
+&#160; &#160; ALL_INT_LIN_SUR(#2, cur_poi, v_proj, s_case, uv_near, n_sol, uv_sol,
+r3_sol);
+
+IF n_sol &gt;= 1 THEN
+
+&#160; &#160; &#160; &#160; &#160;LIN_FREE(#14, cur_poi, r3_sol(1):BLANK=bval_lin, PEN=pen_lin);
+&#160; &#160; &#160; &#160; &#160;POI_FREE(#15, r3_sol(1):BLANK=bval_poi, PEN=pen_poi);
+
+&#160; &#160;uv_near := uv_sol(1);
+
+ENDIF;
+
+
+&#160; ENDFOR;
+
+ENDMODULE
+
+! ***************** lofted_sur ****************************
+!
+! +++
+! SUR_CONIC sample
+!
+! Start with as few limit/tangent curves as possible. Add curves and/or
+! segments only as required to get the required shape and quality of the
+! surface
+!
+! Use CUR_CONIC curves as limit and tangent curves.
+! The CUR_SPLINE curve type easily oscillates. The spline curves
+! need many, very well defined points in order to get a high
+! quality curve. Such well-defined points cannot be defined
+! manually (inteactively). Spline smoothing functions are
+! needed in order to be able to use splines as input to
+! surfaces.
+!
+! Generally favor use of P-value curves instead of
+! midpoint curves to control the surface, since they are easier to alter
+when
+! the shape and quality of the surface requires adjustment.
+!
+! It is recommended that the surface is defined in millimeters
+! and the geometry calculation tolerances are trimmed for objects
+! that are about a meter or two meters, i.e. point coordinates
+! around 1000.0.
+!
+!
+! 2006-03-02 John Hughes and Gunnar Liden
+!
+! ---
+!************************************************************
+
+!sdesce SUR_CONIC sample
+!sdescs SUR_CONIC exempel
+
+
+GLOBAL GEOMETRY MODULE lofted_sur(
+INT graphic:=1 &gt; &quot;Graphic 0: Nothing 1: Surface 2: All&quot;);
+
+! Internal variables
+
+! BLANK values for graphic
+&#160; INT bval_sur;
+&#160; INT bval_csy;
+&#160; INT bval_cur;
+&#160; INT bval_poi;
+
+&#160; REF int_id;
+! Section curves
+&#160; REF sect_1_id;
+&#160; REF sect_2_id;
+&#160; REF sect_3_id;
+&#160; REF spine_id;
+&#160; REF lim_1_id;
+&#160; REF lim_2_id;
+&#160; REF tang_1_id;
+&#160; REF tang_2_id;
+&#160; REF pcur_id;
+
+&#160; VECTOR poi_l;
+
+BEGINMODULE
+
+! +++
+! Initializations and check of input data
+! ---
+
+&#160; IF graphic = 0 THEN
+&#160; &#160; bval_sur := 1;
+&#160; &#160; bval_csy := 1;
+&#160; &#160; bval_cur := 1;
+&#160; &#160; bval_poi := 1;
+&#160; ELIF graphic = 1 THEN
+&#160; &#160; bval_sur := 0;
+&#160; &#160; bval_csy := 1;
+&#160; &#160; bval_cur := 1;
+&#160; &#160; bval_poi := 1;
+&#160; ELIF graphic = 2 THEN
+&#160; &#160; bval_sur := 0;
+&#160; &#160; bval_csy := 0;
+&#160; &#160; bval_cur := 0;
+&#160; &#160; bval_poi := 0;
+&#160; ELSE
+&#160; &#160; EXIT(&quot;lofted_sur: graphic not 0, 1 or 2&quot;);
+&#160; ENDIF;
+
+! Initializations of local variables in order avoid crashes
+! using unitialized variables
+&#160; int_id&#160; &#160; := #0;
+&#160; sect_1_id := #0;
+&#160; sect_2_id := #0;
+&#160; sect_3_id := #0;
+&#160; spine_id&#160; := #0;
+&#160; lim_1_id&#160; := #0;
+&#160; lim_2_id&#160; := #0;
+&#160; tang_1_id := #0;
+&#160; tang_2_id := #0;
+&#160; pcur_id&#160; &#160;:= #0;
+
+
+! +++
+! Generate local coord. systems in the GLOBAL (inherited) coord. system
+! for the definition of section curves and the spine
+! ---
+
+&#160; csys_1p(#3,&quot;Stern&quot;, vec(0, 20, 0), 0.0, 0.0, 0.0:BLANK=bval_csy);
+&#160; csys_1p(#4,&quot;Bow&quot;, vec(0, 20, 192), 0.0, 0.0, 0.0:BLANK=bval_csy);
+&#160; csys_1p(#5,&quot;Near-Stern&quot;, vec(0, 20, 12), 0.0, 0.0, 0.0:BLANK=bval_csy);
+&#160; csys_1p(#6,&quot;Near-Bow&quot;, vec(0, 20, 180), 0.0, 0.0, 0.0:BLANK=bval_csy);
+&#160; csys_1p(#7,&quot;Mid-Ship&quot;, vec(0, 20, 96), 0.0, 0.0, 0.0:BLANK=bval_csy);
+
+
+! +++
+! Create the spine curve. It is a straight line but sur_conic does
+! not (yet) accept this type as input.
+! ---
+
+! Change to &quot;Near-stern&quot; coordinate system.
+&#160; mode_local(#5);
+
+&#160; cur_conic(#9,&quot;FREE&quot;, vec(0, 0,&#160; &#160;0), vec(0, 0, 168), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;vec(0, 0, 168), vec(0, 0,&#160; &#160;0):BLANK=bval_cur);
+&#160; spine_id&#160; := #9;
+
+
+! +++
+! Create the points that will be used for the definition of the limit
+curves.
+! ---
+
+! Change to &quot;Near-stern&quot; coordinate system.
+&#160; mode_local(#5);
+
+! Define points for &quot;Near-stern&quot; section curve
+&#160; poi_free(#10,vec(4.083581517166, 21.720943070165, 0.0):BLANK=bval_poi);
+&#160; poi_free(#11,vec(0.23613936746047, 0.25846526576975, 0.0):BLANK=bval_poi);
+&#160; poi_free(#12,vec(2.6216848117135, 8.3495976410652, 0.0):BLANK=bval_poi);
+&#160; poi_free(#13,vec(3.620285230238, 14.552799128792, 0.0):BLANK=bval_poi);
+&#160; poi_free(#14,vec(1.623084393189, 4.3040314534175, 0.0):BLANK=bval_poi);
+
+! Change to &quot;Mid-ship&quot; coordinate system.
+&#160; mode_local(#7);
+
+! Define points for &quot;Mid-ship&quot; section curve
+&#160; poi_free(#17,vec(21.376287262411, 12.086888404603, 0.0):BLANK=bval_poi);
+&#160; poi_free(#22,vec(9.7394376103902, 3.0714197177825, 0.0):BLANK=bval_poi);
+&#160; poi_free(#23,vec(17.570912343131, 6.824288804571, 0.0):BLANK=bval_poi);
+&#160; poi_free(#24,vec(4.5930399288751, 1.1677904708607, 0.0):BLANK=bval_poi);
+&#160; poi_free(#25,vec(13.93487050293, 5.0294383717591, 0.0):BLANK=bval_poi);
+&#160; poi_free(#26,vec(19.752537447251, 9.3262015290966, 0.0):BLANK=bval_poi);
+
+! Change to &quot;Near-bow&quot; coordinate system.
+&#160; mode_local(#6);
+
+! Define points for &quot;Near-bow&quot; section curve
+&#160; poi_free(#27,vec(0.17385061540016, 0.6782858073666, 0.0):BLANK=bval_poi);
+&#160; poi_free(#28,vec(1.4045109305451, 4.6487125223747, 0.0):BLANK=bval_poi);
+&#160; poi_free(#29,vec(2.2995366142868, 8.6735286444378, 0.0):BLANK=bval_poi);
+&#160; poi_free(#31,vec(3.2505014032625, 14.819531641642, 0.0):BLANK=bval_poi);
+&#160; poi_free(#32,vec(3.7539533503672, 18.409232507266, 0.0):BLANK=bval_poi);
+
+! Change back to the GLOBAL coordinate system
+&#160; mode_global();
+
+
+! +++
+! Create the section curves Near-stern, Mid-ship and Near-bow
+! ---
+
+&#160; cur_conic(#33,&quot;FREE&quot;, on(#11), on(#14), on(#12), on(#13), on(#10)
+&#160; &#160; &#160; &#160; &#160; &#160; :BLANK=bval_cur,PEN=2);
+&#160; sect_1_id := #33;
+
+&#160; cur_conic(#34,&quot;FREE&quot;, on(#27), on(#28), on(#29), on(#31), on(#32)
+&#160; &#160; &#160; &#160; &#160; &#160; &#160;:BLANK=bval_cur,PEN=2);
+&#160; sect_1_id := #34;
+
+&#160; cur_conic(#35,&quot;FREE&quot;, on(#24), on(#22), on(#25), on(#26), on(#17)
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; :BLANK=bval_cur,PEN=2);
+&#160; sect_1_id := #35;
+
+
+! +++
+! Define tangent definition points for the limit curves
+! ---
+&#160; POI_FREE(#201, VEC( 0.3916,20.2883, 13.9937):BLANK=bval_poi);
+&#160; POI_FREE(#202, VEC( 4.5923,21.1728, 98.0000):BLANK=bval_poi);
+&#160; POI_FREE(#203, VEC( 0.0169,20.6584,181.9937):BLANK=bval_poi);
+&#160; POI_FREE(#204, VEC( 1.9111,24.2585, 13.9786):BLANK=bval_poi);
+&#160; POI_FREE(#205, VEC( 9.7368,23.0755, 98.0000):BLANK=bval_poi);
+&#160; POI_FREE(#206, VEC( 1.1114,24.7024,181.9777):BLANK=bval_poi);
+&#160; POI_FREE(#207, VEC( 4.1736,34.3727, 13.9135):BLANK=bval_poi);
+&#160; POI_FREE(#208, VEC(19.7481,29.3294, 98.0000):BLANK=bval_poi);
+&#160; POI_FREE(#209, VEC( 2.9700,34.9125,180.9554):BLANK=bval_poi);
+&#160; POI_FREE(#210, VEC( 4.6684,41.4148, 13.8879):BLANK=bval_poi);
+&#160; POI_FREE(#211, VEC(21.3724,32.0475, 97.9996):BLANK=bval_poi);
+&#160; POI_FREE(#212, VEC( 3.1594,38.6419,181.8953):BLANK=bval_poi);
+
+! +++
+! Create limit curves and tangent curves for the lofted surface
+! The type of curve used for these curves are cur_conic curves
+!
+! ---
+
+
+! Define 1st limit curve
+&#160; cur_conic(#36,&quot;FREE&quot;,&#160; on(#11), on(#201), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;on(#24), on(#202), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;on(#27), on(#203) :BLANK=bval_cur,PEN=2);
+&#160; lim_1_id := #36;
+
+
+! Define 1st tanget curve
+&#160; cur_conic(#37,&quot;FREE&quot;,&#160; on(#14), on(#204), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;on(#22), on(#205), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;on(#28), on(#206) :BLANK=bval_cur,PEN=2);
+&#160; tang_1_id := #37;
+
+
+! Define 2nd limit curve
+&#160; cur_conic(#40,&quot;FREE&quot;,&#160; on(#13), on(#207), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;on(#26), on(#208), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;on(#31), on(#209) :BLANK=bval_cur,PEN=2);
+&#160; lim_2_id := #40;
+
+
+! Define 2nd Tangent curve
+&#160; cur_conic(#41,&quot;FREE&quot;, on(#10), on(#210), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; on(#17), on(#211), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; on(#32), on(#212) :BLANK=bval_cur,PEN=2);
+&#160; tang_2_id := #41;
+
+! +++
+!&#160; Define P-curve. The curve must be defined in the BASIC coordinate system
+! ---
+
+&#160; mode_basic();
+
+&#160; cur_conic(#44,&quot;FREE&quot;, vec(&#160; 0, 0.55, 0), vec(180, 0.45,&#160; &#160;0), 0.5,
+&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; vec(180, 0.45, 0), vec(&#160; 0, 0.55,&#160; &#160;0):BLANK=1);
+
+&#160; mode_global();
+&#160; pcur_id&#160; &#160;:= #44;
+
+
+! +++
+!&#160; Define the lofted surface
+! ---
+
+&#160; sur_conic( #1, #9, lim_1_id, tang_1_id, &quot;P&quot;, pcur_id, lim_2_id, tang_2_id
+&#160; &#160; &#160; &#160; &#160; &#160; &#160;:PEN=3, BLANK=bval_sur);
+
+
+ENDMODULE
+
+larfalitl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">larfalitl at exemail.com.au</A>&gt; hat am 4. Februar 2010 um 05:40
+geschrieben:
+
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> I'm trying to find points on a surface, to prove the method I grabbed 
+</I>&gt;<i> Gunnars surface from the tutorial.
+</I>&gt;<i> 
+</I>&gt;<i> In the variable defs I added
+</I>&gt;<i> INT f;
+</I>&gt;<i> VECTOR uv(10);
+</I>&gt;<i> VECTOR xyz(10);
+</I>&gt;<i> 
+</I>&gt;<i> And at the end put :-
+</I>&gt;<i> 
+</I>&gt;<i>&#160; &#160; all_int_lin_sur(#1, vec(0, 26, 140), vec(1, 0, 0), 2, ,f, uv, xyz);
+</I>&gt;<i> 
+</I>&gt;<i> XYZ returns a point on the surface which is exactly what I want.
+</I>&gt;<i> 
+</I>&gt;<i> But I don't understand why f has to be defined as an int. According to 
+</I>&gt;<i> the manual it should be :-
+</I>&gt;<i> 
+</I>&gt;<i> start&#160; &#160; &#160; &#160; &#160;- Start uv-value for faster numerical solution. vec(-1,-1,-1) = 
+</I>&gt;<i> none = default
+</I>&gt;<i> 
+</I>&gt;<i> But neither , , nor&#160; vec(-1,-1,-1) will be accepted.
+</I>&gt;<i> 
+</I>&gt;<i> Could some enlighten me as to what f returns? The number of intersects 
+</I>&gt;<i> perhaps?
+</I>&gt;<i> 
+</I>&gt;<i> Is all_int_lin_sur the best way to find points on a surface?
+</I>&gt;<i> 
+</I>&gt;<i> Cheers
+</I>&gt;<i> Graeme
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100204/7855bcd0/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100204/7855bcd0/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000228.html">[Varkon-discuss] Points on a surface
+</A></li>
+	<LI>Next message: <A HREF="000230.html">[Varkon-discuss] Fwd: Re:  varkon window opens, but not the menu
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#229">[ date ]</a>
+              <a href="thread.html#229">[ thread ]</a>
+              <a href="subject.html#229">[ subject ]</a>
+              <a href="author.html#229">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

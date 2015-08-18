@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon on different hardware platforms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20on%20different%20hardware%20platforms&In-Reply-To=%3C478E729F.1010000%40verizon.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000153.html">
+   <LINK REL="Next"  HREF="000154.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon on different hardware platforms</H1>
+    <B>Dan Falck</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20on%20different%20hardware%20platforms&In-Reply-To=%3C478E729F.1010000%40verizon.net%3E"
+       TITLE="[Varkon-discuss] Varkon on different hardware platforms">dfalck at verizon.net
+       </A><BR>
+    <I>Wed Jan 16 22:09:51 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000153.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+        <LI>Next message: <A HREF="000154.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#152">[ date ]</a>
+              <a href="thread.html#152">[ thread ]</a>
+              <a href="subject.html#152">[ subject ]</a>
+              <a href="author.html#152">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I would like to see comments preserved by the MBS compiler.  It would 
+make things much more readable.
+
+Thanks,
+Dan
+
+
+
+Johan Kjellander wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i> As I
+</I>&gt;&gt;&gt;<i> understand it they are normally not present in a Varkon project and
+</I>&gt;&gt;&gt;<i> Varkon decompiles the MBO file each time you want to edit the active
+</I>&gt;&gt;&gt;<i> module.
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i>
+</I>&gt;<i> Yes this is right. The interactive GUI works directly on the
+</I>&gt;<i> binary representation of a module (MBO format). To get the
+</I>&gt;<i> corresponding MBS code decompilation is required.
+</I>&gt;<i>
+</I>&gt;<i> I have three comments:
+</I>&gt;<i>
+</I>&gt;<i> 1. menu/file/export/MBS (f144) will export your module on
+</I>&gt;<i>    MBS format (file selector is used to specify the
+</I>&gt;<i>    name and location). Same function is also available
+</I>&gt;<i>    as menu/file/save_as/MBS.
+</I>&gt;<i>
+</I>&gt;<i> 2. When you save or save_and_exit Varkon by default
+</I>&gt;<i>    saves the module in MBO format. These two functions
+</I>&gt;<i>    also exist in a version that saves the MBO and decompiles
+</I>&gt;<i>    and also saves the MBS automatically. To replace the two
+</I>&gt;<i>    current functions with their MBO+MBS versions is just
+</I>&gt;<i>    a matter of a simple edit of the menu file. Would it
+</I>&gt;<i>    be better to have this as default ? All users would
+</I>&gt;<i>    then automatically get 3 files per job. MBS + MBO + RES
+</I>&gt;<i>    (There is also the JOB file but it will be removed
+</I>&gt;<i>    in Varkon 2.0).
+</I>&gt;<i>
+</I>&gt;<i> 3. One of the reasons for a compiler is to translate the
+</I>&gt;<i>    code into something which is more effective to execute
+</I>&gt;<i>    than plain text. Comments are not exeutable and most
+</I>&gt;<i>    compilers strip comments out of the binary code they
+</I>&gt;<i>    produce. So does the MBS compiler. It has been
+</I>&gt;<i>    proposed that we change this behaviour so that comments
+</I>&gt;<i>    are preserved during compilation. That would mean that
+</I>&gt;<i>    MBO files would become larger (comments need space) and
+</I>&gt;<i>    also that the decompiler would have to reformat coments
+</I>&gt;<i>    the same way it does with code today. Would this be
+</I>&gt;<i>    acceptable you think ?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Johan
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000153.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+	<LI>Next message: <A HREF="000154.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#152">[ date ]</a>
+              <a href="thread.html#152">[ thread ]</a>
+              <a href="subject.html#152">[ subject ]</a>
+              <a href="author.html#152">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

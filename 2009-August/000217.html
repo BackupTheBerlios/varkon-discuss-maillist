@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] [Fwd: Re:  [Fwd: curve intersect]]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20%5BFwd%3A%20Re%3A%20%20%5BFwd%3A%20curve%20intersect%5D%5D&In-Reply-To=%3C4A9466F6.6%40exemail.com.au%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000216.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] [Fwd: Re:  [Fwd: curve intersect]]</H1>
+    <B>Larfalitl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20%5BFwd%3A%20Re%3A%20%20%5BFwd%3A%20curve%20intersect%5D%5D&In-Reply-To=%3C4A9466F6.6%40exemail.com.au%3E"
+       TITLE="[Varkon-discuss] [Fwd: Re:  [Fwd: curve intersect]]">larfalitl at exemail.com.au
+       </A><BR>
+    <I>Wed Aug 26 00:34:30 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000216.html">[Varkon-discuss] [Fwd: curve intersect]
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#217">[ date ]</a>
+              <a href="thread.html#217">[ thread ]</a>
+              <a href="subject.html#217">[ subject ]</a>
+              <a href="author.html#217">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Fwd on behalf of Gunnar...
+
+
+
+-------- Original Message --------
+Subject: 	Re: [Varkon-discuss] [Fwd: curve intersect]
+Date: 	Tue, 25 Aug 2009 08:31:02 +0200
+From: 	Gunnar Liden &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">gunnar.liden at sunrise.ch</A>&gt;
+To: 	<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">varkon-discuss at lists.berlios.de</A>
+CC: 	Larfalitl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">larfalitl at exemail.com.au</A>&gt;
+References: 	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">4A931B0B.7000206 at exemail.com.au</A>&gt;
+
+
+
+Hello Graeme
+
+ 
+
+The curve/curve intersect function project the curves to the active XY 
+plane. You have to create a local coordinate system. Please see code below.
+
+ 
+
+Gunnar
+
+ 
+
+GLOBAL GEOMETRY MODULE my_intersect();
+
+ 
+
+FLOAT t_intersect;
+
+ 
+
+BEGINMODULE
+
+ 
+
+ 
+
+  ! Curve in X= 0 plane
+
+  poi_free(#1,vec(0, 200, 0));
+
+  poi_free(#2,vec(0, 30, 2250));
+
+  poi_free(#3,vec(0, 0, 4500));
+
+  poi_free(#4,vec(0, 30, 6750));
+
+  poi_free(#5,vec(0, 200, 9000));
+
+  cur_spline(#9,&quot;chord&quot;, on(#1), , on(#2), , on(#3), , on(#4), , on(#5));
+
+ 
+
+  lin_free(#10,vec(0, 0, 500), vec(0, 300, 500));
+
+ 
+
+  ! Create a local coordinate system where the curve is in the XY plane
+
+  csys_3p(#50,&quot;CurveCsys&quot;, vec(0, 0, 0), vec(0, 100.0, 0), vec(0, 0, 100));
+
+ 
+
+  ! Activate the local system
+
+  mode_local(#50);
+
+  ! The intersect point is calculated as the intersect between the curves
+
+  ! projected onto the XY plane of the local system 
+
+  poi_free(#51,intersect(#10, #9, 1));
+
+  ! Activate global system
+
+  mode_global();
+
+ 
+
+  ! Use point #51 for the definition of curve #19 and #29
+
+  ! (and not intersect(#10, #9) and on(#10, 0.5208))
+
+ 
+
+  ! The actual value of the parameter is 0.1555 and not 0.5208
+
+  ! Varkon can calculate this value. Not necessary for your
+
+  ! current problem, but maybe useful another time ...
+
+  t_intersect:=inv_on(#10, on(#51), 1);
+
+ 
+
+  ! Display parameter value
+
+  lst_ini(&quot;my_intersect&quot;);
+
+  lst_lin(&quot;Line parameter value for the intersect point is &quot;
+
+          + str(t_intersect, 1, 4));
+
+  lst_exi();
+
+ 
+
+ 
+
+ENDMODULE
+
+
+
+2009/8/25 Larfalitl &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">larfalitl at exemail.com.au</A> 
+&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">larfalitl at exemail.com.au</A>&gt;&gt;
+
+    Hi,
+
+    I'm pretty new to Varkon, but really enjoying being able to &quot;code&quot;
+    drawings (I won't bore you with the benefits :D)
+
+    My first question is about intersects with curves.  From my days of
+    technical drawing in High school, this is the basic way of finding
+    where things meet.  But I'm struggling to use this facility.
+
+    As a kludge, I currently using on(#10,0.nnn) &amp; aligning by eye.
+     While it works (until something moves!) its ugly.
+
+    I've attached a code sample as a &quot;picture is worth a thousand words&quot;.
+
+    Is there a better way?
+
+    Cheers
+    Graeme
+
+
+
+    GLOBAL MODULE Intersect();
+
+
+    BEGINMODULE
+
+     poi_free(#1,vec(0, 200, 0));
+     poi_free(#2,vec(0, 30, 2250));
+     poi_free(#3,vec(0, 0, 4500));
+     poi_free(#4,vec(0, 30, 6750));
+     poi_free(#5,vec(0, 200, 9000));
+     cur_spline(#9,&quot;chord&quot;, on(#1), , on(#2), , on(#3), , on(#4), , on(#5));
+
+
+     lin_free(#10,vec(0, 0, 500), vec(0, 300, 500));
+     poi_free(#11,vec(500, 150, 500));
+     poi_free(#12,vec(800, 250, 500));
+     poi_free(#13,vec(1000, 400, 500));
+     poi_free(#14,vec(1190, 800, 500));
+     poi_free(#15,vec(1250, 1000, 500));
+     cur_spline(#19,&quot;chord&quot;,intersect(#10, #9), ,on(#11), , on(#12), ,
+    on(#13), , on(#14), , on(#15));
+
+     poi_free(#21,vec(-500, 150, 500));
+     poi_free(#22,vec(-800, 250, 500));
+     poi_free(#23,vec(-1000, 400, 500));
+     poi_free(#24,vec(-1190, 800, 500));
+     poi_free(#25,vec(-1250, 1000, 500));
+     cur_spline(#29,&quot;chord&quot;,on(#10,0.5208), ,on(#21), , on(#22), ,
+    on(#23), , on(#24), , on(#25));
+
+
+    ENDMODULE
+
+
+    _______________________________________________
+    Varkon-discuss mailing list
+    <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt;
+    <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000216.html">[Varkon-discuss] [Fwd: curve intersect]
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#217">[ date ]</a>
+              <a href="thread.html#217">[ thread ]</a>
+              <a href="subject.html#217">[ subject ]</a>
+              <a href="author.html#217">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

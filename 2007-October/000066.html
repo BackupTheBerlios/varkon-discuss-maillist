@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon without JOB-files ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20without%20JOB-files%20%3F&In-Reply-To=%3C64325.81.227.234.97.1192719753.squirrel%40webmail01.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000065.html">
+   <LINK REL="Next"  HREF="000081.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon without JOB-files ?</H1>
+    <B>Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20without%20JOB-files%20%3F&In-Reply-To=%3C64325.81.227.234.97.1192719753.squirrel%40webmail01.one.com%3E"
+       TITLE="[Varkon-discuss] Varkon without JOB-files ?">johan at toan.se
+       </A><BR>
+    <I>Thu Oct 18 17:02:33 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000065.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+        <LI>Next message: <A HREF="000081.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#66">[ date ]</a>
+              <a href="thread.html#66">[ thread ]</a>
+              <a href="subject.html#66">[ subject ]</a>
+              <a href="author.html#66">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+The big picture is: How do we get more people to use Varkon ?
+
+I think that an Open Source 3D CAD system which is easy
+to install (click and run) and with a GUI similar to commersial
+systems ought to have quite a lot of users. There aren't
+many such systems around (if any).
+
+I think that Varkon needs a beginners mode, where new users
+can get familiar with the system without spending hours of
+reading documentation. Just simple drafting. 2D at first and then
+when 3D is needed just grow into 3D. Sooner or later some users
+will want to do something parametric and eventually even write
+MBS code. At that time they would have to switch to expert mode
+and start reading documentation but at that time they would also
+be motivated to do that.
+
+All this is actually available in Varkon today but not easy to see.
+Beginners mode is the same as explicit mode. In this mode you
+edit drawings just like AutoCAD. Default is 2D but all you need to
+do to go 3D is to change the current view. Expert mode is the same
+as generic mode (default mode in Varkon). In this mode you create
+or edit modules interactively or with a MBS text editor.
+
+I'm very glad to hear that you appreciate the way Varkon handles
+job data today. It works very well for expert users and I have
+never thought of removing such functionality (I might not have
+been clear on that point though). We already have JOB-files and
+from 1.19 they are text formatted. What we could do is to skip
+them in beginners mode (as a default) and only use them when the
+user explicitly wants to. In all other cases they would be
+stored with the model (drawing).
+
+I'm very greatful for your feedback, it has clearly pointed out
+that we should be careful not to &quot;destroy&quot; Varkon in our efforts
+to make it easier to use. However, if you think that more entry
+level users would be good for Varkon please don't hesitate to
+mail any ideas you might have to this list.
+
+Regards, Johan
+
+
+&gt;<i> On Tue, 16 Oct 2007, <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A> wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If the &quot;settings&quot; information were embedded in the model, then
+</I>&gt;&gt;<i> each user would pick up previous users' &quot;settings&quot; information,
+</I>&gt;&gt;<i> and in turn overwrite this with his/her own.  This would be an
+</I>&gt;&gt;<i> impediment to distributed multiuser access.  (If other systems such
+</I>&gt;&gt;<i> as Autocad are limited in this way, that would seem simply to be
+</I>&gt;&gt;<i> an argument in favor of Varkon, not an argument to be like them.)
+</I>&gt;<i>
+</I>&gt;<i> I must agree! I konw this problem from my practice. I mostly work
+</I>&gt;<i> with Unigraphics, and there are two classes of user settings. Some
+</I>&gt;<i> are stored on the workstation environment file (in past versions
+</I>&gt;<i> plain text, in new XLM - and I must say that text was much easier to
+</I>&gt;<i> use) and some are stored with model in the part file. This leads to
+</I>&gt;<i> many problems when passing files between different comapnies.
+</I>&gt;<i> In Catia V4 there was an idea of 'environment' which was a separete
+</I>&gt;<i> configuration file and for different task you ave used diferrent env.
+</I>&gt;<i> files. However in V5 they  have moved to mixed solution similar
+</I>&gt;<i> to one found in UG. It's even an XML file.
+</I>&gt;<i> So as a design engineer (not software engineer) I'd like to have the
+</I>&gt;<i> settings in separate file.
+</I>&gt;<i>
+</I>&gt;<i> Best regards,
+</I>&gt;<i> Maciek
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i>
+</I>
+
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000065.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+	<LI>Next message: <A HREF="000081.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#66">[ date ]</a>
+              <a href="thread.html#66">[ thread ]</a>
+              <a href="subject.html#66">[ subject ]</a>
+              <a href="author.html#66">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

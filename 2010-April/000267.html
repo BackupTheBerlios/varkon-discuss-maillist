@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] macro modules and MVC
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20macro%20modules%20and%20MVC&In-Reply-To=%3C4BCF543A.2070608%40johnmacphail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000265.html">
+   <LINK REL="Next"  HREF="000269.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] macro modules and MVC</H1>
+    <B>John MacPhail</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20macro%20modules%20and%20MVC&In-Reply-To=%3C4BCF543A.2070608%40johnmacphail.com%3E"
+       TITLE="[Varkon-discuss] macro modules and MVC">jm at johnmacphail.com
+       </A><BR>
+    <I>Wed Apr 21 21:38:34 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000265.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+        <LI>Next message: <A HREF="000269.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#267">[ date ]</a>
+              <a href="thread.html#267">[ thread ]</a>
+              <a href="subject.html#267">[ subject ]</a>
+              <a href="author.html#267">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Gunnar,
+
+That page is definitely helpful, and in particular makes
+some good uses of Macro modules quite clear.
+
+What is still fuzzy for me is whether your &quot;Interact
+with operator&quot; box (in the Generic Model) would maybe
+include having a non-Macro module create its own
+alert dialogs when encountering error conditions.
+It would seem more desirable to use some form of
+exception handling, where a non-Macro module
+throws the exception but a Macro module catches it,
+and then perhaps does an alert dialog. Have other
+people been doing that?
+
+Thanks,
+John (MacPhail)
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">gunnar.liden at viewsoncad.ch</A> wrote:
+&gt;<i>
+</I>&gt;<i> Hello John
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> I have made an attempt to explain the use of MACROs. Please refer to:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://viewsoncad.ch/VarkonTutorial/generic.htm">http://viewsoncad.ch/VarkonTutorial/generic.htm</A>
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Gunnar
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> John MacPhail &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt; hat am 21. April 2010 um 03:28 
+</I>&gt;<i> geschrieben:
+</I>&gt;<i>
+</I>&gt;<i> &gt; Possibly my trouble grasping proper use of MACRO
+</I>&gt;<i> &gt; modules comes from insufficient understanding of the
+</I>&gt;<i> &gt; Model-View-Controller design model both in general
+</I>&gt;<i> &gt; and specifically as it applies to Varkon.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 1. A fundamental concept in Varkon is &quot;the active module.&quot;
+</I>&gt;<i> &gt; This can never be a MACRO module. I assume there is at
+</I>&gt;<i> &gt; most one active module. Does Varkon allow a condition
+</I>&gt;<i> &gt; (analogous to the &quot;zero-document state&quot; of AutoCAD)
+</I>&gt;<i> &gt; where there is no active module?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 2. Unlike other modules, a MACRO is not embedded into
+</I>&gt;<i> &gt; the database, and can call a (different) MACRO module.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 3. The real point of MACRO modules is facilitating
+</I>&gt;<i> &gt; something like Model-View-Controller design: a MACRO
+</I>&gt;<i> &gt; module is a Controller component, the MBS/MBO files
+</I>&gt;<i> &gt; capture Model components, and a RES file is like a View
+</I>&gt;<i> &gt; component.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 4. A non-MACRO module can't (and shouldn't) directly
+</I>&gt;<i> &gt; invoke a MACRO module. For example, take M to be
+</I>&gt;<i> &gt; the alert-box example in the page macro-dialog.htm of the
+</I>&gt;<i> &gt; Varkon Application Developers Manual, and suppose a
+</I>&gt;<i> &gt; non-MACRO module NM encounters an error condition.
+</I>&gt;<i> &gt; The &quot;wrong&quot; approach would be for NM to pop up a
+</I>&gt;<i> &gt; dialog got by re-writing M as a non-macro module.
+</I>&gt;<i> &gt; The &quot;right&quot; approach would be for NM to create a user
+</I>&gt;<i> &gt; interface item such as a button that upon clicking would
+</I>&gt;<i> &gt; show the alert-box dialog.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Note that I am not finding the above (#4) example
+</I>&gt;<i> &gt; very convincing. Am I wrong not to be convinced? Can
+</I>&gt;<i> &gt; someone provide a better example?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; John (MacPhail)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Varkon-discuss mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000265.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+	<LI>Next message: <A HREF="000269.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#267">[ date ]</a>
+              <a href="thread.html#267">[ thread ]</a>
+              <a href="subject.html#267">[ subject ]</a>
+              <a href="author.html#267">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

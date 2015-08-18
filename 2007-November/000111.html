@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] compiling FreeBSD on Mac OS X
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20compiling%20FreeBSD%20on%20Mac%20OS%20X&In-Reply-To=%3C47377126.7040202%40verizon.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000110.html">
+   <LINK REL="Next"  HREF="000113.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] compiling FreeBSD on Mac OS X</H1>
+    <B>Dan Falck</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20compiling%20FreeBSD%20on%20Mac%20OS%20X&In-Reply-To=%3C47377126.7040202%40verizon.net%3E"
+       TITLE="[Varkon-discuss] compiling FreeBSD on Mac OS X">dfalck at verizon.net
+       </A><BR>
+    <I>Sun Nov 11 22:16:22 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000110.html">[Varkon-discuss] command box in varkon_1.19B
+</A></li>
+        <LI>Next message: <A HREF="000113.html">[Varkon-discuss] On Splines
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#111">[ date ]</a>
+              <a href="thread.html#111">[ thread ]</a>
+              <a href="subject.html#111">[ subject ]</a>
+              <a href="author.html#111">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Johan,
+
+I should have included more text earlier:
+
+[nds:varkon/varkon_1.19B/sources] danfalck% make
+mkdir -p ./IG/lib
+mkdir -p ./PM/lib
+mkdir -p ./EX/lib
+mkdir -p ./DB/lib
+mkdir -p ./WP/lib
+mkdir -p ./GE/lib
+mkdir -p ./AN/lib
+mkdir -p ./PL/lib
+mkdir -p ../bin
+mkdir -p ../tmp
+mkdir -p ../pid
+mkdir -p ../app
+make[1]: Nothing to be done for `distr'.
+make[1]: Nothing to be done for `distr'.
+make[1]: Nothing to be done for `distr'.
+', needed by `../lib/DBlib.a(db1.o)'.  Stop.ude/surdef.h
+make: *** [distr] Error 2
+
+
+
+I found that someone had this exact same error a long time ago and 
+posted it on the list:
+
+******************************************** message on varkon mailing 
+list from 25/05/05: 
+I'm trying to build Varkon 1.18A from source on OS X 10.3.8. After 
+changing a few #include directives and fixing some whitespace problems, 
+I managed to build the first few libs. Now I'm stuck. Here's the output 
+from make, running it again after the first time it quit:
+
+mkdir -p ./IG/lib
+mkdir -p ./PM/lib
+mkdir -p ./EX/lib
+mkdir -p ./GP/lib
+mkdir -p ./DB/lib
+mkdir -p ./WP/lib
+mkdir -p ./GE/lib
+mkdir -p ./AN/lib
+mkdir -p ./PL/lib
+make[1]: Nothing to be done for `distr'.
+make[1]: Nothing to be done for `distr'.
+make[1]: Nothing to be done for `distr'.
+make[1]: Nothing to be done for `distr'.
+', needed by `../lib/DBlib.a(db1.o)'.  Stop.ude/surdef.h
+make: *** [distr] Error 2
+
+This seems to mean that IGlib, PMlib, EXlib, and GPlib built okay the 
+first time, and when it gets to DB it can't find something, but it 
+doesn't say what. Any ideas?
+
+Thanks in advance,
+Randall
+***********************************************
+
+I have emailed Randall, in the hope that he might have found a solution.
+
+Thanks,
+Dan
+
+
+Johan Kjellander wrote:
+&gt;<i> Dan,
+</I>&gt;<i>
+</I>&gt;<i> This error message does not make any sense
+</I>&gt;<i> at all to me. surdef.h is a file that is
+</I>&gt;<i> included by DB.h. Is it possible for you
+</I>&gt;<i> to supply me with the complete output from
+</I>&gt;<i> make, not only these two lines ?
+</I>&gt;<i>
+</I>&gt;<i> Johan
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> I am attempting to install from source 1.19B on a Mac running OS X.  I
+</I>&gt;&gt;<i> am very patient, so I know this will take some time.  While trying to
+</I>&gt;&gt;<i> 'make' on this machine I have run across this error:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ', needed by `../lib/DBlib.a(db1.o)'.  Stop.ude/surdef.h
+</I>&gt;&gt;<i> make: *** [distr] Error 2
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I don't see which file is needed by the other here.  Any ideas?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks,
+</I>&gt;&gt;<i> Dan
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> P.S. I have also run across a few small errors with spaces between
+</I>&gt;&gt;<i> seperators in a few source files.  After making sure they were spaces
+</I>&gt;&gt;<i> and not tabs, things progressed further in the process.  I will try to
+</I>&gt;&gt;<i> document which ones and get them back to the Varkon team.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Varkon-discuss mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000110.html">[Varkon-discuss] command box in varkon_1.19B
+</A></li>
+	<LI>Next message: <A HREF="000113.html">[Varkon-discuss] On Splines
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#111">[ date ]</a>
+              <a href="thread.html#111">[ thread ]</a>
+              <a href="subject.html#111">[ subject ]</a>
+              <a href="author.html#111">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

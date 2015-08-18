@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] NURBS capabilities of GE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-July/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20NURBS%20capabilities%20of%20GE&In-Reply-To=%3CAANLkTilKEfWgeMIN7sQXRWsugX4I1bol1HbvvxrWUAcV%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000297.html">
+   <LINK REL="Next"  HREF="000299.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] NURBS capabilities of GE</H1>
+    <B>Clifford Yapp</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20NURBS%20capabilities%20of%20GE&In-Reply-To=%3CAANLkTilKEfWgeMIN7sQXRWsugX4I1bol1HbvvxrWUAcV%40mail.gmail.com%3E"
+       TITLE="[Varkon-discuss] NURBS capabilities of GE">cliffyapp at gmail.com
+       </A><BR>
+    <I>Sat Jul  3 21:18:56 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000297.html">[Varkon-discuss] NURBS capabilities of GE
+</A></li>
+        <LI>Next message: <A HREF="000299.html">[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#298">[ date ]</a>
+              <a href="thread.html#298">[ thread ]</a>
+              <a href="subject.html#298">[ subject ]</a>
+              <a href="author.html#298">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Gunnar,
+
+Ah, interesting news!  I'm a developer on BRL-CAD, and we are working
+with the OpenNURBS library to support NURBS.  I was curious how much
+progress Varkon had made with the NURBS analysis algorithms since
+that's one of the major things OpenNURBS does not supply (naturally
+enough - the Rhino developers supply that functionality commercially,
+so it stands to reason they wouldn't put it in the open library).
+
+If I may ask, which algorithm is the new work using?  I noticed Ling
+Huang's 1997 paper online:
+
+A Practical Algorithm for Surface/Surface Intersection
+<A HREF="http://www.cs.berkeley.edu/~hling/research/paper/intersection.htm">http://www.cs.berkeley.edu/~hling/research/paper/intersection.htm</A>
+
+Of course there's also NURBS approximation of surface/surface
+intersection curves in Springer
+(<A HREF="http://www.springerlink.com/content/x3665206243u20x8/">http://www.springerlink.com/content/x3665206243u20x8/</A>) but I haven't
+coughed up the $34 yet to see how helpful that might be.
+
+As far as practical, active open source efforts that either have
+solved or might be working on problems like surface/surface, I know of
+only three projects besides BRL-CAD and Varkon (and of course
+OpenNURBS, but they're intentionally limited in scope):
+
+SISL of course has published their source code
+(<A HREF="http://www.sintef.no/Informasjons--og-kommunikasjonsteknologi-IKT/Anvendt-matematikk/Fagomrader/Geometri/Prosjekter/The-SISL-Nurbs-Library/SISL-Homepage/">http://www.sintef.no/Informasjons--og-kommunikasjonsteknologi-IKT/Anvendt-matematikk/Fagomrader/Geometri/Prosjekter/The-SISL-Nurbs-Library/SISL-Homepage/</A>),
+but it's under GPL and so regrettably not viable for use directly in
+an LGPL project.  They license commercially and the site suggests the
+GPL was very carefully chosen to preserve the potential for commercial
+licenses (like OpenNURBS, a reasonable position), so my estimate is
+they are unlikely to consider switching to LGPL.  Their library dates
+back to 1988, but thus far I haven't found any papers they have
+published detailing their algorithms - does anyone know of any?
+
+Ayam (<A HREF="http://ayam.sourceforge.net">http://ayam.sourceforge.net</A>) is BSD licensed and has a lot of
+impressive NURBS modeling routines that would would probably be of
+interest to a general NURBS library, but unless I've missed something
+it does not do general surface/surface intersections but instead used
+CSG rendering via the GPL OpenCSG library.
+
+Blender has been working on NURBS for a number of years, but I'm not
+sure of their current status and like SISL they're fully GPL, hence
+not usable for Varkon and BRL-CAD.  (Or BRL-CAD at least - we can't
+mix GPL and LGPL.)
+
+There are a smattering of other libraries such as NURBS++, which is
+LGPL, but I don't of any that are either actively developed or have
+solved the surface/surface problem.  Does this summary agree with the
+knowledge of the Varkon devs?
+
+It's rather interesting that almost every open source project I know
+of using or working on NURBS has its own format and routines.  This I
+suppose is a natural consequence of their being so little work on the
+topic early on that each project was effectively &quot;on its own&quot; or, like
+Varkon and (I believe) SISL, started life intending to be commercial
+and thus needed their own routines.
+
+If I may, I would to ask the Varkon developers if there is any
+interest in the possibility of focusing efforts on a common LGPL
+library, perhaps based on the OpenNURBS library, that could serve as a
+sort of &quot;common foundation&quot; for the various open source efforts?  (I
+should stress that this is just me as an individual sounding out
+interest - I don't really have a concrete, detailed plan in mind yet.)
+ We all have to solve the same basic geometry problems before we can
+get to the &quot;good stuff&quot; - a concerted effort to gather up the various
+pieces from Ayam, Varkon and BRL-CAD as well as NURBS++ and any other
+stray license compatible code and make a robust library (I would
+suggest on top of OpenNURBS) under LGPL would be a benefit to us all.
+The main stumbling block of course is that we all have our own formats
+for NURBS, but with any luck a simple translation between various
+representations wouldn't be especially difficult and we could all use
+the same routines (or consolidate on one common format, although I
+expect that would be harder.)  Is there any interest in discussing
+such a project?
+
+Cheers,
+CY
+
+On Sat, Jul 3, 2010 at 11:17 AM, Gunnar Liden
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Gunnar.Liden at viewsoncad.ch</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Varkon is a parametric evaluator system which means that intersection
+</I>&gt;<i> functions should work for all implemented parametric surfaces and curves
+</I>&gt;<i> including NURBS. But for every new type of surface I implemented I had to do
+</I>&gt;<i> some modifications of the intersection functions.
+</I>&gt;<i>
+</I>&gt;<i> The surface-curve intersection function should work also for NURBS surfaces
+</I>&gt;<i> and curves, but I have never tested.
+</I>&gt;<i>
+</I>&gt;<i> I never finished the surface-surface intersection function and I don't
+</I>&gt;<i> remember how far I came. Another person has now started to work with this
+</I>&gt;<i> function (with a new algorithm) and hopefully he will be successful.
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i> Gunnar
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000297.html">[Varkon-discuss] NURBS capabilities of GE
+</A></li>
+	<LI>Next message: <A HREF="000299.html">[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#298">[ date ]</a>
+              <a href="thread.html#298">[ thread ]</a>
+              <a href="subject.html#298">[ subject ]</a>
+              <a href="author.html#298">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

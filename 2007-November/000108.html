@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] No PID files in Varkon 2.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20No%20PID%20files%20in%20Varkon%202.0&In-Reply-To=%3C200711111822.lABIMl93007910%40quartz1.mhtc.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000107.html">
+   <LINK REL="Next"  HREF="000109.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] No PID files in Varkon 2.0</H1>
+    <B>dmm at lemur.com</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20No%20PID%20files%20in%20Varkon%202.0&In-Reply-To=%3C200711111822.lABIMl93007910%40quartz1.mhtc.net%3E"
+       TITLE="[Varkon-discuss] No PID files in Varkon 2.0">dmm at lemur.com
+       </A><BR>
+    <I>Sun Nov 11 18:59:52 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000107.html">[Varkon-discuss] compiling FreeBSD on Mac OS X
+</A></li>
+        <LI>Next message: <A HREF="000109.html">[Varkon-discuss] command box in varkon_1.19B
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+By an odd coincidence, I was just yesterday writing up some 
+revised notes on using PID files, and think finally that I've
+managed to understand them and their place in the configuration
+and startup/environment of Varkon.  So when I read Johan's 
+posting today about eliminating them, my first gut-level reaction
+was &quot;Noooooooo....&quot; :-)
+
+But then I got to thinking, well, maybe, yes.
+
+The information in a PID file is necessary for a project,
+but it isn't quite as tightly tied into the project as
+things such as MBO files and the like (the contents of an
+&quot;app&quot; subdirectory).  In fact, if you have a project which
+conforms to the assumptions of the stock interface
+(&quot;job&quot;, &quot;mbs&quot;, etc. directories) and you have it located at
+VARKON_PRD, but you don't have a PID file, Varkon will create
+a PID file for it (without overwriting the project) 
+(I just tried this yesterday - it's nice).
+
+So it probably doesn't make much difference whether the 
+information is put into a PID file or into a startup script.
+As Johan suggests, putting the same information into a
+startup script means that you can actually do quite a bit
+more (since you have the shell to work with).
+
+The important aspect of this that would keep such a change
+&quot;Varkon style&quot; is that the information would still be accessible
+to the advanced user in the startup script - it wouldn't be
+buried away somewhere in the internals of Varkon, or put in some
+inaccessible binary form.
+
+One question would be whether you would in fact want separate
+startup scripts for each project, or some mechanism whereby
+there was a single &quot;starter startup&quot; script which was then 
+fed a project-startup script as a parameter (or which had an
+File -&gt; Open menu selection in a GUI).  This would have
+the advantage of one &quot;point of entry&quot; for Varkon.
+A related question would be how a new user would start up a
+new project which didn't already have a startup script.
+They could start with a standard script and do a &quot;save as&quot;
+to get a new one (but you'd probably want to ensure that they
+couldn't overwrite the standard startup script, otherwise 
+their &quot;home project&quot; might end up being their first test project,
+which might be disheartening).
+
+So, yes, eliminating PID files in favor of putting the same
+information into startup scripts might be quite nice.
+If it could be done so as to simplify things for the new user,
+that would be great.  For the advanced user, it would actually
+make a more powerful mechanism because PID files could then
+become shell scripts (in a way of thinking).
+
+Just some thought.
+
+Regards,
+David M.
+===
+Dr. David M. MacMillan * <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A> * www.lemur.com &amp; www.CircuitousRoot.com
+
+There are two ways of constructing a software design.  One way is to make
+it so simple that there are obviously no deficiencies and the other is to
+make it so complicated that there are no obvious deficiencies.
+                    - Charles Anthony Richard Hoare
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000107.html">[Varkon-discuss] compiling FreeBSD on Mac OS X
+</A></li>
+	<LI>Next message: <A HREF="000109.html">[Varkon-discuss] command box in varkon_1.19B
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

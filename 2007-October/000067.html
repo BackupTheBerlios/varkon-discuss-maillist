@@ -1,0 +1,309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] thoughts on possible Varkon enhancements
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20thoughts%20on%20possible%20Varkon%20enhancements&In-Reply-To=%3C200710221658.l9MGwplj020762%40quartz1.mhtc.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000082.html">
+   <LINK REL="Next"  HREF="000068.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] thoughts on possible Varkon enhancements</H1>
+    <B>dmm at lemur.com</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20thoughts%20on%20possible%20Varkon%20enhancements&In-Reply-To=%3C200710221658.l9MGwplj020762%40quartz1.mhtc.net%3E"
+       TITLE="[Varkon-discuss] thoughts on possible Varkon enhancements">dmm at lemur.com
+       </A><BR>
+    <I>Mon Oct 22 18:36:53 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000082.html">[Varkon-discuss] Varkon Wiki
+</A></li>
+        <LI>Next message: <A HREF="000068.html">[Varkon-discuss] Microsoft windows version of Varkon...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#67">[ date ]</a>
+              <a href="thread.html#67">[ thread ]</a>
+              <a href="subject.html#67">[ subject ]</a>
+              <a href="author.html#67">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Dear Varkon list,
+
+I have had the pleasure of having been involved in a couple of very 
+interesting discussions off-list about possible features/futures for 
+Varkon, and have had a few ideas which I have been encouraged to share 
+with the list.
+
+I would very much welcome any comments on or criticisms of these
+thoughts - they're just ideas, and they may or may not be useful.
+Don't hesitate to be critical; good critical discussions would help 
+Varkon, and wouldn't hurt my feelings at all.
+
+
+As a sort of a preface to this, I might observe that there seem to me
+to be two distinct approaches to promoting and/or enhancing Varkon.
+
+The first approach is to make Varkon more attractive to ordinary
+CAD users who expect CAD to be an analog of paper-and-pencil drafting.
+Once they're drawn in to Varkon and become comfortable with it,
+they may the see the value of generic/process modeling and take
+advantage of Varkon's more advanced features.  This seems to be 
+the approach that Johan is suggesting on the list.
+
+The second approach is to make Varkon more attractive to users who
+might, for whatever reason, immediately see the value of generic/process
+modeling. This might be done either by enhancing Varkon in these areas
+or simply by explaining Varkon better.   Of course, this approach 
+appeals to me, because the generic/MBS-related nature of Varkon is
+what drew me to it in the first place.
+
+Fortunately, these two approaches are not contradictory.  Indeed, they
+are probably complementary.  
+
+What I'll suggest as possible future items here, though, are all 
+oriented towards this second approach.  They may, therefore, be
+things that (even if they are worthwhile) might best be put on
+the &quot;back burner&quot; for some other day.
+
+They are also very much conditioned by my own background as a
+programmer and as a writer (but not a visual thinker, which
+may be odd given my interest in drafting).
+
+
+In any event, my thoughts as to things that I would like to see in
+Varkon in the future may be divided into two general categories:
+
+   - small-scale items
+   - large-scale items
+
+1. Small-Scale Items
+
+1a. If I had to ask for one single feature for Varkon, it would be
+    the preservation of comments in the compilation of MBS in an
+    interactive environment.  At present, if I write an MBS module
+    by hand and load it into Varkon, the comments and &quot;whitespace&quot;
+    of the original MBS code are lost.  
+
+    This means that while I can use Varkon interactively to generate MBS, 
+    I cannot use it interactively to modify existing handwritten MBS.
+    This makes development more difficult.
+
+    It also means that as a writer describing Varkon, I cannot simply
+    say that Varkon converts between interactive use and MBS
+    automatically or transparently; I must also have an &quot;except for...&quot;
+    explanation.  This makes explaining Varkon more difficult,
+    and makes Varkon less appealing to a potential new user.
+
+    Preserving comments and whitespace would make the interactive-to-MBS
+    (and back) conversion completely transparent in both directions.
+
+1b. If I were to ask for a second feature, it would be the ability to
+    write real subroutines in MBS (that is, not just other part() modules).
+    I can get the effect of a subroutine with a part() call, and can
+    even return values (via var parameters), but there have been many
+    situations where I wanted to do something that was just computation
+    and wasn't really a &quot;part.&quot;  It would be nice to be able to do this
+    in a procedure/function without creating a part in the model.
+
+    This may be something a bit like &quot;macro&quot; modules, but I've never
+    been quite clear in my own mind about how macro and geometry modules
+    may (or may not) be intermixed.
+
+1c. I would also add a &quot;while&quot; loop to MBS.  This is of course not functionally
+    important - you can do while-loops with goto and labels.  But
+    in practical terms it may be difficult to get a programmer to take
+    MBS (and thus Varkon) seriously without a &quot;while&quot; construct.
+
+    This may also be simply a prejudice of mine.  For the computer science
+    half of my undergraduate degree, most of what I studied was
+    compiler construction.  So maybe this desire for a &quot;while&quot; loop
+    is true only for programmers of my generation who happened to
+    study compiler construction :-)
+
+    Dijkstra's 1968 letter to the ACM on the &quot;goto&quot; still haunts
+    programmers.
+
+
+2. Large-Scale Items
+
+   The importance of &quot;generic&quot; (or &quot;process&quot;) modeling in Varkon is that
+   it can potentially capture not only the designed thing, but the
+   process of designing it.  There are of course many ways to do this.
+   The simplest is just the use of good programming style in MBS -
+   it can be as simple as good comments.  Others, such as Gunnar Liden,
+   have written systems for extracting documentation from MBS.
+   Still other approaches are possible, such as my own desire to
+   use MBS in a &quot;Literate Programming&quot; fashion (probably using the
+   &quot;noweb&quot; tool) - but I acknowledge that Literate Programming is not
+   something which has become popular (nor is it likely to).
+
+   The following two items might, I think, add significantly to the
+   ability to capture the design process in Varkon.
+
+
+3a. Links from Varkon to Documentation
+
+    Imagine a kind of an &quot;annotation link&quot; that might be added to any
+    component of a model (any Varkon REF number, perhaps). 
+
+    It would show up on the screen/model as an icon or symbol (which could be 
+    specified or selected from a library of icons/symbols, or possibly 
+    be user-supplied).  This might be done so that it always faced the user, 
+    as text does.  On a mouse-over it might show the name of the annotation 
+    link.  On a mouse click it would open the appropriate helper application
+    (in another window) and load up the target contents of the link.
+
+    In MBS, it would be a statement. Possibly:
+
+        link (id, attach_to, symbol, mime_type, link, name, comment);
+           REF id;
+           REF attach_to;
+           REF symbol;
+           STRING mime_type;
+           STRING link; 
+           STRING name;         ! optional
+           STRING comment;      ! optional
+
+    It wouldn't be hard for a hyperlink-aware editor to allow the user
+    to click on the link (if it is a URI) in the editor to bring up 
+    the linked content.
+
+    The icon/symbol could be anything drawn in Varkon.  It might be
+    the result of using symb() to generate a 2-D symbol from a PLT file,
+    for example.  This would be a handy way to distribute libraries of
+    icons/symbols.  It might also be something drawn specifically for or in
+    a particular model.
+    
+    The mime type could be anything reasonable - image, pdf, plain text,
+    html document, etc.
+    
+    The thing linked to could be anything relevant to the design or 
+    engineering of the model.  Examples:
+
+        - a specification document for this model, part, etc.
+        - a parts catalog entry
+        - a data sheet
+        - a standards document
+        - a published engineering study in support of a design decision
+        - a spreadsheet analyzing something (costs, weights, whatever)
+        - photographs of tests
+        - video of tests
+        - a report of tests 
+        - a patent
+        - a statement of publicity/security level (public, confidential, etc.)
+        - a statement of licensing terms for proprietary components
+        - a link to another program which analyzes something
+        - a text/html/pdf document by the designer commenting upon
+          or analyzing this aspect of the design 
+        - another Varkon model (useful, perhaps, when designing
+          a coordinated series of things)
+        - a third-party or historical model/design/drawing
+        - a link to a discussion list archive (esp. useful for a public
+          project; but possibly also in-house discussion lists)
+        - a link to a bug/problem tracking repository item
+        - etc.; the possibilities are numerous
+
+    In short, anything that a designer has, which has influenced the design,
+    and which can be identified, may be referenced.   In our networked world,
+    most references will be URIs/URLs, but a reference could in fact
+    be to a paper source (e.g., by a bibliographic citation, company
+    document number, Standard number (e.g., ISO, DIN), or 
+    a library call number).
+
+    The &quot;name&quot; would be a relatively short-form but human-readable name
+    for the thing linked.
+
+    The &quot;comment&quot; field is just a free-form comment in case the link
+    needs some further explanation (e.g., why it is linked, if not obvious).
+    The STRING for it should be as long as practical.
+
+  
+    This would allow the model to be both a sort of a catalog which
+    collects/identifies all of the documentation relevant to the design
+    and also a structure which organizes way people access this
+    information.  The model can become a 3-D geometrical &quot;index&quot; 
+    into the piles of real-or-virtual &quot;paper&quot; on the designer's 
+    desk-or-computer.
+    
+
+3b. Standalone Varkon viewer
+
+    The opposite of being able to reference the world of documents from
+    within a Varkon model is being able to reference a Varkon model from
+    within the world of documents.  For this, a standalone Varkon viewer
+    would be ideal.  It could be run by itself (much as &quot;acroread&quot; allows
+    people to view PDF/&quot;Acrobat&quot; files), or it could be embedded as a
+    helper application within a web browser (e.g. mozilla/firefox), 
+    word processor (e.g., Open Office), prepress program (Scribus?),
+    or other program (again, as &quot;acroread&quot; is, or as an SVG viewer is, etc.)
+
+    It would be a read-only viewer which would allow the user to
+    zoom/pan/rotate/level-blank the model so as to look at it in any way, 
+    but not to modify the model.  The reason for read-only isn't so much
+    security as data integrity (many people may be viewing the model;
+    they can't all be authorized to make design changes).
+
+    Here the ability to separate the model from the &quot;setting&quot; information
+    is important.  A Varkon model might be distributed as an example
+    on a website, for instance.  Several different documents might,
+    simultaneously, link to the model and display it through the
+    embedded Varkon viewer.  Each could specify its own settings
+    (viewing angles, levels visible or blanked, etc.)
+
+    Wouldn't it be great if pannable/zoomable/rotatable Varkon models
+    became as commonplace in documents as JPG/PNG images? (!)
+    (Scalable sort-of-interactive SVG is just now starting to become usable
+    in this way).
+
+    Or is it really already possible to do this with Varkon as it is
+    (and thus just a matter of making Varkon as easy to install as
+    an ordinary browser/other-program plugin)?
+
+
+Anyway, these are just some thoughts.  I hope that you find them 
+interesting.  Varkon is extremely nice as it is right now; I feel
+a bit greedy asking for more!
+
+Regards,
+David M.
+===
+Dr. David M. MacMillan * <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A> * www.lemur.com &amp; www.CircuitousRoot.com
+
+There are two ways of constructing a software design.  One way is to make
+it so simple that there are obviously no deficiencies and the other is to
+make it so complicated that there are no obvious deficiencies.
+                    - Charles Anthony Richard Hoare
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000082.html">[Varkon-discuss] Varkon Wiki
+</A></li>
+	<LI>Next message: <A HREF="000068.html">[Varkon-discuss] Microsoft windows version of Varkon...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#67">[ date ]</a>
+              <a href="thread.html#67">[ thread ]</a>
+              <a href="subject.html#67">[ subject ]</a>
+              <a href="author.html#67">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

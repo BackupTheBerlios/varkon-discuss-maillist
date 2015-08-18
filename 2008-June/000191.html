@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] error compiling with gcc4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20error%20compiling%20with%20gcc4&In-Reply-To=%3C20080621163258.GA8836%40casa%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000192.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] error compiling with gcc4</H1>
+    <B>Marco Curreli</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20error%20compiling%20with%20gcc4&In-Reply-To=%3C20080621163258.GA8836%40casa%3E"
+       TITLE="[Varkon-discuss] error compiling with gcc4">marcocurreli at tiscali.it
+       </A><BR>
+    <I>Sat Jun 21 18:32:58 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000192.html">[Varkon-discuss] Varkon won't start
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#191">[ date ]</a>
+              <a href="thread.html#191">[ thread ]</a>
+              <a href="subject.html#191">[ subject ]</a>
+              <a href="author.html#191">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+this is my first message in the varkon mailing list, I'm
+sorry but my english is very bad, so I'll be very concise.
+
+With the last version of gcc Varkon don't compile anymore.
+
+It gets the following message:
+
+gcc -ansi -pedantic -Wall -ffloat-store -fsigned-char -O
+-DUNIX -DVARKON   -c -o extcp.o extcp.c
+extcp.c: In function &#8216;EXtcpco&#8217;:
+extcp.c:240: error: &#8216;struct hostent&#8217; has no member named
+&#8216;h_addr&#8217;
+make[1]: *** [extcp.o] Error 1
+rm excugl.o exsurexd.o excur1.o exsurtrim.o exrap.o exsymb.o
+exos.o exdim.o exsur3.o exodbc.o exmove.o exsurusr.o
+excur2.o exmesh.o exsur2.o exgroup.o exoru.o exref.o
+exget1.o exgeofun1.o exsugl.o excsy.o exbplane.o exget2.o
+exdia1.o expoint.o exsurcur.o exjob.o exline.o exsur1.o
+exdia2.o expart.o exarc.o exgatt.o exgeofun2.o exdraw.o
+make[1]: Leaving directory
+`/home/marco/abs/local/varkon/src/Varkon_1.19C/sources/EX/src'
+make: *** [distr] Error 2
+
+On 26 march 2008 I've compiled it without any problem
+
+Best regards,
+
+     Marco
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000192.html">[Varkon-discuss] Varkon won't start
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#191">[ date ]</a>
+              <a href="thread.html#191">[ thread ]</a>
+              <a href="subject.html#191">[ subject ]</a>
+              <a href="author.html#191">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

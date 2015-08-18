@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Changing the centre of rotation in the OpenGL view
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Changing%20the%20centre%20of%20rotation%20in%20the%20OpenGL%0A%20view&In-Reply-To=%3C52021849.3060506%40componic.co.nz%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000330.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Changing the centre of rotation in the OpenGL view</H1>
+    <B>Glenn Ramsey</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Changing%20the%20centre%20of%20rotation%20in%20the%20OpenGL%0A%20view&In-Reply-To=%3C52021849.3060506%40componic.co.nz%3E"
+       TITLE="[Varkon-discuss] Changing the centre of rotation in the OpenGL view">gr at componic.co.nz
+       </A><BR>
+    <I>Wed Aug  7 11:50:01 CEST 2013</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000330.html">[Varkon-discuss] Changing the centre of rotation in the OpenGL view
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#329">[ date ]</a>
+              <a href="thread.html#329">[ thread ]</a>
+              <a href="subject.html#329">[ subject ]</a>
+              <a href="author.html#329">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>For the archives...
+
+On 06/08/13 22:15, <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> wrote:&gt; Glen,
+ &gt;
+ &gt; Good to hear that you fixed the problem. After some time I now think I 
+remember what is wrong with the centre of rotation in the OpenGL window. The 
+centre is always in the centre of the model (as you say) even if you zoom and 
+pan a lot. This means that if you zoom in on some detail far away from the 
+centre and then rotate you get the same kind of problem as you had with your 
+model. The centre of rotation should be in the centre of the screen always, not 
+in the centre of the model. This is a bug and should be fixed.
+ &gt;
+ &gt; Cheers, Johan
+ &gt;
+ &gt; -----------------------
+ &gt;
+ &gt; Dr. Johan Kjellander, Docent
+ &gt; Senior lecturer Mechanical engineering
+ &gt; School of Science and Technology
+ &gt; &#214;rebro university
+ &gt; SE-70182 &#214;rebro
+ &gt; SWEDEN
+ &gt; E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+ &gt; Tel: +46 (0)705 500 356
+ &gt;
+ &gt; ----- Original Message -----
+ &gt; From: Glenn Ramsey &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">glenn at componic.co.nz</A>&gt;
+ &gt; Date: Tuesday, August 6, 2013 02:14
+ &gt; Subject: Re: [Varkon-discuss] Changing the centre of rotation in the OpenGL view
+ &gt;
+ &gt;&gt; Hi Johan,
+ &gt;&gt;
+ &gt;&gt; I figured out a work around. I had been loading a csys at 0,0,0
+ &gt;&gt; while my model
+ &gt;&gt; is at -100,100,-600. In this case both of these a shown in the OGL
+ &gt;&gt; view and the
+ &gt;&gt; centre of rotation is at their mid point. If I don't have a csys
+ &gt;&gt; at 0,0,0 then
+ &gt;&gt; the view is centered on my model and is OK. It seems that the
+ &gt;&gt; centre of rotation
+ &gt;&gt; is always at the centroid of the visible parts. This means that to
+ &gt;&gt; get a
+ &gt;&gt; rotatable view of a single part the others must be hidden.
+ &gt;&gt;
+ &gt;&gt; Cheers
+ &gt;&gt; Glenn
+ &gt;&gt;
+ &gt;&gt; On 01/08/13 04:05, <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> wrote:
+ &gt;&gt;&gt; Glenn,
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; I'm on my boat in the Canary islands right now and I have no
+ &gt;&gt; Varkon system up
+ &gt;&gt;&gt; and running at the moment. However, I think you are right about
+ &gt;&gt; the center of
+ &gt;&gt;&gt; origin for rotation in the OpenGL window. There is something
+ &gt;&gt; there which does
+ &gt;&gt;&gt; not function as you would expect.
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; Until that issue is fixed I can only think of solutions that
+ &gt;&gt; include moving
+ &gt;&gt;&gt; the model to the BASIC origin.
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; If you are familiar with MBS programming you could create a copy
+ &gt;&gt; of the model
+ &gt;&gt;&gt; in the BASIC origin using TFORM_MOVE() and TCOPY() optionally
+ &gt;&gt; followed by a
+ &gt;&gt;&gt; DEL() to delete the original model.
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; Another way would be to study the MBS source code of the STL-
+ &gt;&gt; input module.
+ &gt;&gt;&gt; I'm quite sure it is easy to modify to do what you need.
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; If you are interested in trying this and need more help, please
+ &gt;&gt; let me know.
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; Johan
+ &gt;&gt;&gt;
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; -----------------------
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; Dr. Johan Kjellander, Docent Senior lecturer Mechanical
+ &gt;&gt; engineering School of
+ &gt;&gt;&gt; Science and Technology &#214;rebro university SE-70182 &#214;rebro SWEDEN
+ &gt;&gt; E-mail:
+ &gt;&gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> Tel: +46 (0)705 500 356
+ &gt;&gt;&gt;
+ &gt;&gt;&gt; ----- Original Message ----- From: Glenn Ramsey
+ &gt;&gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">gr at componic.co.nz</A>&gt; Date:
+ &gt;&gt;&gt; Wednesday, July 31, 2013 04:40 Subject: [Varkon-discuss]
+ &gt;&gt; Changing the centre
+ &gt;&gt;&gt; of rotation in the OpenGL view
+ &gt;&gt;&gt;
+ &gt;&gt;&gt;&gt; Hi,
+ &gt;&gt;&gt;&gt;
+ &gt;&gt;&gt;&gt; I'm loading and trying to view an STL mesh where the mesh
+ &gt;&gt; coordinates are
+ &gt;&gt;&gt;&gt; not close to the origin (it's part of a femur in a patient
+ &gt;&gt; coordinate&gt;&gt; system, the centroid is at approx 100,-125,-600 mm).
+ &gt;&gt; In the OpenGL window
+ &gt;&gt;&gt;&gt; when I rotate the model using the mouse it rotates about some
+ &gt;&gt; point that is
+ &gt;&gt;&gt;&gt; far away from the model. This means that it is almost
+ &gt;&gt; impossible to view
+ &gt;&gt;&gt;&gt; the model.
+ &gt;&gt;&gt;&gt;
+ &gt;&gt;&gt;&gt; Is there a way to make the centre of rotation in the OpenGL
+ &gt;&gt; window near to
+ &gt;&gt;&gt;&gt; the centroid of the model?
+ &gt;&gt;&gt;&gt;
+ &gt;&gt;&gt;&gt; Glenn
+
+
+
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000330.html">[Varkon-discuss] Changing the centre of rotation in the OpenGL view
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#329">[ date ]</a>
+              <a href="thread.html#329">[ thread ]</a>
+              <a href="subject.html#329">[ subject ]</a>
+              <a href="author.html#329">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

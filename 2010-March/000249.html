@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20GUI%20%28was%2C%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%0A%20or%20what%3F%29&In-Reply-To=%3C4BACBA7D.4040400%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000248.html">
+   <LINK REL="Next"  HREF="000242.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20GUI%20%28was%2C%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%0A%20or%20what%3F%29&In-Reply-To=%3C4BACBA7D.4040400%40aon.at%3E"
+       TITLE="[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)">armin.faltl at aon.at
+       </A><BR>
+    <I>Fri Mar 26 14:45:33 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000248.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+        <LI>Next message: <A HREF="000242.html">[Varkon-discuss] Varkon library structure
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#249">[ date ]</a>
+              <a href="thread.html#249">[ thread ]</a>
+              <a href="subject.html#249">[ subject ]</a>
+              <a href="author.html#249">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Johan,
+
+it would be quite enlighting, to have a list of WP-widgets including
+their description. It sure makes a good starting point for porting.
+
+As I wrote to John, one of the difficulties is, that in the process
+of module-instantiation, EX can make calls to GUI elements for input
+parameters. Not being aware, how this is handled, I suggest to make
+an interface, that allows registration of callbacks providing the
+wanted information - how the GUI collects this information should
+be transparent to EX. I imagine this does not force to big a deviation
+of how it is implemented now.
+
+Best Regards,
+
+Armin
+
+ Johan Kjellander wrote:
+&gt;<i>
+</I>&gt;<i> Given a list of current WP widgets and their functionality, it would be
+</I>&gt;<i>
+</I>&gt;<i> interesting to hear how GTK would implement similar functionality. If
+</I>&gt;<i>
+</I>&gt;<i> you want to, I can assemble a list of all WP widgets and short 
+</I>&gt;<i> descriptions
+</I>&gt;<i>
+</I>&gt;<i> of their functionality so that you can have a look.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> [snip]
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Johan
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000248.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+	<LI>Next message: <A HREF="000242.html">[Varkon-discuss] Varkon library structure
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#249">[ date ]</a>
+              <a href="thread.html#249">[ thread ]</a>
+              <a href="subject.html#249">[ subject ]</a>
+              <a href="author.html#249">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

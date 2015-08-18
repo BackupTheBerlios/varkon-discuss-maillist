@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] NURBS Status
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20NURBS%20Status&In-Reply-To=%3C45A22262.7080405%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] NURBS Status</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20NURBS%20Status&In-Reply-To=%3C45A22262.7080405%40aon.at%3E"
+       TITLE="[Varkon-discuss] NURBS Status">armin.faltl at aon.at
+       </A><BR>
+    <I>Mon Jan  8 11:52:18 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[Varkon-discuss] NURBS Status
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>To give more detail on that:
+
+surface/surface intersections have been implemented by me in last 
+fall/winter
+for the general case of parametric surfaces (including NURBS), but lacking
+the handling of bounds of the intersection curve, caused by boundaries of
+the surfaces. The later exists as detailed algorithm description.
+The implementation was tested on a cylinder/cylinder mockup and takes 
+only ms.
+The implementation/combination of this feature with Varkon surfaces
+depends on the possiblity to express the intersection curve as a parametric
+curve on a surface in the u,v-space of that surface, which will be possible
+with the trimmed-surface feature.
+
+&gt;<i>Under develop:
+</I>&gt;<i>- Use of NURBS (and other curves) as trimming curves for surfaces.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>I had thoughts about investigating how to do, and also implement support for the missing items (listed under &quot;not implemented&quot;). It is however not possible to give a time shedule as this is done in &quot;sparetime&quot; and/or when we need this functionallity ourselves.
+</I>&gt;<i>
+</I>As the sparetime seems to be mine, I must say sorry - at the moment I'm 
+rather out of it
+and try to get on my feet again having a cold. However, until summer 07 
+the trimmed-
+property of the intersection curves should be done, - I've been waiting 
+until S&#246;ren
+completed internal representation of curves on surfaces as well.
+
+Best Regards, Armin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[Varkon-discuss] NURBS Status
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

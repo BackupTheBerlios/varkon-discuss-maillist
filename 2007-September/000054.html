@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Setting default linewidth, etc.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Setting%20default%20linewidth%2C%20etc.&In-Reply-To=%3C61855.81.227.234.97.1190995590.squirrel%40webmail1.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000053.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Setting default linewidth, etc.</H1>
+    <B>Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Setting%20default%20linewidth%2C%20etc.&In-Reply-To=%3C61855.81.227.234.97.1190995590.squirrel%40webmail1.one.com%3E"
+       TITLE="[Varkon-discuss] Setting default linewidth, etc.">johan at toan.se
+       </A><BR>
+    <I>Fri Sep 28 18:06:30 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000053.html">[Varkon-discuss] Setting default linewidth, etc.
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#54">[ date ]</a>
+              <a href="thread.html#54">[ thread ]</a>
+              <a href="subject.html#54">[ subject ]</a>
+              <a href="author.html#54">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ruven and all of you,
+
+The answer is no. The issue can be generalized to
+may other settings as well. Some CAD systems
+supply the possibility for the user to create a
+&quot;default&quot; job with settings that will always be loaded
+when a new job is created. This is definitely something
+to add to Varkon 2.0. Start a new job, make all the settings
+you like, save the job with a special name (Varkon.JOB or
+default.JOB or similar) in a special place ($VARKON_INI)
+and this JOB-file will always be loaded prior to a new job.
+
+This leads to another issue, the two Varkon
+modes and their different files (*.MBO,*.RES and *.RIT)
+In explicit mode (-r on the command line) Varkon acts
+as an WYSIWIG system (AutoCAD) and creates *.RIT-files.
+No history, no active module, no possibility to re-run.
+(You can use parts though)
+
+In generic mode (default mode) a module (*.MBO-file) is
+created that you can run at any time to create a new result
+(*.RES-file).
+
+How do we communicate this to new users. Suppose
+somebody is trying Varkon for the first time. &#168;Most probably
+this person will start out expecting Varkon to be something
+like AutoCAD. It is unlikely that new users will understand
+the powerful concept of generic modeling using MBS etc.
+
+So, maybe the default mode for a new job should be explicit.
+Alternatively, when a user starts a new job a start menu
+with the two alternate modes should be presented ? Finally,
+explicit and generic are academic terms, we need better
+words.
+
+- &quot;Drafting mode&quot; and &quot;Programming mode&quot; ?
+
+or
+
+- &quot;Edit mode&quot; and &quot;History mode&quot;
+
+or
+
+- &quot;Static mode&quot; and &quot;Variational mode&quot;
+
+or
+
+- &quot;Simple mode&quot; and &quot;Expert mode&quot;
+
+or
+
+- &quot;Documentation mode&quot; and &quot;Modeling mode&quot;
+
+or.....
+
+Also: There is actually a third mode which
+is the MBS mode using a text editor.
+(Expert++ mode)
+
+Feedback please !
+
+Regards, Johan
+
+
+
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Is there a way to specify the default linewidth shown in the main menu?
+</I>&gt;<i> It's currently always 0.0; I want to set it to 0.35. It looks like it
+</I>&gt;<i> ought to be settable via the config file, but if it works, I don't know
+</I>&gt;<i> how.
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Ruven
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i>
+</I>
+
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000053.html">[Varkon-discuss] Setting default linewidth, etc.
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#54">[ date ]</a>
+              <a href="thread.html#54">[ thread ]</a>
+              <a href="subject.html#54">[ subject ]</a>
+              <a href="author.html#54">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

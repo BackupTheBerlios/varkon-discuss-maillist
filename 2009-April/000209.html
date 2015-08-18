@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Global way to store often needed data?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Global%20way%20to%20store%20often%20needed%20data%3F&In-Reply-To=%3C200904190009.57402.matt%40kiatoa.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000208.html">
+   <LINK REL="Next"  HREF="000210.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Global way to store often needed data?</H1>
+    <B>Matthew Welland</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Global%20way%20to%20store%20often%20needed%20data%3F&In-Reply-To=%3C200904190009.57402.matt%40kiatoa.com%3E"
+       TITLE="[Varkon-discuss] Global way to store often needed data?">matt at kiatoa.com
+       </A><BR>
+    <I>Sun Apr 19 09:09:57 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000208.html">[Varkon-discuss] No editor launched
+</A></li>
+        <LI>Next message: <A HREF="000210.html">[Varkon-discuss] Global way to store often needed data?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#209">[ date ]</a>
+              <a href="thread.html#209">[ thread ]</a>
+              <a href="subject.html#209">[ subject ]</a>
+              <a href="author.html#209">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I have some dimentions that are needed in several modules. What is the best 
+way to store and access these?
+
+Is it possible to write a &quot;macro module foo&quot; that can return a value based 
+on a keyword? A kind of global hash table perhaps.
+
+E.g.
+
+macro module foo(...)
+
+beginmodule
+  if key = &quot;door&quot;
+     foo:=100;
+  ....
+endmodule
+
+Then in another MBS file:
+
+ ....
+ width := foo(&quot;door&quot;);
+ ....
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090419/9bd5db2f/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090419/9bd5db2f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000208.html">[Varkon-discuss] No editor launched
+</A></li>
+	<LI>Next message: <A HREF="000210.html">[Varkon-discuss] Global way to store often needed data?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#209">[ date ]</a>
+              <a href="thread.html#209">[ thread ]</a>
+              <a href="subject.html#209">[ subject ]</a>
+              <a href="author.html#209">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

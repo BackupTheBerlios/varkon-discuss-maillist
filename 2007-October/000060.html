@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon without JOB-files ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20without%20JOB-files%20%3F&In-Reply-To=%3C47118970.3040300%40verizon.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000059.html">
+   <LINK REL="Next"  HREF="000061.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon without JOB-files ?</H1>
+    <B>Dan Falck</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20without%20JOB-files%20%3F&In-Reply-To=%3C47118970.3040300%40verizon.net%3E"
+       TITLE="[Varkon-discuss] Varkon without JOB-files ?">dfalck at verizon.net
+       </A><BR>
+    <I>Sun Oct 14 05:13:52 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000059.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+        <LI>Next message: <A HREF="000061.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Well, there seems to be silence on this issue, which might indicate that 
+JOB files are not very important to the users.  When I read the email, 
+my reaction was- 'oh yes, the JOB file- how does this work again?'   
+For me, being able to work in 3D with dimensions and hatches seems great.
+
+Thanks,
+
+Dan
+ 
+
+Johan Kjellander wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> For those of you who have the possibility to download
+</I>&gt;<i> Varkon from SourceForge using the Subversion ssystem
+</I>&gt;<i> it is now possible to download Varkon 1.19B SVN#31.
+</I>&gt;<i>
+</I>&gt;<i> Version 31 includes support for hatching and dimensions
+</I>&gt;<i> in 3D. A hatch or dimension is always oriented in the
+</I>&gt;<i> XY-plane of the currently active coordinate system.
+</I>&gt;<i>
+</I>&gt;<i> This means that there is no longer any need for the
+</I>&gt;<i> DRAWING (2D) module type. Everything can be done in
+</I>&gt;<i> a GEOMETRY (3D) module. To make the system easier to
+</I>&gt;<i> understand and use I therefore suggest that we remove
+</I>&gt;<i> the concept of &quot;module type&quot; completely. There is only
+</I>&gt;<i> one and it is always 3D. The keywords DRAWING and GEMOETRY
+</I>&gt;<i> no longer have any meaning.
+</I>&gt;<i>
+</I>&gt;<i> What do you think of this ?
+</I>&gt;<i>
+</I>&gt;<i> Next step I would like to take on the route to make Varkon
+</I>&gt;<i> easier to learn and use is to remove the JOB-files. JOB-files
+</I>&gt;<i> hold information about current settings that do not relate directly
+</I>&gt;<i> to a model. Which levels are blanked and which are not. Size
+</I>&gt;<i> and position and view of graphics windows. Current pen, position
+</I>&gt;<i> method, level, etc. etc. With current version of Varkon a JOB-file
+</I>&gt;<i> is automatically created each time you save your job and
+</I>&gt;<i> automatically loaded each time you load a job. You can delete
+</I>&gt;<i> JOB-files if you want to. If you load a job without jobfile
+</I>&gt;<i> Varkon will use default values for all settings.
+</I>&gt;<i>
+</I>&gt;<i> Most CAD systems do not store this kind of data in a separate
+</I>&gt;<i> file but rather in the same file as the model. In AutoCAD for
+</I>&gt;<i> example all GUI settings are stored together with lines, arcs,
+</I>&gt;<i> texts etc. in the DWG-file. I think that Varkon would be easier
+</I>&gt;<i> to learn and use if Varkon was similar to other systems in this
+</I>&gt;<i> matter. What do you think ?
+</I>&gt;<i>
+</I>&gt;<i> There is a problem though. Varkon is not AutoCAD. Varkon can act
+</I>&gt;<i> in AutoCAD mode (explicit mode, -r on the command line) and will
+</I>&gt;<i> then create so called RIT files which are similar to DWG. In explicit
+</I>&gt;<i> mode it would be straight forward to store the JOB data in the RIT
+</I>&gt;<i> file. In generic mode (default mode) Varkon creates MBO files and
+</I>&gt;<i> RES files. You can remove RES files to save space. The actual model
+</I>&gt;<i> is in the MOB files and a RES file can be recreated at any time
+</I>&gt;<i> by just pressing the &quot;RUN&quot; button. This separation of model and
+</I>&gt;<i> result is a uniqe feature in Varkon that i have still not seen
+</I>&gt;<i> in any other CAD system.
+</I>&gt;<i>
+</I>&gt;<i> So, if we have no JOB files, JOB data has to go somewhere else.
+</I>&gt;<i> In explicit mode it will go to the RIT-file, similar to AutoCAD.
+</I>&gt;<i> In generic mode I suggest we put the JOB data in the RES file. This
+</I>&gt;<i> means that as long as you keep your RES file with your job your
+</I>&gt;<i> current GUI settings will persist but if you delete a RES-file
+</I>&gt;<i> the GUI settings of that JOB will revert to their default values.
+</I>&gt;<i>
+</I>&gt;<i> What do you think of this ?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://www.toan.se">http://www.toan.se</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000059.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+	<LI>Next message: <A HREF="000061.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

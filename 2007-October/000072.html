@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon Wants You! A Rant
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20Wants%20You%21%20A%20Rant&In-Reply-To=%3C4723B154.5010902%40earthlink.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000071.html">
+   <LINK REL="Next"  HREF="000073.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon Wants You! A Rant</H1>
+    <B>Ruven Gottlieb</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20Wants%20You%21%20A%20Rant&In-Reply-To=%3C4723B154.5010902%40earthlink.net%3E"
+       TITLE="[Varkon-discuss] Varkon Wants You! A Rant">igadget at earthlink.net
+       </A><BR>
+    <I>Sat Oct 27 23:44:52 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000071.html">[Varkon-discuss] Microsoft windows version of Varkon...
+</A></li>
+        <LI>Next message: <A HREF="000073.html">[Varkon-discuss] Varkon Wants You! A Rant
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Greetings:
+
+In the spirit of:
+<A HREF="http://www.loc.gov/exhibits/treasures/images/tlc0090.jpg">http://www.loc.gov/exhibits/treasures/images/tlc0090.jpg</A>
+Substitute &quot;Varkon&quot; and &quot;SourceForge&quot; as appropriate. :-)
+
+Throughout this diatribe, I refer to this article:
+&quot;Comparing 3D CAD modelers&quot;
+<A HREF="http://machinedesign.com/ContentItem/57411/Comparing3DCADmodelers.aspx">http://machinedesign.com/ContentItem/57411/Comparing3DCADmodelers.aspx</A>
+
+First, I want to encourage, implore, and just plain nag you all to
+please use the SourceForge site to submit bug reports and feature
+requests. I see almost no one is submitting anything:
+
+Are you telling me you can find no bugs in Varkon?
+Are there no features you want?
+Don't you want anything for Christmas?
+Well, if you don't ask, you don't get. :-)
+
+
+OK, OK, now down to business.
+
+How do we want to proceed with Varkon development; what do we want it to 
+become:
+
+I think we need to have several timelines for Varkon development in our
+heads.
+
+
+
+There's the short-term one:
+
+Let's fix things that really matter. Let's
+get all the core functionality working. Varkon still has many parts of
+the core that are incomplete or broken:
+
+*rdims can generate incorrect
+dimension lines (see my bug report),
+
+*no native routines for generating ellipses, polygons, etc. We need 3d 
+primitives too:
+boxes, spher(oid|e)s, extrusions, whatever.
+
+*Printing and formatting system still primitive.
+
+*Graphical manipulation of individual entities and groups still
+rudimentary.
+
+*Can we make it easier to establish relationships between entities and 
+parts, i.e. how do we stick things together? Sticking parts together 
+graphically?
+
+*UI still primitive. Compare the Varkon UI with that of Blender. 
+<A HREF="http://www.blender.org/">http://www.blender.org/</A>
+
+
+
+There's the mid-term one:
+How do we use Varkon, and who is our audience?
+
+If we really want Varkon to be able to switch-hit as an explicit CAD
+app, we have to dramatically improve the UI. Look at QCad as a start.
+The rationale for an explicit CAD program is it has to allow the user to
+knock out a drawing or make changes quickly and easily, but with enough
+features that the user can do anything they want. So, it has to at least
+be better than QCad, or why bother?
+
+I think Varkon has been able to get away with a primitive UI
+because it was offset by the tremendous power of the parametric model.
+
+Once we start thinking about explicit modeling, we have to give people
+some reason to use Varkon. That reason would have to be efficiency and
+ease-of-use. Not through being rudimentary, but through being able to 
+perform the greatest number of operations with the least effort.
+
+As far as the parametric side goes, what can we do to make building a 
+large project easier?
+
+I notice that most Varkon projects are really &quot;sketches&quot;, and I suspect
+that one reason is that it is hard to build something really complete,
+because as you add more parts, changing the model becomes more and more
+difficult, or even impossible. Maybe we need to reconsider the whole 
+model structure to make it easier to change once it is large. Some sort 
+of object-oriented setup? I'm no CS grad, so I don't know what to do here.
+
+We need tools to alter the model after it's fairly complex. I've been
+toying with scripts to redo the part numbers throughout a model so I 
+could insert something into the model at arbitrary positions, but
+needless to say, it's a pain to do this reliably, and I haven't gotten 
+too far with it.
+
+If we really want to make Varkon competitive with commercial offerings,
+we have to look at them and decide who we're &quot;competing&quot; with. Are we
+after the Pro/E crowd? AutoCAD? SolidWorks? ParaSolid?
+
+There are also several other systems I found when I Googled &quot;parametric
+CAD&quot;. It looks like there is some kind of a split in the CAD universe.
+Most CAD seems to have some parametric attributes now, but there also
+seems to be a subset of CAD apps more like Varkon. There's some new
+technology out there where they use models that aren't history based
+(Kubotek's KeyCreator). Are non-history-based models as flexible as
+history-based models? Are they more flexible? Do we need to consider
+changing Varkon to keep up with this technology?
+
+We need to modernize the MBS language: broaden it and remove some 
+constraints like making MACRO modules general-purpose and callable from 
+any other module type. Give parts and modules the ability to return a 
+value to the calling module.
+
+OK, I feel better now. If I make this too long, you won't read any of it.
+
+Cheers,
+Ruven
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000071.html">[Varkon-discuss] Microsoft windows version of Varkon...
+</A></li>
+	<LI>Next message: <A HREF="000073.html">[Varkon-discuss] Varkon Wants You! A Rant
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

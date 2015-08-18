@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] 1.18A to 1.19B.nn: &quot;This module needs to be compiled with a newer MBS compiler - (IN 580 2)&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%201.18A%20to%201.19B.nn%3A%20%22This%20module%20needs%20to%20be%0A%20compiled%20with%20a%20newer%20MBS%20compiler%20-%20%28IN%20580%202%29%22&In-Reply-To=%3C47089E5E.1010209%40naffnet.org.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000055.html">
+   <LINK REL="Next"  HREF="000058.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] 1.18A to 1.19B.nn: &quot;This module needs to be compiled with a newer MBS compiler - (IN 580 2)&quot;</H1>
+    <B>Dave Woodman</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%201.18A%20to%201.19B.nn%3A%20%22This%20module%20needs%20to%20be%0A%20compiled%20with%20a%20newer%20MBS%20compiler%20-%20%28IN%20580%202%29%22&In-Reply-To=%3C47089E5E.1010209%40naffnet.org.uk%3E"
+       TITLE="[Varkon-discuss] 1.18A to 1.19B.nn: &quot;This module needs to be compiled with a newer MBS compiler - (IN 580 2)&quot;">dave at naffnet.org.uk
+       </A><BR>
+    <I>Sun Oct  7 10:52:46 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000055.html">[Varkon-discuss] 1.18A to 1.19B.nn: &quot;This module needs to be compiled with a newer MBS compiler - (IN 580 2)&quot;
+</A></li>
+        <LI>Next message: <A HREF="000058.html">[Varkon-discuss] 1.18A to 1.19B.nn: &quot;This module needs to be compiled with a newer MBS compiler - (IN 580 2)&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ruven Gottlieb wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I'm having trouble migrating some projects from Varkon 1.18A to 1.19B.nn
+</I>&gt;<i>
+</I>&gt;<i> I copy the package into the 1.19.31 app dir, erase all the MBO files in 
+</I>&gt;<i> job and lib dirs, recompile all the *.MBS files in job and mbs dirs, get 
+</I>&gt;<i> successful compiles with no errors.
+</I>&gt;<i>
+</I>&gt;<i> I restart Varkon; call the project, call the newly recompiled jobs,
+</I>&gt;<i> The appropriate MBO and JOB files are recreated.
+</I>&gt;<i>
+</I>&gt;<i> When I try to run the newly compiled jobs I get the error message: &quot;This 
+</I>&gt;<i> module needs to be compiled with a newer MBS compiler - (IN 580 2)&quot;.
+</I>&gt;<i>
+</I>&gt;<i> What gives? All the modules everywhere have been recompiled.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Ruven
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> This email has been verified as Virus free
+</I>&gt;<i> Virus Protection and more available at <A HREF="http://www.plus.net">http://www.plus.net</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>Ah - are you using any of the level functions? I flagged this a few days 
+after the release, and read the source to learn that lev is now level 
+(blank_lev -&gt; blank_level etc.).
+
+I agree that the message is misleading - this should be a compile time 
+error, not flagged at runtime.
+
+Perhaps in 2.0?
+
+Cheers,
+
+Dave.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000055.html">[Varkon-discuss] 1.18A to 1.19B.nn: &quot;This module needs to be compiled with a newer MBS compiler - (IN 580 2)&quot;
+</A></li>
+	<LI>Next message: <A HREF="000058.html">[Varkon-discuss] 1.18A to 1.19B.nn: &quot;This module needs to be compiled with a newer MBS compiler - (IN 580 2)&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

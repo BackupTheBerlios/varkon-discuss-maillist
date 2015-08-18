@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Some questions from a new user
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Some%20questions%20from%20a%20new%20user&In-Reply-To=%3C1077337202.98893.1252924991816.JavaMail.open-xchange%40ox3%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000220.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Some questions from a new user</H1>
+    <B>gunnar.liden at viewsoncad.ch</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Some%20questions%20from%20a%20new%20user&In-Reply-To=%3C1077337202.98893.1252924991816.JavaMail.open-xchange%40ox3%3E"
+       TITLE="[Varkon-discuss] Some questions from a new user">gunnar.liden at viewsoncad.ch
+       </A><BR>
+    <I>Mon Sep 14 12:43:11 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000220.html">[Varkon-discuss] Some questions from a new user
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#221">[ date ]</a>
+              <a href="thread.html#221">[ thread ]</a>
+              <a href="subject.html#221">[ subject ]</a>
+              <a href="author.html#221">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Xwang
+
+&gt;<i> &gt; 4) is it possible to export geometries in STL format?
+</I>
+A surface may be approximated with facets, and there is a&#160;Varkon MACRO (MBS
+function stl_out) that creates an STL file.
+&#160;
+Sample MBS:
+&#160;
+GLOBAL GEOMETRY MODULE stl_create();
+&#160;
+BEGINMODULE
+&#160;
+&#160;cur_conic(#1,&quot;FREE&quot;, vec(13.8,3.20,0.0), vec(14.6,49.21,0.0), 0.5,
+&#160;&#160;&#160;vec(39.0,58.7,0.0), vec(51.4,55.5,0.0));
+&#160;cur_conic(#2,&quot;FREE&quot;, vec(31.4,23.4,20.0), vec(36.4,30.2,20.0), 0.5,
+&#160;&#160;&#160;vec(52.4,36.1,20.0), vec(60.6,36.5,20.0));
+&#160;sur_ruled(#3,#1, #2, 1, 1:PEN=9);
+&#160;sur_approx(#4,#3, &quot;FAC_SUR&quot;, 1, 20:PEN=3);
+&#160;
+ENDMODULE
+&#160;
+Execute stl_create
+&#160;
+Run MACRO stl_out()
+&#160;
+Regards
+
+
+Gunnar
+&#160; &#160;
+
+
+Matthew Welland &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">matt at kiatoa.com</A>&gt; hat am 12. September 2009 um 15:58
+geschrieben:
+
+&gt;<i> On Saturday 12 September 2009 03:04:09 am Armin Faltl wrote:
+</I>&gt;<i> &gt; Hello Xwang,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; my answer here is not authoritative, but may help you
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; I'm studyiing the possibility to use varkon to model the external
+</I>&gt;<i> &gt; &gt; surface of airplanes and cars to use them for CFD calculation (I need
+</I>&gt;<i> &gt; &gt; the surface in STL format).
+</I>&gt;<i> &gt; &gt; So I wonder if:
+</I>&gt;<i> &gt; &gt; 1) is Varkon still in development?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; yes (this is definitive)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; 2) is there any release plan somewhere?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; the main author is Dr. Kjellander - he has the say on this
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; 3) would you push it in some distro repository?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; some people asked for this and maybe someone volunteered, but the
+</I>&gt;<i> &gt; compilation on Linux
+</I>&gt;<i> &gt; is pretty easy and described; there is a binary package, that should be
+</I>&gt;<i> &gt; distribution independent
+</I>&gt;<i> 
+</I>&gt;<i> FYI: Varkon is available in Ubuntu (and thus I assume debian)
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">matt at xena</A>:~$ apt-cache search varkon
+</I>&gt;<i> varkon - A CAD-system with parametric modelling
+</I>&gt;<i> varkon-programmer-manual - Programmer manual for VARKONs mbs language
+</I>&gt;<i> varkon-user-manual - User manual for VARKON
+</I>&gt;<i> 
+</I>&gt;<i> &gt; &gt; 4) is it possible to export geometries in STL format?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I don't know this; looking at the description of STL in wikipedia, given
+</I>&gt;<i> &gt; a u,v-surface,
+</I>&gt;<i> &gt; generation of triangle-strips with no connectivity should be trivial
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; 5) if a join a wing to a fuselage, can I use some sort of boolean
+</I>&gt;<i> &gt; &gt; operation to cut the part of the wing which is inside the fuselage
+</I>&gt;<i> &gt; &gt; (surface to surface intersection?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; This is work in progress; I'm implementing an intersection algorithm
+</I>&gt;<i> &gt; (surface-surface
+</I>&gt;<i> &gt; is done, handling of edges not implemented) and Varkon now has the
+</I>&gt;<i> &gt; ability to
+</I>&gt;<i> &gt; express trimmed surfaces to hold the result. Dr. Larsen is working on
+</I>&gt;<i> &gt; intersections
+</I>&gt;<i> &gt; as well from what I know. This part of my work is not yet integrated
+</I>&gt;<i> &gt; with Varkon.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The result of such an intersection will be a pair (or set) of trimmed
+</I>&gt;<i> &gt; surfaces, where
+</I>&gt;<i> &gt; the trim-lines are a high quality approximation of the true intersection
+</I>&gt;<i> &gt; curve. As they
+</I>&gt;<i> &gt; are expressed as splines in u,v-space on a given surface, isolines can
+</I>&gt;<i> &gt; again be used
+</I>&gt;<i> &gt; to generate triangle strips for conversion to STL. Of course
+</I>&gt;<i> &gt; improvements like
+</I>&gt;<i> &gt; adaptive spacing are possible - it's open source and you are welcome to
+</I>&gt;<i> &gt; help ;-)
+</I>&gt;<i> &gt; The implementation of an STL-generator could be done in MBS or C - I'm
+</I>&gt;<i> &gt; not sure
+</I>&gt;<i> &gt; which is better - with respect to my GUI-demo it could be C++ as well.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; As I am interested in CFD applications myself, time permitting I may
+</I>&gt;<i> &gt; help with this.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Best Regards, Armin
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Varkon-discuss mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090914/9c290df4/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090914/9c290df4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000220.html">[Varkon-discuss] Some questions from a new user
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#221">[ date ]</a>
+              <a href="thread.html#221">[ thread ]</a>
+              <a href="subject.html#221">[ subject ]</a>
+              <a href="author.html#221">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

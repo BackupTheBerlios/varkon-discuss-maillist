@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon on different hardware platforms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20on%20different%20hardware%20platforms&In-Reply-To=%3Ca8d51e8ad676.478f20a4%40oru.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000157.html">
+   <LINK REL="Next"  HREF="000160.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon on different hardware platforms</H1>
+    <B>soren.larsson at tech.oru.se</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20on%20different%20hardware%20platforms&In-Reply-To=%3Ca8d51e8ad676.478f20a4%40oru.se%3E"
+       TITLE="[Varkon-discuss] Varkon on different hardware platforms">soren.larsson at tech.oru.se
+       </A><BR>
+    <I>Thu Jan 17 09:32:20 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000157.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+        <LI>Next message: <A HREF="000160.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#158">[ date ]</a>
+              <a href="thread.html#158">[ thread ]</a>
+              <a href="subject.html#158">[ subject ]</a>
+              <a href="author.html#158">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Some unstructured thoughts:
+
+As you may already have noticed with the pid-files removed etc, a varkon &quot;propject&quot; could no be contained in one folder, which itself can be seen as the job directory with active jobs etc. (for now mbo and job-files but also maybe mbs-files). 
+Included in this is folder is the optional lib, doc folders etc needed for the project in question. Note that the lib now contains both mbo- and mbs files for the parts.
+
+This means that it now would be very simple to share a complete project with others. It is only a matter of gathering the directory to a zip or tar file. The receiver can unpack this and then use varkon to open the active job without bothering of changes in the varkon system, pid-files etc.
+
+
+Now to my question. In the varkon start window you can select to open a module (mbo), which would then be regarded as active module. But what if you only have this as mbs?
+
+I would prefer also to have the option to open an mbs-file as active module. The first thing that I would expect to hapen is the compilation of this to MBO, and then continue as usual.
+
+Maybe (i'm hovever not sure if it is a good idea) the file dialog filter could do this automatically by showing all filenames (without extention) that have MBO and/or MBS extensions. If MBO exist this would be first priority to open. If MBO does not exist, the MBS would open.
+(or maybe this will comfuse those who are trying to understand what is going on).
+
+Another even more drastic approach would be to se the active module mbo file as a temporary cache during execution only (at least for the active module). Saving the job would then save only MBS file and open a job would always start by compilation. Starting would be some slower, but during work there would be no difference.
+
+
+
+Anyhow, if it was easy ore even standard behavior to open MBS as active module, you could after you have prepared an example for posting to varkon org, strip your folder from all res and mbo -files and. Thereafter create zip-file. The package would then be small and portable.
+
+/S&#246;ren
+
+
+
+
+
+
+
+
+
+-------------------------------
+S&#246;ren Larsson
+&#214;rebro universitet              
+Institutionen f&#246;r teknik        
+701 82  &#214;rebro                 
+tel. 019-301048 
+
+----- Original Message -----
+From: Johan Kjellander &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan at toan.se</A>&gt;
+Date: Thursday, January 17, 2008 05:34
+Subject: Re: [Varkon-discuss] Varkon on different hardware platforms
+
+&gt;<i> Matthias,
+</I>&gt;<i> 
+</I>&gt;<i> The actual execution of the code should not need
+</I>&gt;<i> to be slower but the increased size will not permit
+</I>&gt;<i> the same number of modules to exist in memory as if there
+</I>&gt;<i> were no comments. This may force modules to be loaded
+</I>&gt;<i> from disc which would otherwise be cached in memory and
+</I>&gt;<i> this may slow down execution in some cases.
+</I>&gt;<i> 
+</I>&gt;<i> Compilation/decompilation will be a little slower.
+</I>&gt;<i> 
+</I>&gt;<i> Personally I don't think any of this is a problem today.
+</I>&gt;<i> 
+</I>&gt;<i> Johan
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Dan Falck &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dfalck at verizon.net</A>&gt; writes:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;&gt; I would like to see comments preserved by the MBS compiler.  It 
+</I>&gt;<i> would&gt;&gt; make things much more readable.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I agree.  It could be optional.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Disk space is probably no concern these days, but Varkon would 
+</I>&gt;<i> need to
+</I>&gt;<i> &gt; hold the comments in memory, which might be more problematic.  Do 
+</I>&gt;<i> you&gt; think this would affect performance in any way?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Matthias
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> <A HREF="http://www.toan.se">http://www.toan.se</A>
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000157.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+	<LI>Next message: <A HREF="000160.html">[Varkon-discuss] Varkon on different hardware platforms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#158">[ date ]</a>
+              <a href="thread.html#158">[ thread ]</a>
+              <a href="subject.html#158">[ subject ]</a>
+              <a href="author.html#158">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

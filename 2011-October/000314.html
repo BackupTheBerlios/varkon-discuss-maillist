@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] no chance to set parameter during part call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20no%20chance%20to%20set%20parameter%20during%20part%20call&In-Reply-To=%3C20111026193156.EE01096C84F75%40bmail04.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000313.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] no chance to set parameter during part call</H1>
+    <B> Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20no%20chance%20to%20set%20parameter%20during%20part%20call&In-Reply-To=%3C20111026193156.EE01096C84F75%40bmail04.one.com%3E"
+       TITLE="[Varkon-discuss] no chance to set parameter during part call">johan at toan.se
+       </A><BR>
+    <I>Wed Oct 26 21:31:56 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000313.html">[Varkon-discuss] no chance to set parameter during part call
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#314">[ date ]</a>
+              <a href="thread.html#314">[ thread ]</a>
+              <a href="subject.html#314">[ subject ]</a>
+              <a href="author.html#314">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Christian,
+&#160;
+What you are asking for happens when a&#160;part is called interactively from
+the GUI or edited.
+Try create part and edit part.
+&#160;
+If you write MBS code including part calls, compile it with mbsc and run
+it, the code runs exactly as you wrote it.
+&#160;
+Hope this helps, Johan
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A> &lt;<A HREF="http://www.toan.se/">http://www.toan.se/</A>&gt;
+On 26 okt 2011 18:15 &quot;Christian Kabu&#223;&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">c_kabuss at gmx.net</A>&gt; wrote:
+&gt;<i> Hi Varkon,
+</I>&gt;<i> after a couple of years I just undertake another attempt to approach
+</I>&gt;<i> Varkon, doing this as an Industrial Designer and Artist without
+</I>&gt;<i> knowledge of programming so far. Learning by doing and things are well
+</I>&gt;<i> in progress.
+</I>&gt;<i> I was able to build Varkon from the sources on Suse 11.4 (just some
+</I>&gt;<i> minor damages at the lower and right rim of the viewing window, some 2
+</I>&gt;<i> pixel wide stripes that let me see through to the desktop, and keep
+</I>&gt;<i> from adjusting the window size), get the compiler going and went
+</I>&gt;<i> through the David Macmillan tutorial, now doing the geometry course by
+</I>&gt;<i> Gunnar Liden.
+</I>&gt;<i> One quite basic thing I'd always expect but never happens is the
+</I>&gt;<i> following: when I declare a parameter in a module like
+</I>&gt;<i> FLOAT width:=100 &gt;&quot;Horisontal size ?&quot;;
+</I>&gt;<i> my expectation is that when I call this very module from another
+</I>&gt;<i> module by using the part() geometric procedure
+</I>&gt;<i> a window'd pop up, asking &quot;Horisontal size ?&quot;
+</I>&gt;<i> and I would be allowed to type in maybe 50 to change the default
+</I>&gt;<i> value.
+</I>&gt;<i> But this never happens. Even if I do the declaration without a value,
+</I>&gt;<i> just the prompt string after the parameter_definition, the the value
+</I>&gt;<i> 0.0 for a FLOAT or #1 for a REF would be automatically set, no chance
+</I>&gt;<i> to intervene.
+</I>&gt;<i> To keep it basic, I compiled the Introduction from the Programmers
+</I>&gt;<i> Manual
+</I>&gt;<i> &lt;<A HREF="http://varkon.sourceforge.net/man_1.19D/MBS/intro.htm">http://varkon.sourceforge.net/man_1.19D/MBS/intro.htm</A>&gt;
+</I>&gt;<i> But it's the same.
+</I>&gt;<i> Where is the bug - in my brain, is it Varkon - I ask after a day
+</I>&gt;<i> trying.
+</I>&gt;<i> Thanks! Christian
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>&gt;
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20111026/466f10be/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20111026/466f10be/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000313.html">[Varkon-discuss] no chance to set parameter during part call
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#314">[ date ]</a>
+              <a href="thread.html#314">[ thread ]</a>
+              <a href="subject.html#314">[ subject ]</a>
+              <a href="author.html#314">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

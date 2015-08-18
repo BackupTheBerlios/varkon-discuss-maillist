@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] how to get at the part editor?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20how%20to%20get%20at%20the%20part%20editor%3F&In-Reply-To=%3C20100502062940.797AC2C01009%40bmail01.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000278.html">
+   <LINK REL="Next"  HREF="000280.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] how to get at the part editor?</H1>
+    <B> Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20how%20to%20get%20at%20the%20part%20editor%3F&In-Reply-To=%3C20100502062940.797AC2C01009%40bmail01.one.com%3E"
+       TITLE="[Varkon-discuss] how to get at the part editor?">johan at toan.se
+       </A><BR>
+    <I>Sun May  2 08:29:40 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000278.html">[Varkon-discuss] how to get at the part editor?
+</A></li>
+        <LI>Next message: <A HREF="000280.html">[Varkon-discuss] how to get at the part editor?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#279">[ date ]</a>
+              <a href="thread.html#279">[ thread ]</a>
+              <a href="subject.html#279">[ subject ]</a>
+              <a href="author.html#279">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>John,
+
+Unfortunately there is no way to call IGcptw() from a macro. (It would
+be easy to add though.) What people do is to write their own dialogs
+using MBS/Macro. IGcptw() works for all parameters in all parts. For
+specific parameters in specific parts it may be more efficient to have
+specific dialogs.
+
+Johan
+
+PS: I got KDevelop 3.5 working with the Varkon sources last night.
+Version 4 of KDevelop that comes with Ubuntu is not to reccommend. I
+spent many hours trying to get KDevelop 4 working with Varkon but never
+succeeded. I will now create a new source project for GTK testing using
+KDevelop 3.5.
+
+-- 
+&lt;<A HREF="http://www.toan.se">http://www.toan.se</A>&gt;
+On 2 maj 2010 06:13 &quot;John MacPhail&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt; wrote:
+
+&gt;<i> Johan,
+</I>&gt;<i> 
+</I>&gt;<i> This is very interesting and helpful, thank you very much.
+</I>&gt;<i> 
+</I>&gt;<i> Now it seems I'm only missing a small point. In the strategy you
+</I>&gt;<i> mention towards the end, when my macro has found the global
+</I>&gt;<i> ID of a part being called from the main module, how can my
+</I>&gt;<i> macro bring up the editp &quot;Input&quot; dialog? Or is that even possible?
+</I>&gt;<i> 
+</I>&gt;<i> The background to my question is that after finding f170 in
+</I>&gt;<i> futab.h, and finding IGcptw() defined in igpart.c, I start to
+</I>&gt;<i> get lost in the source code (partly because I do not understand
+</I>&gt;<i> Swedish). So I'm guessing there is a way to call the editp
+</I>&gt;<i> dialog with a particular ID, but I don't know for sure, and
+</I>&gt;<i> I don't know where to look. It does look as though the editp
+</I>&gt;<i> dialog is the same as the part creation dialog, but with existing
+</I>&gt;<i> parameters presented...
+</I>&gt;<i> 
+</I>&gt;<i> John (MacPhail)
+</I>&gt;<i> 
+</I>&gt;<i> Johan Kjellander wrote:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; John,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; About editing subparts: I assume you mean not editing the subpart
+</I>&gt;<i> &gt; itself but
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; editing the call to the subpart, ie. the parameters of the subpart.
+</I>&gt;<i> &gt; As
+</I>&gt;<i> &gt; an example,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; let A be the currently active module. B is a part called by A and C
+</I>&gt;<i> &gt; is
+</I>&gt;<i> &gt; a subpart called by B.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Remember that B may be called more than once in A and that C may be
+</I>&gt;<i> &gt; called more than
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; once in B. The EditP function makes it possible to edit the
+</I>&gt;<i> &gt; parameters
+</I>&gt;<i> &gt; of a part call in
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; the currently active model. That means editing the paremeter values
+</I>&gt;<i> &gt; that are passed to
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; B from A. If A is the active module, you can not edit the part
+</I>&gt;<i> &gt; parameters passed to C from B
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; since this would not make it possible to reexecute A and get the
+</I>&gt;<i> &gt; same
+</I>&gt;<i> &gt; result.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; It's all about Generic and Explicit modeling, or if you wish,
+</I>&gt;<i> &gt; modeling
+</I>&gt;<i> &gt; with history/no history.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; What I said above is true for generic modeling. In explicit
+</I>&gt;<i> &gt; modeling,
+</I>&gt;<i> &gt; it would be possible to
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; edit calls to subparts, at least in theory but that possibility is
+</I>&gt;<i> &gt; not
+</I>&gt;<i> &gt; implemented in Varkon.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; About editing &quot;invisible&quot; parts: People have solved this in many
+</I>&gt;<i> &gt; different ways.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - You can identify a part through it's ID. Press &quot;i&quot; when the cursor
+</I>&gt;<i> &gt; lits.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - Write a macro that searches for the part ID in the DB.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - Let the part create a text entry in a table on a blanked level. To
+</I>&gt;<i> &gt; edit, unblank the level
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; and select the part in the table.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; and so on....
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Hope this helps,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Johan
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; -- 
+</I>&gt;<i> &gt; &lt;<A HREF="http://www.toan.se">http://www.toan.se</A>&gt;
+</I>&gt;<i> &gt; On 1 maj 2010 03:19 &quot;John MacPhail&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt;
+</I>&gt;<i> &gt; wrote:
+</I>&gt;<i> &gt; &gt; I would like my users to be able to use the part editor
+</I>&gt;<i> &gt; &gt; (as opened in the English version by the EditP button)
+</I>&gt;<i> &gt; &gt; for sub-parts, and parts with no graphic components.
+</I>&gt;<i> &gt; &gt; How do I do this?
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; John (MacPhail)
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; Varkon-discuss mailing list
+</I>&gt;<i> &gt; &gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt; 
+</I>&gt;<i> &gt; &gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>&gt;
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100502/5adc1c10/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100502/5adc1c10/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000278.html">[Varkon-discuss] how to get at the part editor?
+</A></li>
+	<LI>Next message: <A HREF="000280.html">[Varkon-discuss] how to get at the part editor?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#279">[ date ]</a>
+              <a href="thread.html#279">[ thread ]</a>
+              <a href="subject.html#279">[ subject ]</a>
+              <a href="author.html#279">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

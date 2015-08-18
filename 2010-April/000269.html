@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] macro modules and MVC
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20macro%20modules%20and%20MVC&In-Reply-To=%3C595212311.88355.1272000689629.JavaMail.open-xchange%40ox4%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000267.html">
+   <LINK REL="Next"  HREF="000270.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] macro modules and MVC</H1>
+    <B>gunnar.liden at viewsoncad.ch</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20macro%20modules%20and%20MVC&In-Reply-To=%3C595212311.88355.1272000689629.JavaMail.open-xchange%40ox4%3E"
+       TITLE="[Varkon-discuss] macro modules and MVC">gunnar.liden at viewsoncad.ch
+       </A><BR>
+    <I>Fri Apr 23 07:31:29 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000267.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+        <LI>Next message: <A HREF="000270.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#269">[ date ]</a>
+              <a href="thread.html#269">[ thread ]</a>
+              <a href="subject.html#269">[ subject ]</a>
+              <a href="author.html#269">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello John
+&#160;
+There is a need for the active module to return results, including errors to
+MACROs.
+&#160;
+The MACRO is a very powerful tool in Varkon and in my tutorial I am trying to
+show that with the optimization sample. There results are returned as part
+parameter values (Please refer to
+<A HREF="http://www.viewsoncad.ch/VarkonTutorial/optim_how.htm">http://www.viewsoncad.ch/VarkonTutorial/optim_how.htm</A>). &#160;MACRO modules use these
+results to change and execute the active module until the design is optimal.
+&#160;
+There is room for improvements regarding this &#8220;communication&#8221; between MACRO and
+the active module. Exception handling functionality would for the optimization
+application (and other MACRO applications that I have developed) be of minor
+use. I would like something else, but for the time being I have no proposals
+what it should be like.
+&#160;
+Geometry (mathematics) was and is still my main interest, but I would be
+interested also to contribute (if I can) to a further development of the MACRO
+functionality.
+&#160;&#160;&#160;
+&#160;
+Regards
+&#160;
+Gunnar
+&#160;
+
+John MacPhail &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt; hat am 21. April 2010 um 20:38 geschrieben:
+
+&gt;<i> Hello Gunnar,
+</I>&gt;<i> 
+</I>&gt;<i> That page is definitely helpful, and in particular makes
+</I>&gt;<i> some good uses of Macro modules quite clear.
+</I>&gt;<i> 
+</I>&gt;<i> What is still fuzzy for me is whether your &quot;Interact
+</I>&gt;<i> with operator&quot; box (in the Generic Model) would maybe
+</I>&gt;<i> include having a non-Macro module create its own
+</I>&gt;<i> alert dialogs when encountering error conditions.
+</I>&gt;<i> It would seem more desirable to use some form of
+</I>&gt;<i> exception handling, where a non-Macro module
+</I>&gt;<i> throws the exception but a Macro module catches it,
+</I>&gt;<i> and then perhaps does an alert dialog. Have other
+</I>&gt;<i> people been doing that?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> John (MacPhail)
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">gunnar.liden at viewsoncad.ch</A> wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hello John
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;&#160; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I have made an attempt to explain the use of MACROs. Please refer to:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; <A HREF="http://viewsoncad.ch/VarkonTutorial/generic.htm">http://viewsoncad.ch/VarkonTutorial/generic.htm</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;&#160; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;&#160; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Gunnar
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;&#160; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; John MacPhail &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt; hat am 21. April 2010 um 03:28 
+</I>&gt;<i> &gt; geschrieben:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; Possibly my trouble grasping proper use of MACRO
+</I>&gt;<i> &gt; &gt; modules comes from insufficient understanding of the
+</I>&gt;<i> &gt; &gt; Model-View-Controller design model both in general
+</I>&gt;<i> &gt; &gt; and specifically as it applies to Varkon.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; 1. A fundamental concept in Varkon is &quot;the active module.&quot;
+</I>&gt;<i> &gt; &gt; This can never be a MACRO module. I assume there is at
+</I>&gt;<i> &gt; &gt; most one active module. Does Varkon allow a condition
+</I>&gt;<i> &gt; &gt; (analogous to the &quot;zero-document state&quot; of AutoCAD)
+</I>&gt;<i> &gt; &gt; where there is no active module?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; 2. Unlike other modules, a MACRO is not embedded into
+</I>&gt;<i> &gt; &gt; the database, and can call a (different) MACRO module.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; 3. The real point of MACRO modules is facilitating
+</I>&gt;<i> &gt; &gt; something like Model-View-Controller design: a MACRO
+</I>&gt;<i> &gt; &gt; module is a Controller component, the MBS/MBO files
+</I>&gt;<i> &gt; &gt; capture Model components, and a RES file is like a View
+</I>&gt;<i> &gt; &gt; component.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; 4. A non-MACRO module can't (and shouldn't) directly
+</I>&gt;<i> &gt; &gt; invoke a MACRO module. For example, take M to be
+</I>&gt;<i> &gt; &gt; the alert-box example in the page macro-dialog.htm of the
+</I>&gt;<i> &gt; &gt; Varkon Application Developers Manual, and suppose a
+</I>&gt;<i> &gt; &gt; non-MACRO module NM encounters an error condition.
+</I>&gt;<i> &gt; &gt; The &quot;wrong&quot; approach would be for NM to pop up a
+</I>&gt;<i> &gt; &gt; dialog got by re-writing M as a non-macro module.
+</I>&gt;<i> &gt; &gt; The &quot;right&quot; approach would be for NM to create a user
+</I>&gt;<i> &gt; &gt; interface item such as a button that upon clicking would
+</I>&gt;<i> &gt; &gt; show the alert-box dialog.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Note that I am not finding the above (#4) example
+</I>&gt;<i> &gt; &gt; very convincing. Am I wrong not to be convinced? Can
+</I>&gt;<i> &gt; &gt; someone provide a better example?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; John (MacPhail)
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; Varkon-discuss mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100423/03a220ae/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100423/03a220ae/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000267.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+	<LI>Next message: <A HREF="000270.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#269">[ date ]</a>
+              <a href="thread.html#269">[ thread ]</a>
+              <a href="subject.html#269">[ subject ]</a>
+              <a href="author.html#269">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

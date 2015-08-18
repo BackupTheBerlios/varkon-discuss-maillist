@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] A critique
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20A%20critique&In-Reply-To=%3C4E560347.5050501%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000311.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] A critique</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20A%20critique&In-Reply-To=%3C4E560347.5050501%40aon.at%3E"
+       TITLE="[Varkon-discuss] A critique">armin.faltl at aon.at
+       </A><BR>
+    <I>Thu Aug 25 10:09:43 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000311.html">[Varkon-discuss] A critique
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#312">[ date ]</a>
+              <a href="thread.html#312">[ thread ]</a>
+              <a href="subject.html#312">[ subject ]</a>
+              <a href="author.html#312">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Steve,
+
+I'm not the main author of Varkon and I have to admit that I've become lazy
+in last years. Large part of the critique you stated caused me to start my
+own CAD application, beginning with a demo, that you can find at 
+www.varkon.org
+under &quot;GUI&quot;. It's based on the drafting method of varkon, i.e. explicit 
+mode.
+Recently I've been made aware, that for many people the binary doesn't work.
+The .RES files you can create with it work with varkon though.
+
+Some current fixes/enhancements should make it to that server &quot;sometime&quot;,
+but color e.g. is inconsistent in my implementation currently. If it works
+for you, you get the click,click,click,... behaviour for polylines e.g.
+
+The main reason why people have trouble with my binary could be the OpenGL
+library: I use the original NVidia implementation forced into Debian.
+Try `ldd -r &lt;binary&gt;` if you have trouble and send me the output.
+
+Personally I so far had hardly any trouble compiling varkon for me.
+Then again, I may be seasoned a programmer and fixing a header or
+compiler switch on the fly counts as &quot;easy&quot; to me.
+
+Thank you for your clear descriptions and constructive approach.
+It adds some motivation to my efforts, that I've been lacking
+badly in the last time.
+
+Best Regards,
+
+Armin
+
+P.S.: as far as I know there is no automatic translation involved
+
+
+norseman wrote:
+&gt;<i> Varkon;
+</I>&gt;<i>    I downloaded the pre-built binary for Linux.
+</I>&gt;<i>       1)  The instructions made reference to the source code which I 
+</I>&gt;<i> had a hard time finding/getting.  Sourceforge can be difficult to deal 
+</I>&gt;<i> with and has a history of being less than adequate in policing their 
+</I>&gt;<i> contents.
+</I>&gt;<i>          A)  I was expecting to find a tarball of a reasonably stable 
+</I>&gt;<i> source group.  The access to the SVN is in the initial text files but 
+</I>&gt;<i> experience has lead me to believe that not all SVNs are stable code or 
+</I>&gt;<i> even compilable.  I (and I think others) appreciate the source being 
+</I>&gt;<i> of the binary given and all set to compile.
+</I>&gt;<i>          B)  Instructions for doing things are not always clear.  Bad 
+</I>&gt;<i> grammar I attribute to the language auto-converters.  The bad 
+</I>&gt;<i> spellings - not sure where those come from.
+</I>&gt;<i>          C)  When teaching the uninitiated it really is best use/show 
+</I>&gt;<i> the rote method.  That is - the actual push button sequence.  
+</I>&gt;<i> Unfortunate but true.  The translators can provide ambiguous 
+</I>&gt;<i> statements from what was crystal clear in the original language.
+</I>&gt;<i>
+</I>&gt;<i>       2)  Actually trying to use the program is very awkward.  I 
+</I>&gt;<i> realize Varkon is more parametric than drafting but things like 
+</I>&gt;<i> AutoCAD's polyline or Intergraph's line string need to be in existence 
+</I>&gt;<i> in any CAD program.  To try to string together a few hundred line 
+</I>&gt;<i> segments by:
+</I>&gt;<i>             click create
+</I>&gt;<i>             click line
+</I>&gt;<i>             click (choice of   two pos  or  projected   -  difference 
+</I>&gt;<i> not clear)
+</I>&gt;<i>       just to get started and then
+</I>&gt;<i>             for line(s)
+</I>&gt;<i>                click the desired entry mode (abs, abs+rel, rel, 
+</I>&gt;<i> rel+cur, abs+cur, cur)
+</I>&gt;<i>                click start point
+</I>&gt;<i>                click end point
+</I>&gt;<i>                try to click last end point again or type instructions 
+</I>&gt;<i> to use endpoint
+</I>&gt;<i>                    and then try to get close enough to select the 
+</I>&gt;<i> correct one.  BECAUSE:
+</I>&gt;<i>                     in binary download 1.19D the &lt;end&gt; selects the 
+</I>&gt;<i> mid-point and
+</I>&gt;<i>                    cancels the line entry.
+</I>&gt;<i>                click end point                repeat from try... to 
+</I>&gt;<i> click...    again and again and ...
+</I>&gt;<i>
+</I>&gt;<i> I'm used to:  To get started:
+</I>&gt;<i>                          click button at top labeled &lt;DRAW&gt;
+</I>&gt;<i>                          click choice (line or Pline or whatever basic 
+</I>&gt;<i> element)
+</I>&gt;<i>                      To do drafting:
+</I>&gt;<i>                          click, click for line;  repeat for next one, ...
+</I>&gt;<i>                                                OR
+</I>&gt;<i>                      click,click,click... for multi-segments)
+</I>&gt;<i>                      for &quot;on the fly&quot; help or change in input method:
+</I>&gt;<i>                              if endpoint, midpoint or other specific 
+</I>&gt;<i> wanted, right click, select
+</I>&gt;<i>                                 which and click near enough to specify 
+</I>&gt;<i> where/which.
+</I>&gt;<i>                              for specific coordinates, just type in 
+</I>&gt;<i> the comma delimited tuple
+</I>&gt;<i>                              placement is mix and match methods &quot;on 
+</I>&gt;<i> the fly&quot; as best suits
+</I>&gt;<i>                      to stop, just enter nothing (right click, &lt;CR&gt; or 
+</I>&gt;<i> &lt;SPACEBAR&gt;)
+</I>&gt;<i>
+</I>&gt;<i>        3)  The Varkon &lt;RIGHT-CLICK&gt;  to terminate or return a menu 
+</I>&gt;<i> level is not always working correctly.  That is a bug in the code.
+</I>&gt;<i>
+</I>&gt;<i>          4)  The DXF import can't seem to find the file no mater its 
+</I>&gt;<i> location.
+</I>&gt;<i>                Specifying full path makes no difference.  I read all I 
+</I>&gt;<i> could find and at
+</I>&gt;<i>                this point - this is a bug or the documentation is 
+</I>&gt;<i> incomplete of how to do.
+</I>&gt;<i>
+</I>&gt;<i> On the dream side:  It would be nice to be able to place a raster (a 
+</I>&gt;<i> picture) in the background and trace over it.  Even better would be 
+</I>&gt;<i> for it to place the raster in real world size and place by reading a 
+</I>&gt;<i> TIFF World File.   In case you want to add such a thing, the .tfw 
+</I>&gt;<i> placement X,Y is based on UpperLeftCorner of MostNorthwestPixel. Other 
+</I>&gt;<i> raster images sometimes use Center of MostNorthwestPixel.  So being 
+</I>&gt;<i> able to shift incoming raster needs to be accounted for.  Size (scale 
+</I>&gt;<i> of image) is simply accomplished
+</I>&gt;<i> by multiplying Xscale and Yscale values times pixel column/line value 
+</I>&gt;<i> to get upper left placement position of pixel.  Pixel offset is zero 
+</I>&gt;<i> based.  Upper left pixel is 0,0.  Upper LeftGround position is X + (0 
+</I>&gt;<i> x pixelXwidth), Y + (0 x pixelYheight).  Thus a point 5 columns right 
+</I>&gt;<i> and 14 lines down would be located at:
+</I>&gt;<i> X + (5 x pixelXwidth), Y + (14 x pixelYheight).
+</I>&gt;<i>
+</I>&gt;<i> example:
+</I>&gt;<i> contents of sac-napa.tfw
+</I>&gt;<i> 20.000000000000                   Ground length of X
+</I>&gt;<i> 0.000000000000                     aways 0.0
+</I>&gt;<i> 0.000000000000                     always 0.0
+</I>&gt;<i> -20.000000000000                  Ground length of Y (always '-' and 
+</I>&gt;<i> =X for square)
+</I>&gt;<i> 298081.592832696270            Easting      (X)
+</I>&gt;<i> 4287483.560435335200          Northing   (Y)
+</I>&gt;<i>
+</I>&gt;<i> 6 lines, no comments, just the left side, left set.  Units 
+</I>&gt;<i> (projection, meters,  feet,  Lat/Long, ...) are assumed to be known 
+</I>&gt;<i> and within the file are all of same measure and origin.
+</I>&gt;<i> The two 0.0 lines are for use in a matrix,  one is scale and the other 
+</I>&gt;<i> is rotation.  I have never seen them be anything but Zero in actual 
+</I>&gt;<i> day to day use.  They would be used if you were to be handling raw 
+</I>&gt;<i> satellite output because capture is skewed and orbits are not 
+</I>&gt;<i> perfectly circular around center of Earth.
+</I>&gt;<i>
+</I>&gt;<i> The SVN I down loaded today does not compile.  forcing pointer use 
+</I>&gt;<i> from an integer and passing too many tokens on the stack.  about half 
+</I>&gt;<i> a screen of compile chatter and bombs out.
+</I>&gt;<i>
+</I>&gt;<i> One congratulation is in order.  The binary downloaded and (after 
+</I>&gt;<i> tweaking paths) runs.  That a pre-compiled binary does so is rare in 
+</I>&gt;<i> the Linux world.  The binary is usually tied tight to a specific 
+</I>&gt;<i> vendor and thus useless to the world at large.
+</I>&gt;<i>
+</I>&gt;<i> Again, congratulations!
+</I>&gt;<i>
+</I>&gt;<i> Steve
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000311.html">[Varkon-discuss] A critique
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#312">[ date ]</a>
+              <a href="thread.html#312">[ thread ]</a>
+              <a href="subject.html#312">[ subject ]</a>
+              <a href="author.html#312">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

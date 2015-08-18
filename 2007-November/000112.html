@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] No PID files in Varkon 2.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20No%20PID%20files%20in%20Varkon%202.0&In-Reply-To=%3C47387770.4020008%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000106.html">
+   <LINK REL="Next"  HREF="000107.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] No PID files in Varkon 2.0</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20No%20PID%20files%20in%20Varkon%202.0&In-Reply-To=%3C47387770.4020008%40aon.at%3E"
+       TITLE="[Varkon-discuss] No PID files in Varkon 2.0">armin.faltl at aon.at
+       </A><BR>
+    <I>Mon Nov 12 16:55:28 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000106.html">[Varkon-discuss] No PID files in Varkon 2.0
+</A></li>
+        <LI>Next message: <A HREF="000107.html">[Varkon-discuss] compiling FreeBSD on Mac OS X
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#112">[ date ]</a>
+              <a href="thread.html#112">[ thread ]</a>
+              <a href="subject.html#112">[ subject ]</a>
+              <a href="author.html#112">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Johan Kjellander wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> As you all know the current development towards
+</I>&gt;<i> Varkon 2.0 is very much focused on making the system
+</I>&gt;<i> easier to use and understand. This involves issues
+</I>&gt;<i> like GUI and documentation but also what files the
+</I>&gt;<i> system uses. It should be easy for a first time user
+</I>&gt;<i> to understand where his drawing or model is. It would
+</I>&gt;<i> be nice if a Varkon job (explicit drawing or generic model)
+</I>&gt;<i> could be contained in one single file, just like any
+</I>&gt;<i> other document. This would make it possible to access
+</I>&gt;<i> a Varkon job with an ordinary file browser, click on the
+</I>&gt;<i> file name and Varkon starts and loads the file (job).
+</I>&gt;<i>   
+</I>The file browser automatics is defintely a good thing imo.
+&gt;<i> Let's first review the current situation. There are 2
+</I>&gt;<i> kinds of Varkon jobs, explicit and generic. An explicit
+</I>&gt;<i> job is defined by 2 files, jobname.JOB and jobname.RIT.
+</I>&gt;<i> A generic job is defined by 3 files, jobname.JOB,
+</I>&gt;<i> jobname.MBO and  jobname.RES. On top of this, there
+</I>&gt;<i> is also the PID-file that defines the current project.
+</I>&gt;<i>   
+</I>Yes, please do away with the .RIT-name - one name for one thing
+About the .JOB-file I'm not so sure: the idea of 2 people exchanging
+.RES-files but working on different aspects of a project and therefore
+wanting to see different settings is relevant to me. I would make
+the system behaviour such, that clicking on either file has the same
+effect in starting varkon with both. Maybe I just missed it, but the
+documentation should contain a section 'File Types and their Use'
+or such explaining the function of all the files involved, including
+the startup script. Maybe I just can't remember, but I didn't find
+that information anywhere in the docu as compact as in this discussion.
+&gt;<i> Next change would be to remove the .JOB files. This has
+</I>&gt;<i> already been discussed on this list and I see no major
+</I>&gt;<i> problems with this. Basically it just means that we move
+</I>&gt;<i> the .JOB data into the .RES file.
+</I>&gt;<i>   
+</I>I would really like to see the .JOB data in text format explicit.
+It may seem notorious, but the reverse conversion of .RES to
+.MBS imo can save a lot of coordinate input as of now until
+the generic Varkon GUI is really slick. Therefor if you insist
+on stuffing .JOB contents into .RES, create a way to purge it
+or being able to ignore it on reverse processing.
+Maybe the name JOB was iritating for me - as I understand
+it now, there is a 1:1 correspondence for .MBO and .JOB files.
+Let's assume a job-file defines 2 views for module A and another
+module (B) has 3 views defined in the corresponding JOB.
+Now I load module B that calls module A: do I/shall I now have 3
+views available in my browser or 5 ?
+&gt;<i> A final change would be to remove also the PID files from
+</I>&gt;<i> the system. This may sound as we would then also remove
+</I>&gt;<i> a lot of functionality but the fact is that the role of
+</I>&gt;<i> the PID file can be completely exercised byt the start
+</I>&gt;<i> script if you want to. New users don't need projects.
+</I>&gt;<i> They want the system to act like AoutoCAD or Excel.
+</I>&gt;<i> Start the system, create something and save the file
+</I>&gt;<i> somewhere. Experienced users know that you need to
+</I>&gt;<i> structure your data and also want to customize the
+</I>&gt;<i> user interface etc. This can be done by configuring
+</I>&gt;<i> the start script. Without PID files you would need
+</I>&gt;<i> one start script for each &quot;project&quot; but since the
+</I>&gt;<i> conept of a project is very user specific it might
+</I>&gt;<i> even be better to use the start script to define it
+</I>&gt;<i> than the current PID concept which only lets you set
+</I>&gt;<i> up a few specific things.
+</I>&gt;<i>   
+</I>I always felt, that the directory layout of Varkon projects was too
+rigid. All my projects involve a lot of things apart from CAD drawings
+and I want to be able to keep the project related stuff in one tree,
+e.g. for backup and revision control.
+So my ideal layout is:
+a) the installation tree, where everything essential to a given
+    Varkon version resides
+b) the library tree, where things visible to all users on the site
+    are stored (typically mounted at /usr/share/varkon-libs/...).
+    This may also be a list of trees. A reference to these trees
+    is stored somewhere in a), e.g. in the startup script (like now)
+    or in a 'default.ini'.
+    The internal layout of a library is fixed (.../mbs, .../mbo, 
+.../res, ...),
+    but the mount point isn't. Hierarchical collections of libs shall
+    be possible, so a directory not containing the standard-libtree
+    will be traversed and branches containing valid stuff are added.
+   The entire thing shall behave like a plan9-filesystem.
+c) the user and project specific information:
+    c.1) in $HOME/.varkon/ containing
+           settings.ini and projects.ini or a group of 
+&lt;project_name&gt;.ini files
+    c.2) 
+/some/where/in/the/huge/work/space/of/this/company/projects/foo_bar/cad/.varkon.ini
+
+When the client starts up it first scans it's installation to read the 
+defaults.
+There it gets aware, that a list of libraries exist. In the site-libs is 
+also the place for
+'company defaults' like logos, drawing textfields, the default dimension 
+system,
+line widths and colors,...
+Now it considers it's current user and reads the according settings, 
+overriding
+site defaults and ev. adding additional libraries.
+As the user has some projects to work on the GUI either presents a 
+projects menu or
+(and I prefere that) just fills the projects menu or 'recent list' in 
+the file-menu.
+When the user selects a project, the specific ini-files get read and the 
+contents
+overrides/ammends user and site settings.
+When a new user gets to the system, the administrator can configure
+the relevant project(s) for her/him, as the text format of .ini files is 
+well known
+and simple.
+In the startup script, the administrator may also set a flag, that only 
+libraries
+mentioned in the personal list shall be visible in the library browser.
+
+Now let's consider a vanilla home user. The libraries just do not exist,
+apart maybe from what is deliverd by the installation, so the reference
+list in a) is empty. When the client starts up the first time, there is
+no $HOME/.varkon/ as well, so the GUI with installation settings appears.
+It will stay that way, until the user either stumbles over 
+'Settings-&gt;Preferences'
+or 'Projects-&gt;New' and agrees, that now his preferred metadata is stored
+in that directory. Until (s)he creates a project, the user may work with
+plain files, that can be found via the latest-list and open entry in the
+file-menu.
+Technically a project directory would be any directory, that contains
+a .varkon.ini-file and from the user point of view it must also be mentioned
+in his personal project list, so he finds it in the project browser.
+Therefore a user (in a work environment) can:
+    .) create a new project
+    .) attach to a project
+    .) detach from a project
+To get rid of clutter, personal and project ini-files might contain keywords
+like 'purge_browser_list' and 'purge_list' in their library section.
+The former meaning that the site/user-default libraries are not 
+presented in the GUI
+and the later, that they are invisible to the MBO-interpreter.
+&gt;<i> In Varkon 2.0 a user working in explicit mode would
+</I>&gt;<i> only have to deal with .RES files. A user in generic
+</I>&gt;<i> mode would work with .MBO files but also see .RES files
+</I>&gt;<i> be created automatically as he creates his modules. A
+</I>&gt;<i> more experienced user would also know about .MBS files
+</I>&gt;<i> of course and also start scripts to configure &quot;projects&quot;.
+</I>&gt;<i>   
+</I>Start scripts that call varkon, to configure projects I consider
+problematic, as Varkon would have to modify them, to be comfortable
+and there is only one possible varkon callable from the desktop,
+that wouldn't know of any projects. If you click on say an .MBO from
+a file manager, how would this load the project related data without
+inclusion/existence of additional files to a standard-startup file,
+as it isn't practical or possible, to set more than one application
+path per file type? So a startup script would need to do some path
+processing, to find out what project the file clicked on belongs to.
+A pro-argument is, that BASH-scripts already offer include mechanisms.
+
+Maybe, all I described with .ini is just what PID-files do, but to be 
+honest,
+I have no idea what PID stands for, where PID files are and why, or what
+they do. Probably it all depends on how the scripts are done.
+Another point is, that the solution with startup-scripts relies on the
+existence of a certain shell which is isn't portable, while self-interpreted
+ini-files are.
+My demo has the primitive approach, that any current directory
+used for starting is searched for '.cad.ini' and the settings found in there
+are filled into the &quot;view-revolver&quot;. This turned out to be very flexible
+for working with views.
+
+Regards, Armin
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000106.html">[Varkon-discuss] No PID files in Varkon 2.0
+</A></li>
+	<LI>Next message: <A HREF="000107.html">[Varkon-discuss] compiling FreeBSD on Mac OS X
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#112">[ date ]</a>
+              <a href="thread.html#112">[ thread ]</a>
+              <a href="subject.html#112">[ subject ]</a>
+              <a href="author.html#112">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

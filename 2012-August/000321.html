@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Segfault when loading model in 64 bit build
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Segfault%20when%20loading%20model%20in%2064%20bit%20build&In-Reply-To=%3C50330D69.4000506%40componic.co.nz%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000322.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Segfault when loading model in 64 bit build</H1>
+    <B>Glenn Ramsey</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Segfault%20when%20loading%20model%20in%2064%20bit%20build&In-Reply-To=%3C50330D69.4000506%40componic.co.nz%3E"
+       TITLE="[Varkon-discuss] Segfault when loading model in 64 bit build">gr at componic.co.nz
+       </A><BR>
+    <I>Tue Aug 21 06:24:09 CEST 2012</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000322.html">[Varkon-discuss] Segfault when loading model in 64 bit build
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#321">[ date ]</a>
+              <a href="thread.html#321">[ thread ]</a>
+              <a href="subject.html#321">[ subject ]</a>
+              <a href="author.html#321">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I was able to get 1.19D to compile on a 64 bit Ubuntu system after making this 
+change and fixing a couple of issues with sys/utsname.h but it segfaults when 
+trying to load a model. The model was created using the prebuilt 32 bit binary 
+from sourceforge.
+
+Is there a workaround for this?
+
+Glenn
+
+On 22/03/12 20:26, <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Some implementations of TCP/IP use a different type declaration for this
+</I>&gt;<i> variable.
+</I>&gt;<i>
+</I>&gt;<i> Try:
+</I>&gt;<i>
+</I>&gt;<i> #define h_addr  h_addr_list[0]  /* address, for backward compatiblity */
+</I>&gt;<i>
+</I>&gt;<i> Regards, Johan
+</I>&gt;<i>
+</I>&gt;<i> -----------------------
+</I>&gt;<i>
+</I>&gt;<i> Dr. Johan Kjellander, Docent
+</I>&gt;<i> Senior lecturer Mechanical engineering
+</I>&gt;<i> School of Science and Technology
+</I>&gt;<i> &#214;rebro university
+</I>&gt;<i> SE-70182 &#214;rebro
+</I>&gt;<i> SWEDEN
+</I>&gt;<i> E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+</I>&gt;<i> Tel: +46 (0)705 500 356
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message -----
+</I>&gt;<i> From: Buzz &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">buzz at kinematic.co.nz</A>&gt;
+</I>&gt;<i> Date: Saturday, March 17, 2012 04:22
+</I>&gt;<i> Subject: [Varkon-discuss] Make Error
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I am trying to compile Varkon from source. I am running 64 bit
+</I>&gt;&gt;<i> Debian stable
+</I>&gt;&gt;<i> (Squeeze).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> make fails with the following error:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> make[1]: Entering directory
+</I>&gt;&gt;<i> `/home/buzz/Downloads/Varkon/Varkon_1.19D/sources/EX/src'
+</I>&gt;&gt;<i> gcc -ansi -pedantic -Wall -ffloat-store -fsigned-char -O -DUNIX -
+</I>&gt;&gt;<i> DVARKON   -c
+</I>&gt;&gt;<i> -o extcp.o extcp.c
+</I>&gt;&gt;<i> extcp.c: In function &#8216;EXtcpco&#8217;:
+</I>&gt;&gt;<i> extcp.c:240: error: &#8216;struct hostent&#8217; has no member named &#8216;h_addr&#8217;
+</I>&gt;&gt;<i> make[1]: *** [extcp.o] Error 1
+</I>&gt;&gt;<i> make[1]: Leaving directory
+</I>&gt;&gt;<i> `/home/buzz/Downloads/Varkon/Varkon_1.19D/sources/EX/src'
+</I>&gt;&gt;<i> make: *** [distr] Error 2
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any help would be much appreciated.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> --
+</I>&gt;&gt;<i> Cheers
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Brian
+</I>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000322.html">[Varkon-discuss] Segfault when loading model in 64 bit build
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#321">[ date ]</a>
+              <a href="thread.html#321">[ thread ]</a>
+              <a href="subject.html#321">[ subject ]</a>
+              <a href="author.html#321">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

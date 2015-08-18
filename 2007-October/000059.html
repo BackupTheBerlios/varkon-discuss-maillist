@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon without JOB-files ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20without%20JOB-files%20%3F&In-Reply-To=%3C63419.81.227.234.97.1192260029.squirrel%40webmail01.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000057.html">
+   <LINK REL="Next"  HREF="000060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon without JOB-files ?</H1>
+    <B>Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20without%20JOB-files%20%3F&In-Reply-To=%3C63419.81.227.234.97.1192260029.squirrel%40webmail01.one.com%3E"
+       TITLE="[Varkon-discuss] Varkon without JOB-files ?">johan at toan.se
+       </A><BR>
+    <I>Sat Oct 13 09:20:29 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000057.html">[Varkon-discuss] Setting default linewidth, etc.
+</A></li>
+        <LI>Next message: <A HREF="000060.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+For those of you who have the possibility to download
+Varkon from SourceForge using the Subversion ssystem
+it is now possible to download Varkon 1.19B SVN#31.
+
+Version 31 includes support for hatching and dimensions
+in 3D. A hatch or dimension is always oriented in the
+XY-plane of the currently active coordinate system.
+
+This means that there is no longer any need for the
+DRAWING (2D) module type. Everything can be done in
+a GEOMETRY (3D) module. To make the system easier to
+understand and use I therefore suggest that we remove
+the concept of &quot;module type&quot; completely. There is only
+one and it is always 3D. The keywords DRAWING and GEMOETRY
+no longer have any meaning.
+
+What do you think of this ?
+
+Next step I would like to take on the route to make Varkon
+easier to learn and use is to remove the JOB-files. JOB-files
+hold information about current settings that do not relate directly
+to a model. Which levels are blanked and which are not. Size
+and position and view of graphics windows. Current pen, position
+method, level, etc. etc. With current version of Varkon a JOB-file
+is automatically created each time you save your job and
+automatically loaded each time you load a job. You can delete
+JOB-files if you want to. If you load a job without jobfile
+Varkon will use default values for all settings.
+
+Most CAD systems do not store this kind of data in a separate
+file but rather in the same file as the model. In AutoCAD for
+example all GUI settings are stored together with lines, arcs,
+texts etc. in the DWG-file. I think that Varkon would be easier
+to learn and use if Varkon was similar to other systems in this
+matter. What do you think ?
+
+There is a problem though. Varkon is not AutoCAD. Varkon can act
+in AutoCAD mode (explicit mode, -r on the command line) and will
+then create so called RIT files which are similar to DWG. In explicit
+mode it would be straight forward to store the JOB data in the RIT
+file. In generic mode (default mode) Varkon creates MBO files and
+RES files. You can remove RES files to save space. The actual model
+is in the MOB files and a RES file can be recreated at any time
+by just pressing the &quot;RUN&quot; button. This separation of model and
+result is a uniqe feature in Varkon that i have still not seen
+in any other CAD system.
+
+So, if we have no JOB files, JOB data has to go somewhere else.
+In explicit mode it will go to the RIT-file, similar to AutoCAD.
+In generic mode I suggest we put the JOB data in the RES file. This
+means that as long as you keep your RES file with your job your
+current GUI settings will persist but if you delete a RES-file
+the GUI settings of that JOB will revert to their default values.
+
+What do you think of this ?
+
+
+
+<A HREF="http://www.toan.se">http://www.toan.se</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000057.html">[Varkon-discuss] Setting default linewidth, etc.
+</A></li>
+	<LI>Next message: <A HREF="000060.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

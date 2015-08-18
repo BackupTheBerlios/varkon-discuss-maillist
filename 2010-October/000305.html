@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Help to use Varkon
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Help%20to%20use%20Varkon&In-Reply-To=%3C4CB76D61.20809%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000304.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Help to use Varkon</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Help%20to%20use%20Varkon&In-Reply-To=%3C4CB76D61.20809%40aon.at%3E"
+       TITLE="[Varkon-discuss] Help to use Varkon">armin.faltl at aon.at
+       </A><BR>
+    <I>Thu Oct 14 22:51:45 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000304.html">[Varkon-discuss] Help to use Varkon
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#305">[ date ]</a>
+              <a href="thread.html#305">[ thread ]</a>
+              <a href="subject.html#305">[ subject ]</a>
+              <a href="author.html#305">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>When I look at our model, it is pitch black, not transparent.
+To get some color onto it, you need to define light sources.
+If you only look at the X11-graphics you won't see texture
+attributes I think, only line graphics - you have to open
+the GL-window, to see surfaces and coloration of them.
+
+HTH, Armin
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">eleydet at free.fr</A> wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Can you help me please?
+</I>&gt;<i>
+</I>&gt;<i> With the program below, I get a surface, a form of revolution.
+</I>&gt;<i> This surface is transparent. How can I get color to this surface?
+</I>&gt;<i>
+</I>&gt;<i> Thank you in advance for your reply.
+</I>&gt;<i>
+</I>&gt;<i> Eric Leydet
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> BASIC GEOMETRY MODULE test();
+</I>&gt;<i>
+</I>&gt;<i> BEGINMODULE
+</I>&gt;<i>
+</I>&gt;<i>   poi_free(#1,vec(37, 85, 0.0));
+</I>&gt;<i>   poi_free(#2,vec(22, 70, 0.0));
+</I>&gt;<i>   poi_free(#3,vec(35, 53, 0.0));
+</I>&gt;<i>   poi_free(#4,vec(24, 34, 0.0));
+</I>&gt;<i>   poi_free(#5,vec(60, 85, 0.0));
+</I>&gt;<i>   poi_free(#6,vec(58, 30, 0.0));
+</I>&gt;<i>   lin_free(#7,on(#1), on(#2));
+</I>&gt;<i>   lin_free(#8,on(#2), on(#3));
+</I>&gt;<i>   lin_free(#9,on(#3), on(#4));
+</I>&gt;<i>   sur_rot(#10,#7, on(#5), on(#6), 0.0, 360.0, 1, 1);
+</I>&gt;<i>   sur_rot(#11,#8, on(#5), on(#6), 0.0, 360.0, 1, 1);
+</I>&gt;<i>   sur_rot(#12,#9, on(#5), on(#6), 0.0, 360.0, 1, 1);
+</I>&gt;<i>
+</I>&gt;<i> ENDMODULE
+</I>&gt;<i>                      1,1    tout
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000304.html">[Varkon-discuss] Help to use Varkon
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#305">[ date ]</a>
+              <a href="thread.html#305">[ thread ]</a>
+              <a href="subject.html#305">[ subject ]</a>
+              <a href="author.html#305">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

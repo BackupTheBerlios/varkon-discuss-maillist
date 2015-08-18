@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] A critique
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20A%20critique&In-Reply-To=%3C4E55BF5D.4090901%40hughes.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000312.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] A critique</H1>
+    <B>norseman</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20A%20critique&In-Reply-To=%3C4E55BF5D.4090901%40hughes.net%3E"
+       TITLE="[Varkon-discuss] A critique">norseman at hughes.net
+       </A><BR>
+    <I>Thu Aug 25 05:19:57 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000312.html">[Varkon-discuss] A critique
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#311">[ date ]</a>
+              <a href="thread.html#311">[ thread ]</a>
+              <a href="subject.html#311">[ subject ]</a>
+              <a href="author.html#311">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Varkon;
+    I downloaded the pre-built binary for Linux.
+       1)  The instructions made reference to the source code which I 
+had a hard time finding/getting.  Sourceforge can be difficult to deal 
+with and has a history of being less than adequate in policing their 
+contents.
+          A)  I was expecting to find a tarball of a reasonably stable 
+source group.  The access to the SVN is in the initial text files but 
+experience has lead me to believe that not all SVNs are stable code or 
+even compilable.  I (and I think others) appreciate the source being of 
+the binary given and all set to compile.
+          B)  Instructions for doing things are not always clear.  Bad 
+grammar I attribute to the language auto-converters.  The bad spellings 
+- not sure where those come from.
+          C)  When teaching the uninitiated it really is best use/show 
+the rote method.  That is - the actual push button sequence.  
+Unfortunate but true.  The translators can provide ambiguous statements 
+from what was crystal clear in the original language.
+
+       2)  Actually trying to use the program is very awkward.  I 
+realize Varkon is more parametric than drafting but things like 
+AutoCAD's polyline or Intergraph's line string need to be in existence 
+in any CAD program.  To try to string together a few hundred line 
+segments by:
+             click create
+             click line
+             click (choice of   two pos  or  projected   -  difference 
+not clear)
+       just to get started and then
+             for line(s)
+                click the desired entry mode (abs, abs+rel, rel, 
+rel+cur, abs+cur, cur)
+                click start point
+                click end point
+                try to click last end point again or type instructions 
+to use endpoint
+                    and then try to get close enough to select the 
+correct one.  BECAUSE:
+                     in binary download 1.19D the &lt;end&gt; selects the 
+mid-point and
+                    cancels the line entry.
+                click end point 
+                repeat from try... to click...    again and again and ...
+
+I'm used to:  To get started:
+                          click button at top labeled &lt;DRAW&gt;
+                          click choice (line or Pline or whatever basic 
+element)
+                      To do drafting:
+                          click, click for line;  repeat for next one, ...
+                                                OR
+                      click,click,click... for multi-segments)
+                      for &quot;on the fly&quot; help or change in input method:
+                              if endpoint, midpoint or other specific 
+wanted, right click, select
+                                 which and click near enough to specify 
+where/which.
+                              for specific coordinates, just type in the 
+comma delimited tuple
+                              placement is mix and match methods &quot;on the 
+fly&quot; as best suits
+                      to stop, just enter nothing (right click, &lt;CR&gt; or 
+&lt;SPACEBAR&gt;)
+
+        3)  The Varkon &lt;RIGHT-CLICK&gt;  to terminate or return a menu 
+level is not always working correctly.  That is a bug in the code.
+
+          4)  The DXF import can't seem to find the file no mater its 
+location.
+                Specifying full path makes no difference.  I read all I 
+could find and at
+                this point - this is a bug or the documentation is 
+incomplete of how to do.
+
+On the dream side:  It would be nice to be able to place a raster (a 
+picture) in the background and trace over it.  Even better would be for 
+it to place the raster in real world size and place by reading a TIFF 
+World File.   In case you want to add such a thing, the .tfw placement 
+X,Y is based on UpperLeftCorner of MostNorthwestPixel. Other raster 
+images sometimes use Center of MostNorthwestPixel.  So being able to 
+shift incoming raster needs to be accounted for.  Size (scale of image) 
+is simply accomplished
+by multiplying Xscale and Yscale values times pixel column/line value to 
+get upper left placement position of pixel.  Pixel offset is zero 
+based.  Upper left pixel is 0,0.  Upper LeftGround position is X + (0 x 
+pixelXwidth), Y + (0 x pixelYheight).  Thus a point 5 columns right and 
+14 lines down would be located at:
+ X + (5 x pixelXwidth), Y + (14 x pixelYheight).
+
+example:
+contents of sac-napa.tfw
+20.000000000000                   Ground length of X
+0.000000000000                     aways 0.0
+0.000000000000                     always 0.0
+-20.000000000000                  Ground length of Y (always '-' and =X 
+for square)
+298081.592832696270            Easting      (X)
+4287483.560435335200          Northing   (Y)
+
+6 lines, no comments, just the left side, left set.  Units (projection, 
+meters,  feet,  Lat/Long, ...) are assumed to be known and within the 
+file are all of same measure and origin.
+The two 0.0 lines are for use in a matrix,  one is scale and the other 
+is rotation.  I have never seen them be anything but Zero in actual day 
+to day use.  They would be used if you were to be handling raw satellite 
+output because capture is skewed and orbits are not perfectly circular 
+around center of Earth.
+
+The SVN I down loaded today does not compile.  forcing pointer use from 
+an integer and passing too many tokens on the stack.  about half a 
+screen of compile chatter and bombs out.
+
+One congratulation is in order.  The binary downloaded and (after 
+tweaking paths) runs.  That a pre-compiled binary does so is rare in the 
+Linux world.  The binary is usually tied tight to a specific vendor and 
+thus useless to the world at large.
+
+Again, congratulations!
+
+Steve
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000312.html">[Varkon-discuss] A critique
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#311">[ date ]</a>
+              <a href="thread.html#311">[ thread ]</a>
+              <a href="subject.html#311">[ subject ]</a>
+              <a href="author.html#311">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

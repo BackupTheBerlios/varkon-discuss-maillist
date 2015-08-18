@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Some issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Some%20issues&In-Reply-To=%3C20120824143400.33450%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000320.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Some issues</H1>
+    <B>metalevel at gmx.net</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Some%20issues&In-Reply-To=%3C20120824143400.33450%40gmx.net%3E"
+       TITLE="[Varkon-discuss] Some issues">metalevel at gmx.net
+       </A><BR>
+    <I>Fri Aug 24 16:34:00 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000320.html">[Varkon-discuss] Blank OpenGL window
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#323">[ date ]</a>
+              <a href="thread.html#323">[ thread ]</a>
+              <a href="subject.html#323">[ subject ]</a>
+              <a href="author.html#323">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello Varkon-developers,
+
+
+I'd like to bring some issues to your attention, which bother me somewhat.
+
+But first I'd like to say, that I am a big fan of Varkon, for it's the only all-purpose parametric FLOSS CAD software I know of, which can be used in 2D and 3D and supports variable views together with dimensioning and hatching.
+
+Unfortunately Varkon has some odd behaviour, which one hast to get used to the hard way.
+For example I repeatedly fail in constructing a spherical surface by rotating an full circular arc around an 180&#176; angle. I always have to use a semicircle and rotate it around 360&#176;. Well, that's ok...
+
+Some bigger problem I have is with my current built. I built Varkon on Xubuntu 12.04 and everything went fine so far.
+Now, when I create a cylindrical surface by shifting a full circle, I get an strange result, which looks somewhat like this:
+
+             aaa
+          aaa   aaa
+       aaa         aaa
+     aa               aa
+    a                   a
+   a                     a
+  aa                     aa
+   a                     a
+    a                   a
+     aa               aa
+       aaa         aaa
+          aaa   aaa
+             aaa
+
+The first thingie here is my circular arc I want to shift.
+
+             aaa
+          aaa   aaa
+       aaa         aac
+     aa             b cc
+    a              b    c
+   a              b      c
+  aa             b       cc
+   a            b        c
+    a          b        c
+     aa       b       cc
+       aaa   b     ccc
+          aac   ccc
+             ccc
+
+This is the result I get, with the segment marked as 'c' being the portion of the arc, that has actually been shifted and created the cylindrical surface.
+
+Since I tested all thinkable combinations of entities and parameters without having Varkon give me some hints, I have no real clue what goes wrong.
+
+Some question, that comes to my mind is, whether Varkon is still developed/meintained?
+
+If so, I'd like to recommend two things:
+
+- It would be great for the average user to know which software package delivers the needed dependency libraries for building Varkon. With 'software package' I'm not meaning the specific package that's shipped with the OS-distribution, but the original upstream software and maybe the website that gives further information.
+
+- I noticed, that some (maybe many) of the c-sourcefiles contain commentary in swedish. It would be great for enthusiasts and developers to have some more international language at hand for improving Varkon.
+
+
+
+Best regards
+
+Harri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- 
+
+ ,= ,-_-. =.
+((_/)o o(\_))
+ `-'(. .)`-'
+     \_/
+
+www.gnu.org
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000320.html">[Varkon-discuss] Blank OpenGL window
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#323">[ date ]</a>
+              <a href="thread.html#323">[ thread ]</a>
+              <a href="subject.html#323">[ subject ]</a>
+              <a href="author.html#323">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

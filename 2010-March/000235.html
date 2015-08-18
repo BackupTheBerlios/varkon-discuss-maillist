@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%20or%20what%3F&In-Reply-To=%3C4BA1FCF8.5060500%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000234.html">
+   <LINK REL="Next"  HREF="000236.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%20or%20what%3F&In-Reply-To=%3C4BA1FCF8.5060500%40aon.at%3E"
+       TITLE="[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?">armin.faltl at aon.at
+       </A><BR>
+    <I>Thu Mar 18 11:14:16 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000234.html">[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</A></li>
+        <LI>Next message: <A HREF="000236.html">[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#235">[ date ]</a>
+              <a href="thread.html#235">[ thread ]</a>
+              <a href="subject.html#235">[ subject ]</a>
+              <a href="author.html#235">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello John, Johan and all,
+
+during my quest for a good widget library I was considering wxwidgets.
+I don't know any longer, why exactly I ruled it out and opted for FLTK,
+but look for the following:
+*) how complicated is it, to deploy an executable on all possible platforms?
+    need cygwin? -&gt; then everyone wanting to use your app has to install 
+cygwin as well
+   -&gt; no-go
+   -&gt; cool if it works out of the box with the MinGW-compiler under 
+Windows, including
+       the GL-demos
+*) check very carefully, how the library handles OpenGL-drawing
+   - everything in a wrapper? -&gt; slow, limited -&gt; no-go
+   - do the demos run on every machine you get hold of?
+     regretably FLTK assumes all machine have 24-bit visuals, but my 
+laptop hasn't
+     -&gt; I'm trying to enhance FLTK now because of this
+*) do you find the API clear and easy?
+    - clumsy event handling? event propagation? grouping of widgets?
+
+If I remember correct, the API of wx looked arkward to me and much of the
+demos they offer didn't even compile everywhere. Take this with a grain 
+of salt
+since I did my search more than 4 years ago. Btw, I think wx looks just 
+ugly.
+
+If you want to have a look at my effort, there is a bit dated version on
+www.varkon.org under GUI.
+
+Btw. Johan, day before yesterday I got my demo working on the Athlon 64
+again using the V1.18A libraries. I still have not understood the V1.19B
+surface-interface without english toplevel-doku...
+
+Sometimes, when I'm more bold than sensible I consider even writing a new
+widget library - however, while I have some ideas for a fast, concise 
+themable
+lib, the effort is very high.
+
+The reason, why I have not abandoned my stuff alltogether yet is, that 
+some day
+I want a free CAD app, that I enjoy to work with. I started out with the 
+idea of
+basing something comercial or dual-license on Varkon as well - do you have
+2-3 fultime years to spend en-bloc John? What you see on www.varkon.org
+resembles 3 <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">months at 60h</A>/week.
+
+Best Regards, Armin
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> wrote:
+&gt;<i> John,
+</I>&gt;<i>
+</I>&gt;<i> 1. Varkon and Autocad are very different systems. I don't
+</I>&gt;<i> remember exactly what XREF is but it seems close to REF in
+</I>&gt;<i> VARKON.
+</I>&gt;<i>
+</I>&gt;<i> 2. Applications developed in MBS are compatible between Linux
+</I>&gt;<i> and Windows. Most of the Varkon sourcecode (C-code) is also
+</I>&gt;<i> portable. One important exception is the GUI which is based
+</I>&gt;<i> on X-windows in Linux and WIN32 in Windows. For us, this is
+</I>&gt;<i> a major issue at the moment. We want to develop a common GUI
+</I>&gt;<i> for both platforms. Any suggestions ?
+</I>&gt;<i>
+</I>&gt;<i> 3. What is wxwidgets ?
+</I>&gt;<i>
+</I>&gt;<i> Johan
+</I>&gt;<i>
+</I>&gt;<i> -----------------------
+</I>&gt;<i>
+</I>&gt;<i> Dr. Johan Kjellander, Docent
+</I>&gt;<i> Senior lecturer Mechanical engineering
+</I>&gt;<i> School of Science and Technology
+</I>&gt;<i> &#214;rebro university
+</I>&gt;<i> SE-70182 &#214;rebro
+</I>&gt;<i> SWEDEN
+</I>&gt;<i> E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+</I>&gt;<i> Tel: +46 (0)705 500 356
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message -----
+</I>&gt;<i> From: John MacPhail &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt;
+</I>&gt;<i> Date: Wednesday, March 17, 2010 22:25
+</I>&gt;<i> Subject: Re: [Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</I>&gt;<i>   
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000234.html">[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</A></li>
+	<LI>Next message: <A HREF="000236.html">[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#235">[ date ]</a>
+              <a href="thread.html#235">[ thread ]</a>
+              <a href="subject.html#235">[ subject ]</a>
+              <a href="author.html#235">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

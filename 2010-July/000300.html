@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-July/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20compilation%20error%20%281.19D%20on%20Kubuntu%2010.04%29&In-Reply-To=%3C4C33DAB6.5010806%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000299.html">
+   <LINK REL="Next"  HREF="000301.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)</H1>
+    <B>Cliff Yapp</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20compilation%20error%20%281.19D%20on%20Kubuntu%2010.04%29&In-Reply-To=%3C4C33DAB6.5010806%40gmail.com%3E"
+       TITLE="[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)">cliffyapp at gmail.com
+       </A><BR>
+    <I>Wed Jul  7 03:39:02 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000299.html">[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+</A></li>
+        <LI>Next message: <A HREF="000301.html">[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#300">[ date ]</a>
+              <a href="thread.html#300">[ thread ]</a>
+              <a href="subject.html#300">[ subject ]</a>
+              <a href="author.html#300">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 07/06/2010 08:18 PM, <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A> wrote:
+&gt;<i> ...
+</I>&gt;<i> [in $VARKON_ROOT/sources/EX/src]
+</I>&gt;<i> ...
+</I>&gt;<i> gcc -ansi -pedantic -Wall -ffloat-store -fsigned-char -O -DUNIX -DVARKON   -c -o extcp.o extcp.c
+</I>&gt;<i> extcp.c: In function &#226;&#8364;&#732;EXtcpco&#226;&#8364;&#8482;:
+</I>&gt;<i> extcp.c:240: error: &#226;&#8364;&#732;struct hostent&#226;&#8364;&#8482; has no member named &#226;&#8364;&#732;h_addr&#226;&#8364;&#8482;
+</I>&gt;<i> make[1]: *** [extcp.o] Error 1
+</I>&gt;<i>   
+</I>
+I changed this to
+
+memcpy(&amp;(server_addr.sin_addr),hp-&gt;h_addr_list[0],hp-&gt;h_length);
+
+and got it to build - some docs online indicated h_addr was just an
+alias for the first element in that list. Dunno if it worked though,
+since I can't get Varkon to open a file :-/.
+
+CY
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000299.html">[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+</A></li>
+	<LI>Next message: <A HREF="000301.html">[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#300">[ date ]</a>
+              <a href="thread.html#300">[ thread ]</a>
+              <a href="subject.html#300">[ subject ]</a>
+              <a href="author.html#300">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

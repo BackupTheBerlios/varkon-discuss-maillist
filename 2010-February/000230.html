@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Fwd: Re:  varkon window opens, but not the menu
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Fwd%3A%20Re%3A%20%20varkon%20window%20opens%2C%20but%20not%20the%20menu&In-Reply-To=%3C4B6F51AC.3030309%40resheteva.lan%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000229.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Fwd: Re:  varkon window opens, but not the menu</H1>
+    <B>alex bodnaru</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Fwd%3A%20Re%3A%20%20varkon%20window%20opens%2C%20but%20not%20the%20menu&In-Reply-To=%3C4B6F51AC.3030309%40resheteva.lan%3E"
+       TITLE="[Varkon-discuss] Fwd: Re:  varkon window opens, but not the menu">alexbodn at 012.net.il
+       </A><BR>
+    <I>Mon Feb  8 00:50:04 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000229.html">[Varkon-discuss] Points on a surface
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#230">[ date ]</a>
+              <a href="thread.html#230">[ thread ]</a>
+              <a href="subject.html#230">[ subject ]</a>
+              <a href="author.html#230">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+
+- -------- Original Message --------
+Subject: Re: [Varkon-discuss] varkon window opens, but not the menu
+Date: Sun, 07 Feb 2010 13:49:25 +0200
+From: alex bodnaru &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">alex at resheteva.lan</A>&gt;
+Reply-To: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">alex at resheteva.lan</A>
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+
+
+hello johan,
+
+i've finally found a possible solution to the missing/hiding menu window.
+
+your compatriot, from <A HREF="irc://irc.gimp.org/#gimp">irc://irc.gimp.org/#gimp</A> gave me the solution they are
+using for gimp, which loads in a way similar to varkon. the menu window should
+be hinted to be a utility window as follows: gtk_window_set_type_hint (window,
+GDK_WINDOW_TYPE_HINT_UTILITY);
+the source for gtk_window_set_type_hint is at
+<A HREF="http://git.gnome.org/browse/gtk+/tree/gdk/x11/gdkwindow-x11.c#n1946.">http://git.gnome.org/browse/gtk+/tree/gdk/x11/gdkwindow-x11.c#n1946.</A>
+
+best regards,
+alex
+
+On 01/28/2010 05:40 PM, <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> wrote:
+&gt;<i> Alex,
+</I>&gt;<i>
+</I>&gt;<i> I have reports from Mac and SUN users that varkon sometimes will start up with a minimized menu window. Maybe this is not the case for you ?
+</I>&gt;<i>
+</I>&gt;<i> To get any further I could install the OS you are using on my machine (or a virtual machine using VMware) and do some testing.
+</I>&gt;<i>
+</I>&gt;<i> What Debian version are you using ?
+</I>&gt;<i> What window manager (KDE, Gnome,....)
+</I>&gt;<i> What version of X windows
+</I>&gt;<i> Any hardware support for graphics cards ?
+</I>&gt;<i>
+</I>&gt;<i> Did you compile Varkon from the sources ?
+</I>&gt;<i> Which version ? (SVN #...)
+</I>&gt;<i>
+</I>&gt;<i> Johan
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----------------------
+</I>&gt;<i>
+</I>&gt;<i> Dr. Johan Kjellander, Docent
+</I>&gt;<i> Senior lecturer Mechanical engineering
+</I>&gt;<i> School of Science and Technology
+</I>&gt;<i> &#214;rebro university
+</I>&gt;<i> SE-70182 &#214;rebro
+</I>&gt;<i> SWEDEN
+</I>&gt;<i> E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+</I>&gt;<i> Tel: +46 (0)705 500 356
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message -----
+</I>&gt;<i> From: alex bodnaru &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">alexbodn at 012.net.il</A>&gt;
+</I>&gt;<i> Date: Wednesday, January 27, 2010 17:48
+</I>&gt;<i> Subject: Re: [Varkon-discuss] varkon window opens, but not the menu
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> hello and thanks again johan,
+</I>&gt;<i>
+</I>&gt;<i> i have retried, and the menu window was not in the open windows list.
+</I>&gt;<i>
+</I>&gt;<i> if this is a known problem, i'd suggest you look at gimp, which
+</I>&gt;<i> also loads a
+</I>&gt;<i> couple of windows together.
+</I>&gt;<i>
+</I>&gt;<i> best regards,
+</I>&gt;<i> alex
+</I>&gt;<i>
+</I>&gt;<i> On 01/27/2010 06:35 PM, <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> wrote:
+</I>&gt;&gt;&gt;&gt;<i> Alex,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> One idea could be to check the configuration of your window manager.
+</I>&gt;&gt;&gt;&gt;<i> Some WM's minimize pop up windows by default. I have a vauge
+</I>&gt;<i> feeling that
+</I>&gt;&gt;&gt;&gt;<i> we have seen this behaviour before. I mailed S&#246;ren who is also in
+</I>&gt;<i> the&gt; Varkon project to ask him. I'll be back as soon as I hear from
+</I>&gt;<i> him.&gt;
+</I>&gt;&gt;&gt;&gt;<i> Johan
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> -----------------------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Dr. Johan Kjellander, Docent
+</I>&gt;&gt;&gt;&gt;<i> Senior lecturer Mechanical engineering
+</I>&gt;&gt;&gt;&gt;<i> School of Science and Technology
+</I>&gt;&gt;&gt;&gt;<i> &#214;rebro university
+</I>&gt;&gt;&gt;&gt;<i> SE-70182 &#214;rebro
+</I>&gt;&gt;&gt;&gt;<i> SWEDEN
+</I>&gt;&gt;&gt;&gt;<i> E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+</I>&gt;&gt;&gt;&gt;<i> Tel: +46 (0)705 500 356
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> ----- Original Message -----
+</I>&gt;&gt;&gt;&gt;<i> From: alex bodnaru &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">alexbodn at 012.net.il</A>&gt;
+</I>&gt;&gt;&gt;&gt;<i> Date: Wednesday, January 27, 2010 16:20
+</I>&gt;&gt;&gt;&gt;<i> Subject: Re: [Varkon-discuss] varkon window opens, but not the menu
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> hello johan,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> and thanks for your answer.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> i wish to follow the 6 minutes tutorial, thus i'd use the
+</I>&gt;<i> relevant
+</I>&gt;&gt;&gt;&gt;<i> page as
+</I>&gt;&gt;&gt;&gt;<i> reference:
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="http://varkon.sourceforge.net/man_1.19D/tutorial/section_3.htm.">http://varkon.sourceforge.net/man_1.19D/tutorial/section_3.htm.</A>
+</I>&gt;&gt;&gt;&gt;<i> when i'm activating varkon, i can see the graphic window (fig
+</I>&gt;<i> 2,3)
+</I>&gt;&gt;&gt;&gt;<i> but not the
+</I>&gt;&gt;&gt;&gt;<i> menu window (fig 1).
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> i'd be grateful for any clue i could check.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> thanks in advance,
+</I>&gt;&gt;&gt;&gt;<i> alex
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> On 01/27/2010 04:47 PM, <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> wrote:
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Hi Alex,
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> It would be wonderful if the current outdated version of
+</I>&gt;<i> Varkon
+</I>&gt;&gt;&gt;&gt;<i> that is distributed with Debian was replaced with 1.19D or later.
+</I>&gt;&gt;&gt;&gt;<i> I am most willing to help in any way.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> I'm not sure however if I understand the problem you are
+</I>&gt;<i> having.
+</I>&gt;&gt;&gt;&gt;<i> What happens when you start Varkon ? The LOG-file indicates that
+</I>&gt;&gt;&gt;&gt;<i> everything is OK. Can you please describe the problem a little
+</I>&gt;&gt;&gt;&gt;<i> more in detail.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Johan
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> -----------------------
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Dr. Johan Kjellander, Docent
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Senior lecturer Mechanical engineering
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> School of Science and Technology
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> &#214;rebro university
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> SE-70182 &#214;rebro
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> SWEDEN
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Tel: +46 (0)705 500 356
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> ----- Original Message -----
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> From: alex bodnaru &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">alexbodn at 012.net.il</A>&gt;
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Date: Wednesday, January 27, 2010 08:31
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Subject: [Varkon-discuss] varkon window opens, but not the menu
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> hello friends,
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> thanks a lot for varkon.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> i've built varkon 1.19d on debian, in an effort to revive the
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> older debian package.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> however the build process went well, when i tried to run
+</I>&gt;<i> varkon,
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> no menu is
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> showing up, as described in the tutorial.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> the log is attached
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> could you please help?
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;&gt;<i> Varkon-discuss mailing list
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;&gt;<i> Varkon-discuss mailing list
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;&gt;<i>
+</I>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org/">http://enigmail.mozdev.org/</A>
+
+iJwEAQECAAYFAktvUasACgkQ2nA3WyrfyePD8AQAkT7+ptcdgLGEDPSYlw6lJBfI
+1gGuFvULaYXHIoKAjKTCbsdGo8XxDhuN9jug79oWTVjDMLkS1bT68E++sbtPWtnW
+5fHnUqlSpsStmkzCt26KpM4CTPhNGsPECVorN/PN3Dyr2SnrNc8B6UTyTPDhPHTI
+IWgMXA6sikTYVoZARJo=
+=gQiZ
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000229.html">[Varkon-discuss] Points on a surface
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#230">[ date ]</a>
+              <a href="thread.html#230">[ thread ]</a>
+              <a href="subject.html#230">[ subject ]</a>
+              <a href="author.html#230">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

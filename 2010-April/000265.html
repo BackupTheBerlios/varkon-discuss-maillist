@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] macro modules and MVC
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20macro%20modules%20and%20MVC&In-Reply-To=%3C446188155.73103.1271825093316.JavaMail.open-xchange%40ox4%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000264.html">
+   <LINK REL="Next"  HREF="000267.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] macro modules and MVC</H1>
+    <B>gunnar.liden at viewsoncad.ch</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20macro%20modules%20and%20MVC&In-Reply-To=%3C446188155.73103.1271825093316.JavaMail.open-xchange%40ox4%3E"
+       TITLE="[Varkon-discuss] macro modules and MVC">gunnar.liden at viewsoncad.ch
+       </A><BR>
+    <I>Wed Apr 21 06:44:53 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000264.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+        <LI>Next message: <A HREF="000267.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#265">[ date ]</a>
+              <a href="thread.html#265">[ thread ]</a>
+              <a href="subject.html#265">[ subject ]</a>
+              <a href="author.html#265">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello John
+&#160;
+I have made an attempt to explain the use of MACROs. Please refer to:
+<A HREF="http://viewsoncad.ch/VarkonTutorial/generic.htm">http://viewsoncad.ch/VarkonTutorial/generic.htm</A>
+&#160;
+Regards
+&#160;
+Gunnar
+
+&#160;
+
+John MacPhail &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt; hat am 21. April 2010 um 03:28 geschrieben:
+
+&gt;<i> Possibly my trouble grasping proper use of MACRO
+</I>&gt;<i> modules comes from insufficient understanding of the
+</I>&gt;<i> Model-View-Controller design model both in general
+</I>&gt;<i> and specifically as it applies to Varkon.
+</I>&gt;<i>
+</I>&gt;<i> 1. A fundamental concept in Varkon is &quot;the active module.&quot;
+</I>&gt;<i> This can never be a MACRO module. I assume there is at
+</I>&gt;<i> most one active module. Does Varkon allow a condition
+</I>&gt;<i> (analogous to the &quot;zero-document state&quot; of AutoCAD)
+</I>&gt;<i> where there is no active module?
+</I>&gt;<i>
+</I>&gt;<i> 2. Unlike other modules, a MACRO is not embedded into
+</I>&gt;<i> the database, and can call a (different) MACRO module.
+</I>&gt;<i>
+</I>&gt;<i> 3. The real point of MACRO modules is facilitating
+</I>&gt;<i> something like Model-View-Controller design: a MACRO
+</I>&gt;<i> module is a Controller component, the MBS/MBO files
+</I>&gt;<i> capture Model components, and a RES file is like a View
+</I>&gt;<i> component.
+</I>&gt;<i>
+</I>&gt;<i> 4. A non-MACRO module can't (and shouldn't) directly
+</I>&gt;<i> invoke a MACRO module. For example, take M to be
+</I>&gt;<i> the alert-box example in the page macro-dialog.htm of the
+</I>&gt;<i> Varkon Application Developers Manual, and suppose a
+</I>&gt;<i> non-MACRO module NM encounters an error condition.
+</I>&gt;<i> The &quot;wrong&quot; approach would be for NM to pop up a
+</I>&gt;<i> dialog got by re-writing M as a non-macro module.
+</I>&gt;<i> The &quot;right&quot; approach would be for NM to create a user
+</I>&gt;<i> interface item such as a button that upon clicking would
+</I>&gt;<i> show the alert-box dialog.
+</I>&gt;<i>
+</I>&gt;<i> Note that I am not finding the above (#4) example
+</I>&gt;<i> very convincing. Am I wrong not to be convinced? Can
+</I>&gt;<i> someone provide a better example?
+</I>&gt;<i>
+</I>&gt;<i> John (MacPhail)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100421/69716eae/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100421/69716eae/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000264.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+	<LI>Next message: <A HREF="000267.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#265">[ date ]</a>
+              <a href="thread.html#265">[ thread ]</a>
+              <a href="subject.html#265">[ subject ]</a>
+              <a href="author.html#265">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

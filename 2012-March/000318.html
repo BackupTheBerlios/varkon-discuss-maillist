@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Make Error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Make%20Error&In-Reply-To=%3C1b99f1cc708b.4f6ae241%40oru.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000317.html">
+   <LINK REL="Next"  HREF="000319.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Make Error</H1>
+    <B>johan.kjellander at oru.se</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Make%20Error&In-Reply-To=%3C1b99f1cc708b.4f6ae241%40oru.se%3E"
+       TITLE="[Varkon-discuss] Make Error">johan.kjellander at oru.se
+       </A><BR>
+    <I>Thu Mar 22 08:26:41 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000317.html">[Varkon-discuss] Make Error
+</A></li>
+        <LI>Next message: <A HREF="000319.html">[Varkon-discuss] Make Error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#318">[ date ]</a>
+              <a href="thread.html#318">[ thread ]</a>
+              <a href="subject.html#318">[ subject ]</a>
+              <a href="author.html#318">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Some implementations of TCP/IP use a different type declaration for this
+variable.
+
+Try:
+
+#define h_addr  h_addr_list[0]  /* address, for backward compatiblity */
+
+Regards, Johan
+
+-----------------------
+
+Dr. Johan Kjellander, Docent
+Senior lecturer Mechanical engineering
+School of Science and Technology
+&#214;rebro university
+SE-70182 &#214;rebro
+SWEDEN
+E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+Tel: +46 (0)705 500 356
+
+----- Original Message -----
+From: Buzz &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">buzz at kinematic.co.nz</A>&gt;
+Date: Saturday, March 17, 2012 04:22
+Subject: [Varkon-discuss] Make Error
+
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> I am trying to compile Varkon from source. I am running 64 bit 
+</I>&gt;<i> Debian stable 
+</I>&gt;<i> (Squeeze).
+</I>&gt;<i> 
+</I>&gt;<i> make fails with the following error:
+</I>&gt;<i> 
+</I>&gt;<i> make[1]: Entering directory 
+</I>&gt;<i> `/home/buzz/Downloads/Varkon/Varkon_1.19D/sources/EX/src'
+</I>&gt;<i> gcc -ansi -pedantic -Wall -ffloat-store -fsigned-char -O -DUNIX -
+</I>&gt;<i> DVARKON   -c 
+</I>&gt;<i> -o extcp.o extcp.c
+</I>&gt;<i> extcp.c: In function &#8216;EXtcpco&#8217;:
+</I>&gt;<i> extcp.c:240: error: &#8216;struct hostent&#8217; has no member named &#8216;h_addr&#8217;
+</I>&gt;<i> make[1]: *** [extcp.o] Error 1
+</I>&gt;<i> make[1]: Leaving directory 
+</I>&gt;<i> `/home/buzz/Downloads/Varkon/Varkon_1.19D/sources/EX/src'
+</I>&gt;<i> make: *** [distr] Error 2
+</I>&gt;<i> 
+</I>&gt;<i> Any help would be much appreciated.
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> Cheers
+</I>&gt;<i> 
+</I>&gt;<i> Brian
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000317.html">[Varkon-discuss] Make Error
+</A></li>
+	<LI>Next message: <A HREF="000319.html">[Varkon-discuss] Make Error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#318">[ date ]</a>
+              <a href="thread.html#318">[ thread ]</a>
+              <a href="subject.html#318">[ subject ]</a>
+              <a href="author.html#318">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

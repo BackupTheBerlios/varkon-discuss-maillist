@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] no chance to set parameter during part call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20no%20chance%20to%20set%20parameter%20during%20part%20call&In-Reply-To=%3C20111026161503.106850%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000314.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] no chance to set parameter during part call</H1>
+    <B>&quot;Christian Kabu&#223;&quot;</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20no%20chance%20to%20set%20parameter%20during%20part%20call&In-Reply-To=%3C20111026161503.106850%40gmx.net%3E"
+       TITLE="[Varkon-discuss] no chance to set parameter during part call">c_kabuss at gmx.net
+       </A><BR>
+    <I>Wed Oct 26 18:15:03 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000314.html">[Varkon-discuss] no chance to set parameter during part call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#313">[ date ]</a>
+              <a href="thread.html#313">[ thread ]</a>
+              <a href="subject.html#313">[ subject ]</a>
+              <a href="author.html#313">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Varkon,
+after a couple of years I just undertake another attempt to approach Varkon, doing this as an Industrial Designer and Artist without knowledge of programming so far. Learning by doing and things are well in progress.
+
+I was able to build Varkon from the sources on Suse 11.4 (just some minor damages at the lower and right rim of the viewing window, some 2 pixel wide stripes that let me see through to the desktop, and keep from adjusting the window size), get the compiler going and went through the David Macmillan tutorial, now doing the geometry course by Gunnar Liden.
+
+One quite basic thing I'd always expect but never happens is the following: when I declare a parameter in a module like 
+
+FLOAT width:=100            &gt;&quot;Horisontal size ?&quot;; 
+
+my expectation is that when I call this very module from another module by using the part() geometric procedure 
+
+a window'd pop up, asking &quot;Horisontal size ?&quot; 
+
+and I would be allowed to type in maybe 50 to change the default value.
+
+But this never happens. Even if I do the declaration without a value, just the prompt string after the parameter_definition, the the value 0.0 for a FLOAT or #1 for a REF would be automatically set, no chance to intervene.
+
+To keep it basic, I compiled the Introduction from the Programmers Manual 
+<A HREF="http://varkon.sourceforge.net/man_1.19D/MBS/intro.htm">http://varkon.sourceforge.net/man_1.19D/MBS/intro.htm</A>
+But it's the same.
+
+Where is the bug - in my brain, is it Varkon - I ask after a day trying.
+Thanks! Christian
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000314.html">[Varkon-discuss] no chance to set parameter during part call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#313">[ date ]</a>
+              <a href="thread.html#313">[ thread ]</a>
+              <a href="subject.html#313">[ subject ]</a>
+              <a href="author.html#313">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

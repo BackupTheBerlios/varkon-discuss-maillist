@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Semi-interactive MBS-edit-display-cycle and	intersection problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-July/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Semi-interactive%20MBS-edit-display-cycle%20and%0A%09intersection%20problem&In-Reply-To=%3C4C544899.7030508%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000302.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Semi-interactive MBS-edit-display-cycle and	intersection problem</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Semi-interactive%20MBS-edit-display-cycle%20and%0A%09intersection%20problem&In-Reply-To=%3C4C544899.7030508%40aon.at%3E"
+       TITLE="[Varkon-discuss] Semi-interactive MBS-edit-display-cycle and	intersection problem">armin.faltl at aon.at
+       </A><BR>
+    <I>Sat Jul 31 18:00:25 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000302.html">[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#303">[ date ]</a>
+              <a href="thread.html#303">[ thread ]</a>
+              <a href="subject.html#303">[ subject ]</a>
+              <a href="author.html#303">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+is there a way to convince Varkon that I want to do the following:
+
+A) edit an MBS-module in a shell window or any other editor
+B) in that editor I save the file
+C) press the RUN button in Varkon (or some other button) and Varkon
+    just compiles and runs that file, so I can see it graphically
+
+i.e. comments are kept, because varkon leaves the original MBS alone.
+
+Other question: for optical investigations I'd need to compute reflection
+and refraction rays (in 2D so far).
+When attempting to get the parameter of intersection of an arc with
+a line to compute the surface normal like this:
+
+...
+arc_1pos(#2, vec(0.0, 0.23, 0.0), r1, 180, 360 : PEN=2);
+
+FOR i := 1 TO m DO
+    ...
+    lin_free(#13, p, p + ray1);
+    ...
+    p := intersect(refc(13, i), #2, -1);
+    poi_free(#100, p);
+    t := inv_on(#2, p, 1);
+    poi_free(#101, on(#2, t));
+ENDFOR
+
+it turns out, that #100, the good solution and #101, the intersection point
+computed from the parameter I'd like to use for evaluation of the normal
+subsequently are visibly different, #101 being way of the intersection of
+the line and the arc.
+If I reverse the order of elements in intersection, i.e.
+...
+ p := intersect(#2, refc(13, i), -1);
+...
+it gets even worse: none of #100, #101 sits on the visible intersection 
+while
+both are on the arc. I checked for missing z-coordinates via OpenGL view
+and fixed this, but it didn't solve the problem.
+
+- is there a better way to compute the normal at an intersection point?
+- an intersection of a line and a cur_usrdef does not seem to have this
+  problem, at least not visibly
+
+BTW. the mbsc I used is from 1.18B while the display is 1.19D
+
+Regards, Armin
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000302.html">[Varkon-discuss] compilation error (1.19D on Kubuntu 10.04)
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#303">[ date ]</a>
+              <a href="thread.html#303">[ thread ]</a>
+              <a href="subject.html#303">[ subject ]</a>
+              <a href="author.html#303">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

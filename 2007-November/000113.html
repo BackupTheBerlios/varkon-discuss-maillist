@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] On Splines
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20On%20Splines&In-Reply-To=%3C473B4577.9010800%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000111.html">
+   <LINK REL="Next"  HREF="000114.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] On Splines</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20On%20Splines&In-Reply-To=%3C473B4577.9010800%40aon.at%3E"
+       TITLE="[Varkon-discuss] On Splines">armin.faltl at aon.at
+       </A><BR>
+    <I>Wed Nov 14 19:59:03 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000111.html">[Varkon-discuss] compiling FreeBSD on Mac OS X
+</A></li>
+        <LI>Next message: <A HREF="000114.html">[Varkon-discuss] Armin Faltl's GUI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#113">[ date ]</a>
+              <a href="thread.html#113">[ thread ]</a>
+              <a href="subject.html#113">[ subject ]</a>
+              <a href="author.html#113">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+
+as I'm a secrete ship builder, splines are essential to me,
+so here my working docu on how to manage splines ;-)
+
+Methods to automatically fair splines
+-------------------------------------
+
+All methods to fair splines considered here achieve this,
+by temporarily ignoring a certain control point.
+Afterwards the control point is newly defined on the
+segment combined from the arcs adjecent to the omitted point.
+But the essential question is: where?
+
+The best method to do this is dependent on the use of the
+spline. In ship building, splines are used to define the
+'lines' of a ship and the control points of a couple of these
+splines are normally all located at the station planes.
+Therefore the intersection of the faired spline with
+the station plane of the omitted control point is where
+the new control point shall be inserted.
+
+Obviousely, for splines on an arbitrar design, there do
+not exist predefined station planes and the above approach
+is bound to fail. Another idea is to use the normal plane
+to the original spline through the control point as surface
+to intersect the faired spline with.
+
+Yet another idea is to use the parallel to the screen through
+the old control point or horizontal or vertical normals to that.
+
+Based on the fact that this CAD-demo utilizes a grid-plane
+to define input points, a parallel to the grid or the grid-plane
+it self might be used for above intersection.
+
+As it is easy, to orient the grid plane parallel to station planes,
+three methods shall be offered in the CAD-demo:
+a) the &quot;natural&quot; method using the normal to the old spline
+b) the parallel to the grid-plane through the old control point
+c) the grid plane itself
+
+
+Manually fairing/modeling a spline by draging
+---------------------------------------------
+
+Like above the modifications are done by redefining control points
+of the spline, in that case by draging them around. Again, the splines
+are 3D-lines and the 2D-motion of the mouse can interpreted in
+several ways:
+*) the control point stayes in a parallel to the screen
+*) the control point stayes in a parallel to the grid
+*) the control point is bound to run on another (sp)line or surface.
+
+To achive fine control on the draged spline, a &quot;lever-factor&quot; can
+be used, to reduce the manual mouse motion to the motion of the
+control point.
+For good visualization, the curvature and torsion of the spline
+can be expressed as vector plots (curvature is radial extent of
+the vector, torsion is tangential extent, the orientation is
+oposite to the radius of curvature).
+
+
+At the moment I'm into the temporal representation and overlay drawing
+for draging splines around or make them bend, as the user is trying
+to decide where to place the next point. The handling will be similiar
+to creating lines with the demo: you just place the points and right-click
+if you want to start a new spline. If you rightclick twice, you get
+back to selection of spline types and spline editing modes.
+
+Best Regards, Armin
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000111.html">[Varkon-discuss] compiling FreeBSD on Mac OS X
+</A></li>
+	<LI>Next message: <A HREF="000114.html">[Varkon-discuss] Armin Faltl's GUI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#113">[ date ]</a>
+              <a href="thread.html#113">[ thread ]</a>
+              <a href="subject.html#113">[ subject ]</a>
+              <a href="author.html#113">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

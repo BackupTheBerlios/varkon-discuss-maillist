@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20GUI%20%28was%2C%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%0A%20or%20what%3F%29&In-Reply-To=%3C20100325193943.78A982C01002%40bmail01.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000243.html">
+   <LINK REL="Next"  HREF="000248.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)</H1>
+    <B> Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20GUI%20%28was%2C%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%0A%20or%20what%3F%29&In-Reply-To=%3C20100325193943.78A982C01002%40bmail01.one.com%3E"
+       TITLE="[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)">johan at toan.se
+       </A><BR>
+    <I>Thu Mar 25 20:39:43 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000243.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+        <LI>Next message: <A HREF="000248.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#246">[ date ]</a>
+              <a href="thread.html#246">[ thread ]</a>
+              <a href="subject.html#246">[ subject ]</a>
+              <a href="author.html#246">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Armin and John and all others..,
+&#160;
+The Varkon GUI is in the WP library, or at least should be. There are
+small parts outside but they can be moved to WP, so basically, moving
+Varkon to GTK is porting WP to GTK and replacing WP widgets using
+X11/WIN32 with GTK widgets. This may seem easy enough but some
+of the WP constructs (dialogs, menus, pop-ups, inputs, buttons...)
+are not directly available in GTK. So, porting Varkon to GTK is also
+a question of redesigning the Varkon&#160;GUI a bit.
+&#160;
+Given a list of current WP widgets and their functionality, it would be
+interesting to hear how GTK would implement similar functionality. If
+you want to, I can assemble a list of all WP widgets and short
+descriptions
+of their functionality so that you can have a look.
+&#160;
+From the GUI point of view, Varkon works as any application with a GUI.
+A main loop, polling or waiting for input. On the top level, an input
+can be
+a menu selection or a toolbar button event, each can trigger a specific
+Varkon function that will handle it's own&#160;interaction with a new loop
+waiting for
+input, triggering new dialogs and so on...
+&#160;
+On top of this WP also supports two kinds of graphical windows, a 2D
+window
+and a 3D window. With some fixes to the 3D window, the 2D window becomes
+obsolete and can be removed from the system. Left is the 3D window which
+is
+based on OpenGL. This window needs to be embedded in a GTK window with
+toolbars and command/message line etc.
+&#160;
+That's about all but we also need to support plotting and printing and
+multiple graphical windows simultaneousley. And finally, the new code
+needs to be well&#160;commented and in a style that is not too different from
+the rest of the system.
+&#160;
+Johan
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A> &lt;<A HREF="http://www.toan.se/">http://www.toan.se/</A>&gt;
+On 23 mar 2010 17:26 &quot;John MacPhail&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt;wrote:
+&gt;<i> Hi Johan,
+</I>&gt;<i> To use OpenGL with GTK, current practice seems to be GtkGLExt
+</I>&gt;<i> (<A HREF="http://projects.gnome.org/gtkglext/">http://projects.gnome.org/gtkglext/</A>), replacing the earlier
+</I>&gt;<i> GtkGLArea.
+</I>&gt;<i> A somewhat illuminating comparison between the two is here:
+</I>&gt;<i> &lt;<A HREF="http://www.mail-archive.com/gtk-app-devel-list@gnome.org/msg10995.htm">http://www.mail-archive.com/gtk-app-devel-list@gnome.org/msg10995.htm</A>
+</I>&gt;<i> l&gt;
+</I>&gt;<i> More generally, I do not have direct experience with the GTK API.
+</I>&gt;<i> I was skeptical when Armin warned me that moving to GTK would be a big
+</I>&gt;<i> project, but I was wrong. Usual documentation for GTK and other
+</I>&gt;<i> toolkits
+</I>&gt;<i> starts with happy assumptions of starting from scratch, missing
+</I>&gt;<i> the porting challenges.
+</I>&gt;<i> What I now suggest is a draft plan for moving Varkon to GTK, posting
+</I>&gt;<i> the
+</I>&gt;<i> plan on the web, and inviting others to find problems with the plan. A
+</I>&gt;<i> starting point might be a partial point-by-point comparison between WP
+</I>&gt;<i> and
+</I>&gt;<i> GTK/GtkGLExt.
+</I>&gt;<i> John
+</I>&gt;<i> Johan Kjellander wrote:
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt; My thoughts have gone in the direction of GTK for a long time.
+</I>&gt;<i> &gt; It seems to be stable and portable and free to use on all platforms
+</I>&gt;<i> &gt; ?
+</I>&gt;<i> &gt; Does anyone of you have personal experience of using the GTK API ?
+</I>&gt;<i> &gt; A major issue is how it handles OpenGL. Varkon includes a lot of
+</I>&gt;<i> &gt; code
+</I>&gt;<i> &gt; making direct calls to the OpenGL API.
+</I>&gt;<i> &gt; Johan
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>&gt;
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100325/b49ecfec/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100325/b49ecfec/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000243.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+	<LI>Next message: <A HREF="000248.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#246">[ date ]</a>
+              <a href="thread.html#246">[ thread ]</a>
+              <a href="subject.html#246">[ subject ]</a>
+              <a href="author.html#246">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] [Fwd: Re: gEDA-user: font problem in 1.6.0]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20%5BFwd%3A%20Re%3A%20gEDA-user%3A%20font%20problem%20in%201.6.0%5D&In-Reply-To=%3C20100513072144.0889F2C0100D%40bmail01.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000284.html">
+   <LINK REL="Next"  HREF="000286.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] [Fwd: Re: gEDA-user: font problem in 1.6.0]</H1>
+    <B> Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20%5BFwd%3A%20Re%3A%20gEDA-user%3A%20font%20problem%20in%201.6.0%5D&In-Reply-To=%3C20100513072144.0889F2C0100D%40bmail01.one.com%3E"
+       TITLE="[Varkon-discuss] [Fwd: Re: gEDA-user: font problem in 1.6.0]">johan at toan.se
+       </A><BR>
+    <I>Thu May 13 09:21:43 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000284.html">[Varkon-discuss] [Fwd: Re: gEDA-user: font problem in 1.6.0]
+</A></li>
+        <LI>Next message: <A HREF="000286.html">[Varkon-discuss] GTK+
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#285">[ date ]</a>
+              <a href="thread.html#285">[ thread ]</a>
+              <a href="subject.html#285">[ subject ]</a>
+              <a href="author.html#285">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi,
+&#160;
+I agree that it would be rather straight forward and not too cumbersome
+to
+add things like rounded corners etc. to WP and this would sure make
+Varkon
+look more modern. Putting more work into WP however is a dead end since
+it only runs on X11. Although WP is my baby I'm fully convinced that WP
+needs
+retirement and that something else must replace WP. GTK is my hope right
+now.
+&#160;
+I'm working through the tutorials on the GTK website and slowly
+learning. GTK has
+a lot of nice widget features that can be used to build a modern looking
+GUI, it
+even supports themes. The support for 2D and 3D graphics is on a much
+lower
+level, very close to the level of WP. This may be a good thing because
+porting will
+be easier. The big job will be to port all the other WP widgets.
+&#160;
+Johan
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A> &lt;<A HREF="http://www.toan.se/">http://www.toan.se/</A>&gt;
+On 12 maj 2010 22:42 &quot;Armin Faltl&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">armin.faltl at aon.at</A>&gt;wrote:
+&gt;<i> Hi,
+</I>&gt;<i> this is just an update on the progress Dave MacGuire made with
+</I>&gt;<i> building GTK+ on Macs.
+</I>&gt;<i> Tbh, I may have exagerated the problems or maybe not.
+</I>&gt;<i> The &quot;narrowing down&quot; stance is about fixing the font handling problem,
+</I>&gt;<i> the subject is about.
+</I>&gt;<i> Essentially the thread boils down to &quot;stick to the package system
+</I>&gt;<i> of your distribution/vendor&quot; and &quot;you are out of luck without that&quot;
+</I>&gt;<i> so far.
+</I>&gt;<i> I did not try to build FLTK 1.3.x on Windows XP/minGW yet,
+</I>&gt;<i> that can use Cairo as well.
+</I>&gt;<i> If this works out of the box... ;-)
+</I>&gt;<i> I got a reasonable explanation, why Cairo is so cool in 'geda-user'.
+</I>&gt;<i> However, to make Varkon appear more modern, the simplest approach
+</I>&gt;<i> would be, to upgrade WP a bit:
+</I>&gt;<i> *) define a widget to be a collection of regions
+</I>&gt;<i> *) some of these regions are flexible, others fixed size
+</I>&gt;<i> *) every widget (region?) has a draw() operation stored in
+</I>&gt;<i> a structure-member being a function-pointer
+</I>&gt;<i> -&gt; the user of the widget can be agnostic of the draw method(s) just
+</I>&gt;<i> leaving them the defaults
+</I>&gt;<i> -&gt; if the regions of a given widget are standardized, resource pixmaps
+</I>&gt;<i> and ev. size definitions can be exchanged, making the widgets
+</I>&gt;<i> themable.
+</I>&gt;<i> Example:
+</I>&gt;<i> A button would consist of 4 distinct corners, 4 edges and the central
+</I>&gt;<i> planar area. Each of them are rendered by copying portions of a
+</I>&gt;<i> resource set, so by changing the resource set (and some constants
+</I>&gt;<i> defining
+</I>&gt;<i> extents) the look of the buttons can be changed.
+</I>&gt;<i> Maybe it is like this now... ;-)
+</I>&gt;<i> To produce the resource set, any super-heavy uber-method can be used,
+</I>&gt;<i> without any impact on runtime performance. It is clear to me, that
+</I>&gt;<i> there
+</I>&gt;<i> are dynamic requirements, but the eye-candy can be mostly precomputed.
+</I>&gt;<i> Armin
+</I>&gt;<i> -------- Original Message -------- 
+</I>&gt;<i> Subject: Re: gEDA-user: font problem in 1.6.0
+</I>&gt;<i> Date: Wed, 12 May 2010 00:03:45 -0400
+</I>&gt;<i> From: Dave McGuire &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">mcguire at neurotica.com</A>&gt;
+</I>&gt;<i> Reply-To: gEDA user mailing list &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">geda-user at moria.seul.org</A>&gt;
+</I>&gt;<i> To: gEDA user mailing list &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">geda-user at moria.seul.org</A>&gt;
+</I>&gt;<i> References: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">63C8BB27-3DA5-44F8-B5BD-BEADA201C527 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">63C8BB27-3DA5-44F8-B5BD-BEADA201C527 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">j2pe0b07cc81005022102gdc05345azd46d09d7bdf2d1f8 at mail.gmail.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">AEC3AD9A-DD51-4D0D-83D7-BD27572087E0 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">m2ie0b07cc81005022225o148fa797vca66a88d98701d2f at mail.gmail.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">8990159B-A5FE-4D84-9C32-F0AE4F4F008D at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">8990159B-A5FE-4D84-9C32-F0AE4F4F008D at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">1272883561.7410.4.camel at pcjc2lap</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">C0F9100A-14BF-43EB-AD6E-4EE4143CCA9B at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">4BDF144D.3050206 at peter-b.co.uk</A>&gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">4BDF144D.3050206 at peter-b.co.uk</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">FAB0FE0A-FF0A-40D3-96A3-3336DDD5C0E6 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">1272981797.26671.2.camel at pcjc2lap</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">45F9645E-160D-466E-9D34-B473DD208CF7 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">45F9645E-160D-466E-9D34-B473DD208CF7 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">1273599266.19346.13.camel at pcjc2lap</A>&gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">4BE9D0D3.4030909 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">4BE9D0D3.4030909 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">1273620948.3814.20.camel at pcjc2lap</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">1273621251.3814.22.camel at pcjc2lap</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">4BEA0C36.4010206 at neurotica.com</A>&gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">4BEA0C36.4010206 at neurotica.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">1273630451.32087.8.camel at pcjc2lap</A>&gt;
+</I>&gt;<i> On 5/11/10 10:14 PM, Peter Clifton wrote:
+</I>&gt;<i> &gt; Are you on 32bit / 64bit?
+</I>&gt;<i> 64 on the x86 Mac and the SPARC, 32 on the G5.
+</I>&gt;<i> &gt; I'm fairly sure there must be a recipe to get this working -
+</I>&gt;<i> &gt; possibly it
+</I>&gt;<i> &gt; will involve switching between native OS X text handling support in
+</I>&gt;<i> &gt; pango / cairo, to freetype + fontconfig.
+</I>&gt;<i> I rebuilt pango v1.28.0 against the cairo installation that ships
+</I>&gt;<i> with OS X v10.6 X11, then it worked perfectly.
+</I>&gt;<i> I don't know how that cairo was built, nor do I know what release it
+</I>&gt;<i> is. This is especially frustrating because I didn't even know cairo
+</I>&gt;<i> was
+</I>&gt;<i> included with 10.6; I just got this machine recently (Macbook Air,
+</I>&gt;<i> from
+</I>&gt;<i> my employer) and hadn't noticed that cairo was a part of the standard
+</I>&gt;<i> X
+</I>&gt;<i> install.
+</I>&gt;<i> This does not bode well for my 10.4 machine (G5), which is my main
+</I>&gt;<i> workstation, as I'll have to actually compile cairo on there.
+</I>&gt;<i> Anyway, if you have any thoughts on this, I'm up for helping you
+</I>&gt;<i> narrow it down.
+</I>&gt;<i> -Dave
+</I>&gt;<i> -- 
+</I>&gt;<i> Dave McGuire
+</I>&gt;<i> Port Charlotte, FL
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> geda-user mailing list
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">geda-user at moria.seul.org</A>&gt;
+</I>&gt;<i> &lt;<A HREF="http://www.seul.org/cgi-bin/mailman/listinfo/geda-user">http://www.seul.org/cgi-bin/mailman/listinfo/geda-user</A>&gt;
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>&gt;
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100513/9a2ea1c2/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100513/9a2ea1c2/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000284.html">[Varkon-discuss] [Fwd: Re: gEDA-user: font problem in 1.6.0]
+</A></li>
+	<LI>Next message: <A HREF="000286.html">[Varkon-discuss] GTK+
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#285">[ date ]</a>
+              <a href="thread.html#285">[ thread ]</a>
+              <a href="subject.html#285">[ subject ]</a>
+              <a href="author.html#285">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

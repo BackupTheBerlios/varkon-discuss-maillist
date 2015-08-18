@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Named references in MBS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Named%20references%20in%20MBS&In-Reply-To=%3C479D012A.8070106%40componic.co.nz%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000167.html">
+   <LINK REL="Next"  HREF="000170.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Named references in MBS</H1>
+    <B>Glenn Ramsey</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Named%20references%20in%20MBS&In-Reply-To=%3C479D012A.8070106%40componic.co.nz%3E"
+       TITLE="[Varkon-discuss] Named references in MBS">glenn at componic.co.nz
+       </A><BR>
+    <I>Sun Jan 27 23:09:46 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000167.html">[Varkon-discuss] Varkon svn83 on AMD64
+</A></li>
+        <LI>Next message: <A HREF="000170.html">[Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#169">[ date ]</a>
+              <a href="thread.html#169">[ thread ]</a>
+              <a href="subject.html#169">[ subject ]</a>
+              <a href="author.html#169">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I have created a model in hand coded MBS and as it becomes more 
+complicated it is becoming difficult to remember the sequence numbers 
+for each of the lines and curves.
+
+Is there an elegant way to use names rather than numbers to reference 
+entities in MBS?
+
+There are several ways that this can be done but they are all a bit tedious.
+
+eg.
+
+ref mypart;
+...
+poi_free(#1,...);
+
+mypart := #1;
+
+
+or
+
+ref n(100);
+constant int mypart = 1;
+...
+poi_free(#1,...);
+n(mypart) = #1;
+
+
+What I really would like to be able to do is:
+ref mypart;
+...
+mypart := poifree(...);
+
+
+The function add_mbs() does this but it takes strings as parameters and 
+requires everything to be quoted.
+
+It would probably be possible to write my program in the style I want 
+and then use an external macro processor to convert it to a series of 
+quoted add_mbs() statements but that would require writing a parser for 
+MBS and would be lot of extra effort.
+
+Is there another solution to this issue?
+
+Glenn
+
+-- 
+Glenn Ramsey &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">glenn at componic.co.nz</A>&gt; 07 8627077
+<A HREF="http://www.componic.co.nz">http://www.componic.co.nz</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000167.html">[Varkon-discuss] Varkon svn83 on AMD64
+</A></li>
+	<LI>Next message: <A HREF="000170.html">[Varkon-discuss] Varkon svn83 on SuSE 10.0 AMD64
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#169">[ date ]</a>
+              <a href="thread.html#169">[ thread ]</a>
+              <a href="subject.html#169">[ subject ]</a>
+              <a href="author.html#169">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

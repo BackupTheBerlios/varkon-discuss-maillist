@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] n_intersect and b_plane
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20n_intersect%20and%20b_plane&In-Reply-To=%3C200904192105.02429.matt%40kiatoa.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000211.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] n_intersect and b_plane</H1>
+    <B>Matthew Welland</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20n_intersect%20and%20b_plane&In-Reply-To=%3C200904192105.02429.matt%40kiatoa.com%3E"
+       TITLE="[Varkon-discuss] n_intersect and b_plane">matt at kiatoa.com
+       </A><BR>
+    <I>Mon Apr 20 06:05:02 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000211.html">[Varkon-discuss] Global way to store often needed data? (now	how to write macros)
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#212">[ date ]</a>
+              <a href="thread.html#212">[ thread ]</a>
+              <a href="subject.html#212">[ subject ]</a>
+              <a href="author.html#212">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I would have expected the following to put a &quot;0&quot; on screen for the first line 
+and a &quot;1&quot; for the second line. Instead both give me &quot;1&quot;. 
+
+Is there a way to detect if a line crosses a bounded plane (without doing 
+the math myself)?
+
+GLOBAL GEOMETRY MODULE test();
+INT i; 
+BEGINMODULE
+  b_plane(#1,vec(0, 0, 0.0), vec(100, 0, 0.0), vec(100, 100, 0.0), 
+                      vec(0,100 , 0.0));
+  lin_free(#2,vec(120, 120, -100.0), vec(150, 150, 100));
+  i:=n_intersect(#1, #2);
+  text(#3,vec(0, 0, 0), 0, str(i, 1, 0));
+  lin_free(#5,vec(20, 20, -100), vec(30, 40, 100));
+  i:=n_intersect(#1, #5);
+  text(#4,vec(0, 20, 0), 0, str(i, 1, 0));
+
+ENDMODULE
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090419/3faeff6e/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20090419/3faeff6e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000211.html">[Varkon-discuss] Global way to store often needed data? (now	how to write macros)
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#212">[ date ]</a>
+              <a href="thread.html#212">[ thread ]</a>
+              <a href="subject.html#212">[ subject ]</a>
+              <a href="author.html#212">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

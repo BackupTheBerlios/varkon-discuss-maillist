@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] how to get at the part editor?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20how%20to%20get%20at%20the%20part%20editor%3F&In-Reply-To=%3C20100501090521.10B542C0100D%40bmail01.one.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000276.html">
+   <LINK REL="Next"  HREF="000278.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] how to get at the part editor?</H1>
+    <B> Johan Kjellander</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20how%20to%20get%20at%20the%20part%20editor%3F&In-Reply-To=%3C20100501090521.10B542C0100D%40bmail01.one.com%3E"
+       TITLE="[Varkon-discuss] how to get at the part editor?">johan at toan.se
+       </A><BR>
+    <I>Sat May  1 11:05:21 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000276.html">[Varkon-discuss] how to get at the part editor?
+</A></li>
+        <LI>Next message: <A HREF="000278.html">[Varkon-discuss] how to get at the part editor?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#277">[ date ]</a>
+              <a href="thread.html#277">[ thread ]</a>
+              <a href="subject.html#277">[ subject ]</a>
+              <a href="author.html#277">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+John,
+&#160;
+About editing subparts: I assume you mean not editing the subpart itself
+but
+editing the call to the subpart, ie. the parameters of the subpart. As
+an example,
+let A be the currently active module. B is a part called by A and C is a
+subpart called by B.
+Remember that B may be called more than once in A and that C may be
+called more than
+once in B. The EditP function makes it possible to edit the parameters
+of a part call in
+the currently active model. That means editing the paremeter values that
+are passed to
+B from A.&#160;If A is the active module, you can not edit the part
+parameters passed to C from B
+since this would not make it possible to reexecute A and get the same
+result.
+&#160;
+It's all about Generic and Explicit modeling, or if you wish, modeling
+with history/no history.
+What I said above is true for generic modeling. In explicit modeling, it
+would be possible to
+edit calls to subparts, at least in theory but that possibility is not
+implemented in Varkon.
+&#160;
+About editing &quot;invisible&quot; parts: People have solved this in many
+different ways.
+&#160;
+- You can identify a part through it's ID. Press &quot;i&quot; when the cursor
+lits.
+- Write a macro that searches for the part ID in the DB.
+- Let the part create a text entry in a table on a blanked level. To
+edit, unblank the level
+&#160; and select the part in the table.
+and so on....
+&#160;
+Hope this helps,
+&#160;
+Johan
+&#160;
+-- 
+<A HREF="http://www.toan.se">http://www.toan.se</A> &lt;<A HREF="http://www.toan.se/">http://www.toan.se/</A>&gt;
+On 1 maj 2010 03:19 &quot;John MacPhail&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt;wrote:
+&gt;<i> I would like my users to be able to use the part editor
+</I>&gt;<i> (as opened in the English version by the EditP button)
+</I>&gt;<i> for sub-parts, and parts with no graphic components.
+</I>&gt;<i> How do I do this?
+</I>&gt;<i> John (MacPhail)
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>&gt;
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100501/11716a5f/attachment.html">https://lists.berlios.de/pipermail/varkon-discuss/attachments/20100501/11716a5f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000276.html">[Varkon-discuss] how to get at the part editor?
+</A></li>
+	<LI>Next message: <A HREF="000278.html">[Varkon-discuss] how to get at the part editor?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#277">[ date ]</a>
+              <a href="thread.html#277">[ thread ]</a>
+              <a href="subject.html#277">[ subject ]</a>
+              <a href="author.html#277">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

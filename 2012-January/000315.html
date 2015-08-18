@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Trouble with rap.h when compiling;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Trouble%20with%20rap.h%20when%20compiling%3B&In-Reply-To=%3C20120106130833.56793o2dt9caqqio%40webmail.studioe.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Trouble with rap.h when compiling;</H1>
+    <B>evb at studioe.com</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Trouble%20with%20rap.h%20when%20compiling%3B&In-Reply-To=%3C20120106130833.56793o2dt9caqqio%40webmail.studioe.com%3E"
+       TITLE="[Varkon-discuss] Trouble with rap.h when compiling;">evb at studioe.com
+       </A><BR>
+    <I>Fri Jan  6 22:08:33 CET 2012</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#315">[ date ]</a>
+              <a href="thread.html#315">[ thread ]</a>
+              <a href="subject.html#315">[ subject ]</a>
+              <a href="author.html#315">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Why does this line in rap.h:
+
+extern int other_services_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+
+give me this error:
+
+rap.h:307:49: error: expected ?)? before ?*? token
+
+
+Concurrently why does this line:
+
+extern  bool_t xdr_RAP_BYTE_TYPE (XDR *, RAP_BYTE_TYPE*);
+
+give me the same error:
+
+rap.h:328:39: error: expected ?)? before ?*? token
+
+Why does my compiler (gcc) not like the ?*??
+
+Also (earlier in rap.h) what causes this error (4 times):
+
+rap.h:296:86: error: expected declaration specifiers or ?...? before ?CLIENT?
+
+It appears that CLIENT never gets defined so how is this suppose to compile?
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#315">[ date ]</a>
+              <a href="thread.html#315">[ thread ]</a>
+              <a href="subject.html#315">[ subject ]</a>
+              <a href="author.html#315">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

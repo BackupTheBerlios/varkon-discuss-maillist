@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Building an arbor
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Building%20an%20arbor&In-Reply-To=%3C001601c89038%243176d9a0%240201a8c0%40Internet%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000175.html">
+   <LINK REL="Next"  HREF="000179.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Building an arbor</H1>
+    <B>Gunnar Liden</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Building%20an%20arbor&In-Reply-To=%3C001601c89038%243176d9a0%240201a8c0%40Internet%3E"
+       TITLE="[Varkon-discuss] Building an arbor">Gunnar.Liden at ViewsOnCAD.ch
+       </A><BR>
+    <I>Thu Mar 27 19:27:17 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000175.html">[Varkon-discuss] Building an arbor
+</A></li>
+        <LI>Next message: <A HREF="000179.html">[Varkon-discuss] Building an arbor
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#178">[ date ]</a>
+              <a href="thread.html#178">[ thread ]</a>
+              <a href="subject.html#178">[ subject ]</a>
+              <a href="author.html#178">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Nick
+
+You can use SUR_CYL. If you want to create a closed 3D object, then you can 
+use B_PLANES
+
+Please see below
+
+Regards
+
+Gunnar
+
+
+GLOBAL GEOMETRY MODULE nicolas_arbor();
+
+CONSTANT FLOAT length=1000.0;
+CONSTANT FLOAT height=100.0;
+CONSTANT FLOAT dx=100.0;
+CONSTANT FLOAT dy=50.0;
+CONSTANT FLOAT depth=400.0;
+VECTOR p1;
+VECTOR p2;
+VECTOR p3;
+VECTOR p4;
+VECTOR p5;
+VECTOR p6;
+VECTOR p7;
+VECTOR p8;
+VECTOR p11;
+VECTOR p12;
+VECTOR p13;
+VECTOR p14;
+VECTOR p15;
+VECTOR p16;
+VECTOR p17;
+VECTOR p18;
+
+BEGINMODULE
+
+  p1:=vec(0, 0, 0);
+  p2:=vec(length, 0, 0);
+  p3:=vec(length, height - dy, 0);
+  p4:=vec(length - dx, height - dy, 0);
+  p5:=vec(length - dx, height, 0);
+  p6:=vec(dx, height, 0);
+  p7:=vec(dx, height - dy, 0);
+  p8:=vec(0, height - dy, 0);
+  set(PEN=10);
+  lin_free(#1,p1, p2);
+  lin_free(#2,p2, p3);
+  lin_free(#3,p3, p4);
+  lin_free(#4,p4, p5);
+  lin_free(#5,p5, p6);
+  lin_free(#6,p6, p7);
+  lin_free(#7,p7, p8);
+  lin_free(#8,p8, p1);
+  cur_comp(#9,#1, #2, #3, #4, #5, #6, #7, #8);
+  p11:=p1 + vec(0, 0, -depth);
+  p12:=p2 + vec(0, 0, -depth);
+  p13:=p3 + vec(0, 0, -depth);
+  p14:=p4 + vec(0, 0, -depth);
+  p15:=p5 + vec(0, 0, -depth);
+  p16:=p6 + vec(0, 0, -depth);
+  p17:=p7 + vec(0, 0, -depth);
+  p18:=p8 + vec(0, 0, -depth);
+  set(PEN=3,BLANK=0);
+  sur_cyl(#20,#9, depth, 2);
+  b_plane(#21,p1, p2, p3, p8);
+  b_plane(#22,p4, p5, p6, p7);
+  b_plane(#31,p11, p18, p13, p12);
+  b_plane(#32,p14, p17, p16, p15);
+
+ENDMODULE
+
+----- Original Message ----- 
+From: &quot;Nick Pr&#246;mper&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Nick at proemper-net.de</A>&gt;
+To: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">varkon-discuss at lists.berlios.de</A>&gt;
+Sent: Saturday, March 22, 2008 9:53 AM
+Subject: [Varkon-discuss] Building an arbor
+
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I am new to varkon and I want to use it for coinstructing relative simple
+</I>&gt;<i> 3D-models.
+</I>&gt;<i>
+</I>&gt;<i> But I have difficulties to understand the concepts of building an object 
+</I>&gt;<i> like
+</I>&gt;<i> an arbor. What I'd like to do is, to define a surface by a curve, e.g.
+</I>&gt;<i>  p1 := vec(0, 0, 0);
+</I>&gt;<i>  p2 := vec(length, 0, 0);
+</I>&gt;<i>  p3 := vec(length, height - dy, 0);
+</I>&gt;<i>  p4 := vec(length - dx, height - dy, 0);
+</I>&gt;<i>  p5 := vec(length - dx, height, 0);
+</I>&gt;<i>  p6 := vec(dx, height, 0);
+</I>&gt;<i>  p7 := vec(dx, height - dy, 0);
+</I>&gt;<i>  p8 := vec(0, height - dy, 0);
+</I>&gt;<i>
+</I>&gt;<i>  set(pen=10);
+</I>&gt;<i>
+</I>&gt;<i>  lin_free(#1, p1, p2);
+</I>&gt;<i>  lin_free(#2, p2, p3);
+</I>&gt;<i>  lin_free(#3, p3, p4);
+</I>&gt;<i>  lin_free(#4, p4, p5);
+</I>&gt;<i>  lin_free(#5, p5, p6);
+</I>&gt;<i>  lin_free(#6, p6, p7);
+</I>&gt;<i>  lin_free(#7, p7, p8);
+</I>&gt;<i>  lin_free(#8, p8, p1);
+</I>&gt;<i>
+</I>&gt;<i>  cur_comp(#9, #1, #2, #3, #4, #5, #6, #7, #8);
+</I>&gt;<i>
+</I>&gt;<i> What I want to do, is to have a surface, which is defined by #9. An, as 
+</I>&gt;<i> the
+</I>&gt;<i> next step, make it a 3D-object by shifting it through the z-axis.
+</I>&gt;<i>
+</I>&gt;<i> Any help is appreciated.
+</I>&gt;<i>
+</I>&gt;<i> -- 
+</I>&gt;<i> Nicolas Pr&#246;mper
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Varkon-discuss mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;<i> 
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000175.html">[Varkon-discuss] Building an arbor
+</A></li>
+	<LI>Next message: <A HREF="000179.html">[Varkon-discuss] Building an arbor
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#178">[ date ]</a>
+              <a href="thread.html#178">[ thread ]</a>
+              <a href="subject.html#178">[ subject ]</a>
+              <a href="author.html#178">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

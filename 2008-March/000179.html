@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Building an arbor
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Building%20an%20arbor&In-Reply-To=%3C200803301136.49989.Nick%40proemper-net.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000178.html">
+   <LINK REL="Next"  HREF="000176.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Building an arbor</H1>
+    <B>Nick Pr&#246;mper</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Building%20an%20arbor&In-Reply-To=%3C200803301136.49989.Nick%40proemper-net.de%3E"
+       TITLE="[Varkon-discuss] Building an arbor">Nick at proemper-net.de
+       </A><BR>
+    <I>Sun Mar 30 11:36:49 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000178.html">[Varkon-discuss] Building an arbor
+</A></li>
+        <LI>Next message: <A HREF="000176.html">[Varkon-discuss] Varkon 1.19C now released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Gunnar,
+
+thanks for your reply. I tried to use sur_cyl before, but I was a bit 
+confused, as this function didn't accept a distance less than .1, which was 
+0.06 in my case (as I used meters as basic unit). After reading your posting, 
+I multiplied all my measures by 100 (changing to centimeter) and it works!
+
+But I have an additional question: Isn't there a function, which can change a 
+closed curve to a surface? Do I really have to do both, define a curve and 
+then use b_planes to close top and buttom of my object?
+
+Best regards
+Nick
+[...]
+&gt;<i>   sur_cyl(#20,#9, depth, 2);
+</I>&gt;<i>   b_plane(#21,p1, p2, p3, p8);
+</I>&gt;<i>   b_plane(#22,p4, p5, p6, p7);
+</I>&gt;<i>   b_plane(#31,p11, p18, p13, p12);
+</I>&gt;<i>   b_plane(#32,p14, p17, p16, p15);
+</I>[...]
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000178.html">[Varkon-discuss] Building an arbor
+</A></li>
+	<LI>Next message: <A HREF="000176.html">[Varkon-discuss] Varkon 1.19C now released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

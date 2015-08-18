@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%20or%20what%3F&In-Reply-To=%3C4BA28FF0.7060406%40johnmacphail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000235.html">
+   <LINK REL="Next"  HREF="000238.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?</H1>
+    <B>John MacPhail</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%20or%20what%3F&In-Reply-To=%3C4BA28FF0.7060406%40johnmacphail.com%3E"
+       TITLE="[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?">jm at johnmacphail.com
+       </A><BR>
+    <I>Thu Mar 18 21:41:20 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000235.html">[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</A></li>
+        <LI>Next message: <A HREF="000238.html">[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#236">[ date ]</a>
+              <a href="thread.html#236">[ thread ]</a>
+              <a href="subject.html#236">[ subject ]</a>
+              <a href="author.html#236">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi again Johan,
+
+1. Sorry that my REF/XREF question is vague. I'm thinking of
+the kind of situation where Document A describes an aircraft,
+and Document E describes an aircraft engine. What remains
+unclear to me is whether it would be convenient in Varkon to
+maintain the documents separately and yet have A refer to E
+so as to have images of the engine show up in images of the
+aircraft. So I think I'm asking a fair question about potential
+scalability to very complex models, but possibly I'm just not
+properly grasping the REF usage.
+
+2&amp;3. As to what is wxWidgets (official answer is on this
+page: <A HREF="http://www.wxwidgets.org/docs/faqgen.htm">http://www.wxwidgets.org/docs/faqgen.htm</A>), it's a cross-
+platform GUI toolkit, using native widgets, C++ oriented,
+presented as an application framework, already in use by
+some popular software such as Audacity and FileZilla.
+Suggestion: consider building the main Varkon program with
+wxWidgets, both for direct use and as an example for Varkon
+applications. It might even be possible to persuade the Google
+Summer of Code project to  finance work by a student on this.
+
+John
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A> wrote:
+&gt;<i> John,
+</I>&gt;<i>
+</I>&gt;<i> 1. Varkon and Autocad are very different systems. I don't
+</I>&gt;<i> remember exactly what XREF is but it seems close to REF in
+</I>&gt;<i> VARKON.
+</I>&gt;<i>
+</I>&gt;<i> 2. Applications developed in MBS are compatible between Linux
+</I>&gt;<i> and Windows. Most of the Varkon sourcecode (C-code) is also
+</I>&gt;<i> portable. One important exception is the GUI which is based
+</I>&gt;<i> on X-windows in Linux and WIN32 in Windows. For us, this is
+</I>&gt;<i> a major issue at the moment. We want to develop a common GUI
+</I>&gt;<i> for both platforms. Any suggestions ?
+</I>&gt;<i>
+</I>&gt;<i> 3. What is wxwidgets ?
+</I>&gt;<i>
+</I>&gt;<i> Johan
+</I>&gt;<i>
+</I>&gt;<i> -----------------------
+</I>&gt;<i>
+</I>&gt;<i> Dr. Johan Kjellander, Docent
+</I>&gt;<i> Senior lecturer Mechanical engineering
+</I>&gt;<i> School of Science and Technology
+</I>&gt;<i> &#214;rebro university
+</I>&gt;<i> SE-70182 &#214;rebro
+</I>&gt;<i> SWEDEN
+</I>&gt;<i> E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">johan.kjellander at oru.se</A>
+</I>&gt;<i> Tel: +46 (0)705 500 356
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message -----
+</I>&gt;<i> From: John MacPhail &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt;
+</I>&gt;<i> Date: Wednesday, March 17, 2010 22:25
+</I>&gt;<i> Subject: Re: [Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Thanks, Johan, that makes it much clearer -- part of what confused
+</I>&gt;&gt;<i> me was a Debian package with a man page mistakenly stating that
+</I>&gt;&gt;<i> Varkon is simply GPL. Having got past that confusion, I've looked
+</I>&gt;&gt;<i> a bit further at Varkon, and I'm very impressed with the thought
+</I>&gt;&gt;<i> and effort that has gone into what I'm seeing as a lovely framework
+</I>&gt;&gt;<i> for a CAD application. Of course that means I have a lot of new
+</I>&gt;&gt;<i> questions...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 1. Does Varkon have anything like AutoCAD's XREF mechanism
+</I>&gt;&gt;<i> for cross-referring to sub-diagrams?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 2. Am I right in guessing that after developing a Varkon application
+</I>&gt;&gt;<i> in Linux porting to Windows would normally be fairly easy?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 3. My initial impression is that it would be appropriate to use 
+</I>&gt;&gt;<i> wxwidgetsfor the Varkon GUI, are there known problems with doing that?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> John
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Johan Kjellander wrote:
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> Hi,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> The Varkon source is organized in a number of libraries.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Geometric kernel (GE), Database (DB), GUI (WP) etc.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Each library is LGPL. Varkon also uses third party libs.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> OpenGL, Tiff, TCP/IP etc, etc.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Johan
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -- 
+</I>&gt;&gt;&gt;<i> <A HREF="http://www.toan.se">http://www.toan.se</A>
+</I>&gt;&gt;&gt;<i> On 16 mar 2010 16:02 &quot;John MacPhail&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt; 
+</I>&gt;&gt;&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">jm at johnmacphail.com</A>&gt; wrote:
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i> Hi. Having seen indirect references to Varkon as using LGPL, 
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i> I'm 
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> wondering
+</I>&gt;&gt;&gt;&gt;<i> whether it might be a possible starting point for a commercial 
+</I>&gt;&gt;&gt;&gt;<i> application.
+</I>&gt;&gt;&gt;&gt;<i> My intentions do not include arguing what the licensing ought 
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i> to be, so
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> all I'm hoping for is clarification as to what the licensing 
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i> actually 
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> is.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;&gt;<i> Varkon-discuss mailing list
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>&gt;
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A> 
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Varkon-discuss mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">Varkon-discuss at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">https://lists.berlios.de/mailman/listinfo/varkon-discuss</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000235.html">[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</A></li>
+	<LI>Next message: <A HREF="000238.html">[Varkon-discuss] Is Varkon all GPL, mostly LGPL, or what?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#236">[ date ]</a>
+              <a href="thread.html#236">[ thread ]</a>
+              <a href="subject.html#236">[ subject ]</a>
+              <a href="author.html#236">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

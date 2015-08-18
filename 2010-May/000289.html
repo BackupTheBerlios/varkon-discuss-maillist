@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] saving/restoring place in GM
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20saving/restoring%20place%20in%20GM&In-Reply-To=%3C4BFAD0F8.8020306%40johnmacphail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000288.html">
+   <LINK REL="Next"  HREF="000290.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] saving/restoring place in GM</H1>
+    <B>John MacPhail</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20saving/restoring%20place%20in%20GM&In-Reply-To=%3C4BFAD0F8.8020306%40johnmacphail.com%3E"
+       TITLE="[Varkon-discuss] saving/restoring place in GM">jm at johnmacphail.com
+       </A><BR>
+    <I>Mon May 24 21:18:16 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000288.html">[Varkon-discuss] clearing current MBS file revisited
+</A></li>
+        <LI>Next message: <A HREF="000290.html">[Varkon-discuss] .deb creation issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#289">[ date ]</a>
+              <a href="thread.html#289">[ thread ]</a>
+              <a href="subject.html#289">[ subject ]</a>
+              <a href="author.html#289">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Is there a way for a module making a sequence of
+get_next_gm() calls to save its place between calls?
+
+My actual immediate concern is whether I might
+be missing a way to tidy up my code, though
+there are run-time consequences.
+
+Suppose the code considers all pairs (e1,e2),
+where each ei ranges over a set Si of entities.
+Perhaps the code finds all intersections between
+circles (S1) and rectangles (S2).
+My code saves a REF c to the last circle retrieved;
+then after dealing with all pairs (c, e2) it re-starts with
+set_root_gm(#0) and comes forward watching for c,
+and takes the circle after c.
+If the GM has n entities, this means the code is
+making about 0.5*n2 get_next_gm() calls looking
+for circles, instead of about n calls as might (naively?)
+be wished. That is in comparison with about |S1|*n
+calls looking for rectangles -- so if circles are sparse
+in the GM, the running time becomes dominated by
+re-locating the previous circle.
+
+Of course we could also save the parent of c,
+but I think that complicates without essentially
+changing the above.
+
+In the analogy of the GM to a Unix filesystem,
+set_root_gm() is like setting the current working
+directory, whereas I'm wondering about perhaps
+a set_current_gm() that would be like setting a
+directory or file or pipe as a point from which to
+search forward.
+
+John (MacPhail)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000288.html">[Varkon-discuss] clearing current MBS file revisited
+</A></li>
+	<LI>Next message: <A HREF="000290.html">[Varkon-discuss] .deb creation issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#289">[ date ]</a>
+              <a href="thread.html#289">[ thread ]</a>
+              <a href="subject.html#289">[ subject ]</a>
+              <a href="author.html#289">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

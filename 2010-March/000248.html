@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-March/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20GUI%20%28was%2C%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%0A%20or%20what%3F%29&In-Reply-To=%3C4BAC3912.9070208%40johnmacphail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000246.html">
+   <LINK REL="Next"  HREF="000249.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)</H1>
+    <B>John MacPhail</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20GUI%20%28was%2C%20Is%20Varkon%20all%20GPL%2C%20mostly%20LGPL%2C%0A%20or%20what%3F%29&In-Reply-To=%3C4BAC3912.9070208%40johnmacphail.com%3E"
+       TITLE="[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)">jm at johnmacphail.com
+       </A><BR>
+    <I>Fri Mar 26 05:33:22 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000246.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+        <LI>Next message: <A HREF="000249.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#248">[ date ]</a>
+              <a href="thread.html#248">[ thread ]</a>
+              <a href="subject.html#248">[ subject ]</a>
+              <a href="author.html#248">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> Johan, this all seems good ground for (cautious) optimism. If you
+will do those descriptions of all the WP widgets, I'll respond with
+some notes on getting or creating corresponding GTK+ widgets.
+That will at least bring us closer to a plan. In both directions,
+if screen shots or other images may be useful, perhaps at some
+point someone will jump in with a plan such as using a corner
+of the Varkon web site...
+
+John (MacPhail)
+
+
+Johan Kjellander wrote:
+&gt;<i>
+</I>&gt;<i> Armin and John and all others..,
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> The Varkon GUI is in the WP library, or at least should be. There are
+</I>&gt;<i>
+</I>&gt;<i> small parts outside but they can be moved to WP, so basically, moving
+</I>&gt;<i>
+</I>&gt;<i> Varkon to GTK is porting WP to GTK and replacing WP widgets using
+</I>&gt;<i>
+</I>&gt;<i> X11/WIN32 with GTK widgets. This may seem easy enough but some
+</I>&gt;<i>
+</I>&gt;<i> of the WP constructs (dialogs, menus, pop-ups, inputs, buttons...)
+</I>&gt;<i>
+</I>&gt;<i> are not directly available in GTK. So, porting Varkon to GTK is also
+</I>&gt;<i>
+</I>&gt;<i> a question of redesigning the Varkon GUI a bit.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Given a list of current WP widgets and their functionality, it would be
+</I>&gt;<i>
+</I>&gt;<i> interesting to hear how GTK would implement similar functionality. If
+</I>&gt;<i>
+</I>&gt;<i> you want to, I can assemble a list of all WP widgets and short 
+</I>&gt;<i> descriptions
+</I>&gt;<i>
+</I>&gt;<i> of their functionality so that you can have a look.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> From the GUI point of view, Varkon works as any application with a GUI.
+</I>&gt;<i>
+</I>&gt;<i> A main loop, polling or waiting for input. On the top level, an input 
+</I>&gt;<i> can be
+</I>&gt;<i>
+</I>&gt;<i> a menu selection or a toolbar button event, each can trigger a specific
+</I>&gt;<i>
+</I>&gt;<i> Varkon function that will handle it's own interaction with a new loop 
+</I>&gt;<i> waiting for
+</I>&gt;<i>
+</I>&gt;<i> input, triggering new dialogs and so on...
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> On top of this WP also supports two kinds of graphical windows, a 2D 
+</I>&gt;<i> window
+</I>&gt;<i>
+</I>&gt;<i> and a 3D window. With some fixes to the 3D window, the 2D window becomes
+</I>&gt;<i>
+</I>&gt;<i> obsolete and can be removed from the system. Left is the 3D window 
+</I>&gt;<i> which is
+</I>&gt;<i>
+</I>&gt;<i> based on OpenGL. This window needs to be embedded in a GTK window with
+</I>&gt;<i>
+</I>&gt;<i> toolbars and command/message line etc.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> That's about all but we also need to support plotting and printing and
+</I>&gt;<i>
+</I>&gt;<i> multiple graphical windows simultaneousley. And finally, the new code
+</I>&gt;<i>
+</I>&gt;<i> needs to be well commented and in a style that is not too different from
+</I>&gt;<i>
+</I>&gt;<i> the rest of the system.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Johan
+</I>&gt;<i>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000246.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+	<LI>Next message: <A HREF="000249.html">[Varkon-discuss] Varkon GUI (was, Is Varkon all GPL, mostly LGPL, or what?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#248">[ date ]</a>
+              <a href="thread.html#248">[ thread ]</a>
+              <a href="subject.html#248">[ subject ]</a>
+              <a href="author.html#248">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

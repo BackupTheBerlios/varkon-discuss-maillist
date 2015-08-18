@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon svn83 on AMD64
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20svn83%20on%20AMD64&In-Reply-To=%3C200801252025.m0PKPRgB031010%40quartz1.mhtc.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000168.html">
+   <LINK REL="Next"  HREF="000169.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon svn83 on AMD64</H1>
+    <B>dmm at lemur.com</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20svn83%20on%20AMD64&In-Reply-To=%3C200801252025.m0PKPRgB031010%40quartz1.mhtc.net%3E"
+       TITLE="[Varkon-discuss] Varkon svn83 on AMD64">dmm at lemur.com
+       </A><BR>
+    <I>Fri Jan 25 20:59:03 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000168.html">[Varkon-discuss] Using the mouse in dynamic view in 1.19B
+</A></li>
+        <LI>Next message: <A HREF="000169.html">[Varkon-discuss] Named references in MBS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+This is just a short &quot;field report&quot; of sorts.  Varkon svn83 compiles
+and works on a 64-bit Kubuntu 7.10 (AMD64) system (running on
+hand-assembled AMD Athlon 64 X2 4600+ hardware).
+I'm not completely certain, but I think it may have compiled as
+a 64-bit application.  An &quot;ldd xvarkon&quot; returns, inter alia,
+a link to /lib64/ld-linux-x86-64.so.2, and &quot;readelf -a xvarkon&quot;
+shows it to be of class &quot;ELF64&quot;.
+
+This was an install onto a working system, not a clean test environment,
+so I'm not entirely sure which libraries/packages I had loaded already.
+I know that I did have to add, explicitly, packages for:
+   libgl1-mesa-dev
+   libglu-mesa-dev
+   libxpm-dev
+   libXent-dev
+
+The only odd thing I had to do to make it work was related to
+the fact that this Kubuntu system is offline (none of my working
+systems have a connection to the public Internet).  So I had to
+add two files by hand:
+
+sources/IG/include/svnversion.h
+which contains:
+#define SVNVERSION &quot;83&quot;
+
+and
+sources/MAN/include/svnversion.inc
+which contains
+m4_define(_SVNVERSION_,83)
+
+It's nice to have Varkon on my new machine.
+My congratulations (and thanks) to the Varkon team.
+
+Regards,
+David M.
+===
+Dr. David M. MacMillan * <A HREF="https://lists.berlios.de/mailman/listinfo/varkon-discuss">dmm at lemur.com</A> * www.lemur.com &amp; www.CircuitousRoot.com
+
+   First do no harm. (Primum non nocere.)
+       - possibly Galen; see also Hippocrates (Epidemics, Bk. I, Sect. XI.)
+   The first rule of intelligent tinkering is to save all the parts.
+       - Paul Ehrlich (1854-1915); Aldo Leopold
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000168.html">[Varkon-discuss] Using the mouse in dynamic view in 1.19B
+</A></li>
+	<LI>Next message: <A HREF="000169.html">[Varkon-discuss] Named references in MBS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] .deb creation issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20.deb%20creation%20issues&In-Reply-To=%3C4BFEA8C5.7000404%40johnmacphail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000294.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] .deb creation issues</H1>
+    <B>John MacPhail</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20.deb%20creation%20issues&In-Reply-To=%3C4BFEA8C5.7000404%40johnmacphail.com%3E"
+       TITLE="[Varkon-discuss] .deb creation issues">jm at johnmacphail.com
+       </A><BR>
+    <I>Thu May 27 19:15:49 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000294.html">[Varkon-discuss] .deb creation issues
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#292">[ date ]</a>
+              <a href="thread.html#292">[ thread ]</a>
+              <a href="subject.html#292">[ subject ]</a>
+              <a href="author.html#292">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Jon,
+
+Great that you're proceeding with the packaging!
+
+1. In general for getting missing files into a Debian install,
+package contents can be searched online:
+<A HREF="http://www.debian.org/distrib/packages#searchcontents">http://www.debian.org/distrib/packages#searchcontents</A>
+This quickly solves most build dependencies. However,
+there may be differences with Ubuntu, and thought/research
+may be needed when different packages are installing
+the &quot;same&quot; file. (Small reminder on a related point: when
+a file is already installed, use &quot;dpkg -S&quot; to track down which
+package installed it.)
+
+2. Running ldd on the generated binaries -- see Johan's post --
+is a very useful way to get the runtime dependencies right,
+and will often provide useful clues as to what the build
+dependencies should be.
+
+3. The Varkon sources include README files which discuss
+dependencies, these should make sense against (1) and (2).
+
+4. Comparing your dependencies against the older Debian
+package could be an additional check that (1) and (2) are good.
+
+After (1)-(4) above your dependencies should be reliable,
+but there may be other things to check that I don't know about
+or haven't thought of.
+
+Finally, would you please include unixodbc support? See
+sources/README_ODBC. Enabling odbc does mean you will
+have a real &quot;diff&quot; from the sources, but I'm guessing it will
+not otherwise be trouble. That will increase the certainty
+that everything is working. Anybody not wanting odbc and
+fussy enough to want a package without it can tweak your
+source packages and rebuild.
+
+John (MacPhail)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000294.html">[Varkon-discuss] .deb creation issues
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#292">[ date ]</a>
+              <a href="thread.html#292">[ thread ]</a>
+              <a href="subject.html#292">[ subject ]</a>
+              <a href="author.html#292">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

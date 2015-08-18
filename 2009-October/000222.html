@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] plane intersects
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20plane%20intersects&In-Reply-To=%3C4AD67621.5030503%40exemail.com.au%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] plane intersects</H1>
+    <B>larfalitl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20plane%20intersects&In-Reply-To=%3C4AD67621.5030503%40exemail.com.au%3E"
+       TITLE="[Varkon-discuss] plane intersects">larfalitl at exemail.com.au
+       </A><BR>
+    <I>Thu Oct 15 03:08:49 CEST 2009</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I'm trying to draw a number of flat surfaces that intersect at odd 
+angles.  Logically, it's quite simple.  Draw the four sides of each 
+surface &amp; trim back to where they intersect.
+
+The trim command only works in the XY plane &amp; it appears that _all_ 
+points involved in the trim must be drawn in the local cord system that 
+defines the current XY plane.
+
+For example,  in local cord #1, a plane is drawn in Z space.  A local 
+cord system is created on that plane &amp; a new line is drawn connecting 
+the endpoints of existing lines.  A trim performed on this last line 
+will have an unreliable result.
+
+If all lines are drawn in the same local cord system the trim works 
+correctly.
+
+Is there a way to bring points into a local cord system?
+
+I have tried creating points using poi_free on all related line ends 
+within the new cord system, but still got unexpected results.
+
+I could post some sample code if that would help....
+
+Cheers
+Graeme
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

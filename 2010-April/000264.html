@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] macro modules and MVC
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20macro%20modules%20and%20MVC&In-Reply-To=%3C4BCE62D8.1090700%40johnmacphail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000262.html">
+   <LINK REL="Next"  HREF="000265.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] macro modules and MVC</H1>
+    <B>John MacPhail</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20macro%20modules%20and%20MVC&In-Reply-To=%3C4BCE62D8.1090700%40johnmacphail.com%3E"
+       TITLE="[Varkon-discuss] macro modules and MVC">jm at johnmacphail.com
+       </A><BR>
+    <I>Wed Apr 21 04:28:40 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000262.html">[Varkon-discuss] new Emacs MBS mode seeking good home
+</A></li>
+        <LI>Next message: <A HREF="000265.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#264">[ date ]</a>
+              <a href="thread.html#264">[ thread ]</a>
+              <a href="subject.html#264">[ subject ]</a>
+              <a href="author.html#264">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Possibly my trouble grasping proper use of MACRO
+modules comes from insufficient understanding of the
+Model-View-Controller design model both in general
+and specifically as it applies to Varkon.
+
+1. A fundamental concept in Varkon is &quot;the active module.&quot;
+This can never be a MACRO module. I assume there is at
+most one active module. Does Varkon allow a condition
+(analogous to the &quot;zero-document state&quot; of AutoCAD)
+where there is no active module?
+
+2. Unlike other modules, a MACRO is not embedded into
+the database, and can call a (different) MACRO module.
+
+3. The real point of MACRO modules is facilitating
+something like Model-View-Controller design: a MACRO
+module is a Controller component, the MBS/MBO files
+capture Model components, and a RES file is like a View
+component.
+
+4. A non-MACRO module can't (and shouldn't) directly
+invoke a MACRO module. For example, take M to be
+the alert-box example in the page macro-dialog.htm of the
+Varkon Application Developers Manual, and suppose a
+non-MACRO module NM encounters an error condition.
+The &quot;wrong&quot; approach would be for NM to pop up a
+dialog got by re-writing M as a non-macro module.
+The &quot;right&quot; approach would be for NM to create a user
+interface item such as a button that upon clicking would
+show the alert-box dialog.
+
+Note that I am not finding the above (#4) example
+very convincing. Am I wrong not to be convinced? Can
+someone provide a better example?
+
+John (MacPhail)
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000262.html">[Varkon-discuss] new Emacs MBS mode seeking good home
+</A></li>
+	<LI>Next message: <A HREF="000265.html">[Varkon-discuss] macro modules and MVC
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#264">[ date ]</a>
+              <a href="thread.html#264">[ thread ]</a>
+              <a href="subject.html#264">[ subject ]</a>
+              <a href="author.html#264">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

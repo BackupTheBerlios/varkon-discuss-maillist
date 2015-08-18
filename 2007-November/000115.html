@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Armin Faltl's GUI
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Armin%20Faltl%27s%20GUI&In-Reply-To=%3C473D8685.7010008%40aon.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000114.html">
+   <LINK REL="Next"  HREF="000119.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Armin Faltl's GUI</H1>
+    <B>Armin Faltl</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Armin%20Faltl%27s%20GUI&In-Reply-To=%3C473D8685.7010008%40aon.at%3E"
+       TITLE="[Varkon-discuss] Armin Faltl's GUI">armin.faltl at aon.at
+       </A><BR>
+    <I>Fri Nov 16 13:01:09 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000114.html">[Varkon-discuss] Armin Faltl's GUI
+</A></li>
+        <LI>Next message: <A HREF="000119.html">[Varkon-discuss] Armin Faltl's GUI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+Dan Falck wrote:
+&gt;<i> Armin,
+</I>&gt;<i>
+</I>&gt;<i> Could you tell us how you went about interfacing your gui (the one that 
+</I>&gt;<i> Ruven wrote about on varkon.org)  with varkon?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Dan
+</I>&gt;<i>   
+</I>Originally I was constructing a FEM-preprozessor for a certain problem 
+and wanted
+to have a good visualization, so I started to create an OpenGL-display 
+class based
+on the widget library FLTK 1.17. This evolved into an attempt to create 
+my own
+CAD-application and then into a proposed frontend to Varkon.
+
+The interfacing itself is done to the Varkon-DB-library, that implements 
+the in-memory
+representation of .RES-files as well as writing and reading them.
+
+I deliberately choose FLTK, because it's a very intuitive widget set 
+written in C++
+and portable to X, Win32 and MacOS X. As Varkon is written in C, I made 
+a wrapper
+class to the DB library, that adds some sanity checking, that is 
+normally done
+by service routines in other parts of Varkon (e.g. you can't create a 
+line of length 0).
+In detailed discussions with Johan, we specified, how the interfacing 
+may be shifted
+from creating an explicit model using DB to generic models using the 
+in-memory
+representation of .MBO-files, because the connectivity information and other
+parametric stuff is relatively easy to derive from the GUI.
+
+But to enable rapid development on my side, till now the 
+.RES-representation is
+used for persistence and a set of external scripts and MBS-programs is used,
+to convert these .RES-files to MBS-code if there is a desire to 
+incorporate it
+into a generic model. This was also done, cause with Varkon 1.18A a lot of
+historic ballast and interdependencies between Varkons GUI and the
+MBO-system exist. The untangling of these is one of Johans contributions
+to a novel system, be it using parts of my demo or not. A step to this end
+is Varkon 1.19.
+
+There are certain issues with coordinate systems and circles in the 
+back-conversion,
+but lines, points and bplanes work perfectly, so if one desires to 
+sketch a part
+fast and then position it somewhere in a larger generic model, this 
+should work
+as desired. The description on Ruvens page is a bit outdated, as the issues
+with saving and restoring files, stability of sweep surfaces and such are
+solved several versions now and rock solid.
+
+Today I added a primitive polyline implementation for the overlay animation
+in spline creation (all red lines are overlay), that just connects the 
+temporal input points.
+It is a bit difficult, to do that correctly with splines, as this 
+requires mathematical
+understanding of the splines nature and/or the direct use of Varkons spline
+creation routines, or the final stored spline will not be exactly what
+the animation showed. I didn't get as far as extracting the spline routines
+from Varkon yet. Splines and surfaces are for one complicated enough and
+separated enough, to warrant a library on their own, and I know they are
+handled in their own files. So clarity on that point should be easy with
+Johans help.
+
+To give you an idea, how the look and feel may be, I'll send what I have
+now to Ruven and the code to Johan, despite the fact there is no permanent
+storage of splines and therefore no editing like draging control points.
+
+Best Regards, Armin
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000114.html">[Varkon-discuss] Armin Faltl's GUI
+</A></li>
+	<LI>Next message: <A HREF="000119.html">[Varkon-discuss] Armin Faltl's GUI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>

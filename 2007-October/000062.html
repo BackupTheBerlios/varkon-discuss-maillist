@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Varkon-discuss] Varkon without JOB-files ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/varkon-discuss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20without%20JOB-files%20%3F&In-Reply-To=%3C4712DC95.7060904%40earthlink.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000061.html">
+   <LINK REL="Next"  HREF="000063.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Varkon-discuss] Varkon without JOB-files ?</H1>
+    <B>Ruven Gottlieb</B> 
+    <A HREF="mailto:varkon-discuss%40lists.berlios.de?Subject=Re%3A%20%5BVarkon-discuss%5D%20Varkon%20without%20JOB-files%20%3F&In-Reply-To=%3C4712DC95.7060904%40earthlink.net%3E"
+       TITLE="[Varkon-discuss] Varkon without JOB-files ?">igadget at earthlink.net
+       </A><BR>
+    <I>Mon Oct 15 05:20:53 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000061.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+        <LI>Next message: <A HREF="000063.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Johan Kjellander wrote:
+&gt;&gt;<i> What about MACRO modules?
+</I>&gt;<i> 
+</I>&gt;<i> No change. Here is a snip from the docs that explain why.
+</I>&gt;<i> 
+</I>&gt;<i> Module_attribute is either LOCAL, GLOBAL, BASIC or MACRO. If no
+</I>&gt;<i> module_attribute is specified a default of LOCAL will be used. A LOCAL
+</I>&gt;<i> module needs a coordinate system specified when called using the
+</I>&gt;<i> part-statement and will use this coordinate system as its global system. A
+</I>&gt;<i> GLOBAL or BASIC module should not be called with a coordinate system. A
+</I>&gt;<i> GLOBAL module automatically inherits the global system of the caller and a
+</I>&gt;<i> BASIC module uses the basic system. A MACRO module can only be called by
+</I>&gt;<i> another MACRO and is typically used for non modeling purposes like user
+</I>&gt;<i> interfaces, analysis programs, machine control etc.
+</I>&gt;<i> 
+</I>&gt;<i> Module_type is either DRAWING or GEOMETRY. DRAWING means 2D and implies
+</I>&gt;<i> that only 2D constructs may be used in the module. GEOMETRY means 3D.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Can we use an MBS file to store all state info and recompile things on
+</I>&gt;&gt;<i> the fly?
+</I>&gt;<i> 
+</I>&gt;<i> There is a mechanism in varkon today called init macro. This is a macro
+</I>&gt;<i> that is executed automatically each time the system is started. There
+</I>&gt;<i> is also a new_job macro that is executed when a new job is loaded. Is
+</I>&gt;<i> this an answer to your question ?
+</I>
+No, I was going to suggest that Varkon create an MBS file from actions 
+performed in the graphical window instead of creating an MBO file 
+directly, and compile the main MBO file at runtime, sort of like the way 
+you byte-compile perl. I suppose there's a good reason you don't do this 
+already. Too slow?
+
+I'll get my coat... :-)
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000061.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+	<LI>Next message: <A HREF="000063.html">[Varkon-discuss] Varkon without JOB-files ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/varkon-discuss">More information about the Varkon-discuss
+mailing list</a><br>
+</body></html>
